@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CTable">
+    <Position X="10.5" Y="2.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAkAIAAQICAAIgAAIAABghAAAAAAABIAAAkEAAAIAA=</HashCode>
+      <FileName>CTable.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CFlyweight">
+    <Position X="7.5" Y="2.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ASAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAkAAIAAA=</HashCode>
+      <FileName>Flyweight.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CChangeSizeHandler" Collapsed="true">
+    <Position X="1.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAgAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Handlers\ChangeSizeHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IHandler">
+    <Position X="3.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAiAAAABAAAAAAAQAAABAAAQAAAAAA=</HashCode>
+      <FileName>Handlers\IHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CClearHandler" Collapsed="true">
+    <Position X="5.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgBAgAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Handlers\ClearHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCreateDefHandler">
+    <Position X="3.25" Y="5.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="IHandler" ManuallyRouted="true">
+      <Path>
+        <Point X="4" Y="4.767" />
+        <Point X="4" Y="5.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAgAAAAAAAAABAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Handlers\CreateDefHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ERROR_CODE" Collapsed="true">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAgAAAAQCEAAAAAgAEgEAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Utils.hpp</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
