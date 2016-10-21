@@ -2,6 +2,7 @@
 #include "IHandler.h"
 #include <iostream>
 #include "../Utils.hpp"
+#include "../Logger.h"
 
 using namespace defaultVals;
 using namespace funs;
@@ -9,10 +10,7 @@ using namespace funs;
 IHandler::IHandler(std::vector<std::string>& inCommand)
 {
     wholeCommand_ = inCommand;
-    if(flag::PRINT_ON && flag::DEBUG_TESTS_ON)
-    {
-        std::cout << PRE_PRINT << wholeCommand_[idxOf::COMMAND] << POST_PRINT;
-    }
+    Logger::info() << PRE_PRINT << wholeCommand_[idxOf::COMMAND] << POST_PRINT;
 }
 
 ERROR_CODE IHandler::checkCorrectnessAndPerform(std::vector<CTable*>& inCache)
@@ -33,8 +31,5 @@ ERROR_CODE IHandler::checkCorrectnessAndPerform(std::vector<CTable*>& inCache)
 
 IHandler::~IHandler()
 {
-    if(flag::PRINT_ON)
-    {
-        std::cout << POST_PRINT;
-    }
+    Logger::info() << POST_PRINT;
 }

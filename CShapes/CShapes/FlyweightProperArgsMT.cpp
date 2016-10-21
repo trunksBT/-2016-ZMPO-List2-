@@ -42,7 +42,7 @@ TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, emptyCommand_Expect_ERROR_COMMAND_PARSING)
@@ -55,7 +55,7 @@ TEST_F(CFlyweightProperArgsMT, emptyCommand_Expect_ERROR_COMMAND_PARSING)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, noCommand_Expect_ERROR_COMMAND_PARSING)
@@ -68,7 +68,7 @@ TEST_F(CFlyweightProperArgsMT, noCommand_Expect_ERROR_COMMAND_PARSING)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 
 }
 
@@ -83,7 +83,7 @@ TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_INDEX_OUT_OF_
         application.interpretCommand(stub::createDef0)
     });
 
-    ASSERT_FOR_PAIR_WITH_PRINT(expVal, rcVal);
+    ASSERT_EQ(expVal, std::get<ONE>(rcVal));
 }
 
 TEST_F(CFlyweightProperArgsMT, create1_5_Name_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
@@ -96,7 +96,7 @@ TEST_F(CFlyweightProperArgsMT, create1_5_Name_OnEmptyCFlyweight_Expect_SEEMS_LEG
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, create1_m5_Name_OnEmptyCFlyweight_Expect_WRONG_VALUE)
@@ -109,7 +109,7 @@ TEST_F(CFlyweightProperArgsMT, create1_m5_Name_OnEmptyCFlyweight_Expect_WRONG_VA
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createm1_5_Name_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
@@ -122,7 +122,7 @@ TEST_F(CFlyweightProperArgsMT, createm1_5_Name_OnEmptyCFlyweight_Expect_SEEMS_LE
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, create6_5_Name_Name_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
@@ -135,7 +135,7 @@ TEST_F(CFlyweightProperArgsMT, create6_5_Name_Name_OnEmptyCFlyweight_Expect_SEEM
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefm1_OnEmptyCFlyweight_Expect_INDEX_OUT_OF_BOUNDS)
@@ -148,7 +148,7 @@ TEST_F(CFlyweightProperArgsMT, createDefm1_OnEmptyCFlyweight_Expect_INDEX_OUT_OF
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDef0_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
@@ -161,7 +161,7 @@ TEST_F(CFlyweightProperArgsMT, createDef0_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDef6_OnEmptyCFlyweight_Expect_INDEX_OUT_OF_BOUNDS)
@@ -174,7 +174,7 @@ TEST_F(CFlyweightProperArgsMT, createDef6_OnEmptyCFlyweight_Expect_INDEX_OUT_OF_
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefsm1_OnEmptyCFlyweight_Expect_WRONG_VALUE)
@@ -187,7 +187,7 @@ TEST_F(CFlyweightProperArgsMT, createDefsm1_OnEmptyCFlyweight_Expect_WRONG_VALUE
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs0_OnEmptyCFlyweight_Expect_WRONG_VALUE)
@@ -200,7 +200,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs0_OnEmptyCFlyweight_Expect_WRONG_VALUE)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
@@ -213,7 +213,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
@@ -226,7 +226,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
@@ -239,7 +239,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_OnEmptyCFlyweight_Expect_SEEMS_LEGIT
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_createCopym1_m1_Expect_UNDEFINED_OBJECT)
@@ -253,7 +253,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_createCopym1_m1_Expect_UNDEFINED_OBJ
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createCopy01_Expect_UNDEFINED_OBJECT)
@@ -266,7 +266,7 @@ TEST_F(CFlyweightProperArgsMT, createCopy01_Expect_UNDEFINED_OBJECT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_createCopy00_Expect_INDEX_OUT_OF_BOUNDS)
@@ -280,7 +280,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_createCopy00_Expect_INDEX_OUT_OF_BOUN
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_createCopy01_Expect_SEEMS_LEGIT)
@@ -294,7 +294,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_createCopy01_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_createCopy0_m1_Expect_SEEMS_LEGIT)
@@ -308,7 +308,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_createCopy0_m1_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_createCopy06_Expect_SEEMS_LEGIT)
@@ -322,7 +322,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_createCopy06_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, print_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
@@ -335,7 +335,7 @@ TEST_F(CFlyweightProperArgsMT, print_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_print0_Expect_SEEMS_LEGIT)
@@ -349,7 +349,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_print0_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_printm1_Expect_INDEX_OUT_OF_BOUNDS)
@@ -363,7 +363,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_printm1_Expect_INDEX_OUT_OF_BOUNDS)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_print6_Expect_INDEX_OUT_OF_BOUNDS)
@@ -377,7 +377,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_print6_Expect_INDEX_OUT_OF_BOUNDS)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_print10_Expect_INDEX_OUT_OF_BOUNDS)
@@ -391,7 +391,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_print10_Expect_INDEX_OUT_OF_BOUNDS)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_m1_Expect_ERROR_ARGS_PARSING)
@@ -405,7 +405,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_m1_Expect_ERROR_ARGS_PARSING)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_getNamem1_Expect_INDEX_OUT_OF_BOUNDS)
@@ -419,7 +419,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_getNamem1_Expect_INDEX_OUT_OF_BOUNDS
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_getName0_Expect_SEEMS_LEGIT)
@@ -433,7 +433,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_getName0_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs11_getName10_Expect_SEEMS_LEGIT)
@@ -447,7 +447,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs11_getName10_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_getSizem1_Expect_INDEX_OUT_OF_BOUNDS)
@@ -461,7 +461,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_getSizem1_Expect_INDEX_OUT_OF_BOUNDS)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_getSize0_Expect_SEEMS_LEGIT)
@@ -475,7 +475,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_getSize0_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_getSize6_Expect_SEEMS_LEGIT)
@@ -489,7 +489,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_getSize6_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_getSize10_Expect_INDEX_OUT_OF_BOUNDS)
@@ -503,7 +503,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_getSize10_Expect_INDEX_OUT_OF_BOUNDS
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_deletem1_Expect_INDEX_OUT_OF_BOUNDS)
@@ -517,7 +517,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_deletem1_Expect_INDEX_OUT_OF_BOUNDS)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_delete0_Expect_SEEMS_LEGIT)
@@ -531,7 +531,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_delete0_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_delete0_getName0_Expect_UNDEFINED_OBJECT)
@@ -546,7 +546,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_delete0_getName0_Expect_UNDEFINED_OBJ
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_deleteAll_getSize6_Expect_INDEX_OUT_OF_BOUNDS)
@@ -561,7 +561,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_deleteAll_getSize6_Expect_INDEX_OUT_
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, deleteAll_Expect_UNDEFINED_OBJECT)
@@ -574,7 +574,7 @@ TEST_F(CFlyweightProperArgsMT, deleteAll_Expect_UNDEFINED_OBJECT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 
@@ -588,7 +588,7 @@ TEST_F(CFlyweightProperArgsMT, getName99999999999999999999999_Expect_ERROR_ARGS_
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 
@@ -604,7 +604,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_setName0_getName0_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_setName6_getName0_Expect_INDEX_OUT_OF_BOUNDS)
@@ -619,7 +619,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_setName6_getName0_Expect_INDEX_OUT_OF
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_setName10_getName0_Expect_INDEX_OUT_OF_BOUNDS)
@@ -634,7 +634,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_setName10_getName0_Expect_INDEX_OUT_
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_getValuem1_1_Expect_INDEX_OUT_OF_BOUNDS)
@@ -648,7 +648,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_getValuem1_1_Expect_INDEX_OUT_OF_BOU
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_delete0_getValue0_m1_Expect_UNDEFINED_OBJECT)
@@ -663,7 +663,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_delete0_getValue0_m1_Expect_UNDEFINE
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_getValue1_0_Expect_SEEMS_LEGIT)
@@ -677,7 +677,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_getValue1_0_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs11_getValue10_10_Expect_INDEX_OUT_OF_BOUNDS)
@@ -692,7 +692,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs11_getValue10_10_Expect_INDEX_OUT_OF_BO
 
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_setValue0_0_23_getValue0_1_Expect_SEEMS_LEGIT)
@@ -707,7 +707,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_setValue0_0_23_getValue0_1_Expect_SEE
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_delete0_setValue0_0_23_getValue0_1_Expect_UNDEFINED_OBJECT)
@@ -723,7 +723,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_delete0_setValue0_0_23_getValue0_1_Ex
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_setValue10_0_23_getValue0_1_Expect_INDEX_OUT_OF_BOUNDS)
@@ -738,7 +738,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_setValue10_0_23_getValue0_1_Expect_IN
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_setValue10_10_23_getValue0_1_Expect_INDEX_OUT_OF_BOUNDS)
@@ -753,7 +753,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_setValue10_10_23_getValue0_1_Expect_I
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 
@@ -769,7 +769,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs1_setValuem1_m1_23_getValue0_1_Expect_I
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs11_setValue1_m1_23_getValue1_2_Expect_INDEX_OUT_OF_BOUNDS)
@@ -784,7 +784,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs11_setValue1_m1_23_getValue1_2_Expect_I
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs11_setSize_0_5_getValue0_1_Expect_SEEMS_LEGIT)
@@ -799,7 +799,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs11_setSize_0_5_getValue0_1_Expect_SEEMS
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs11_setSize_m1_5_getValue0_1_Expect_INDEX_OUT_OF_BOUNDS)
@@ -814,7 +814,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs11_setSize_m1_5_getValue0_1_Expect_INDE
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs11_setSize_0_m5_getValue0_1_Expect_WRONG_VALUE)
@@ -829,7 +829,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs11_setSize_0_m5_getValue0_1_Expect_WRON
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, setSize_0_m5_getValue0_1_Expect_WRONG_VALUE)
@@ -843,7 +843,7 @@ TEST_F(CFlyweightProperArgsMT, setSize_0_m5_getValue0_1_Expect_WRONG_VALUE)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, printAll_Expect_SEEMS_LEGIT)
@@ -856,7 +856,7 @@ TEST_F(CFlyweightProperArgsMT, printAll_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs10_printAll_Expect_SEEMS_LEGIT)
@@ -870,7 +870,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs10_printAll_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightProperArgsMT, help_Expect_SEEMS_LEGIT)
@@ -883,7 +883,7 @@ TEST_F(CFlyweightProperArgsMT, help_Expect_SEEMS_LEGIT)
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 }

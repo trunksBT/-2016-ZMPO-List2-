@@ -3,6 +3,7 @@
 
 #include <gtest/gtest.h>
 #include "Utils.hpp"
+#include "Logger.h"
 
 using namespace defaultVals;
 using namespace funs;
@@ -33,43 +34,4 @@ ResultCode getFinalResultCode(std::vector<ERROR_CODE> inCodes)
     return std::move(std::make_pair(idxOfWrongCode, resultCode));
 }
 
-void printWrongCommandInfo(ResultCode rcVal)
-{
-    if(std::get<ZERO>(rcVal) != MINUS_ONE && flag::PRINT_ON)
-    {
-        std::cout
-            << std::endl
-            << ERRORED_COMMAND_IDX
-            << SEPARATOR
-            << std::get<ZERO>(rcVal)
-            << COMMA_SPACE
-            << toString(std::get<ONE>(rcVal))
-            << POST_PRINT;
-    }
-}
-
-void ASSERT_FOR_PAIR_WITH_PRINT( ERROR_CODE expVal, ResultCode rcVal)
-{
-    if(expVal == std::get<ONE>(rcVal))
-    {
-        ASSERT_TRUE(true);
-    }
-    else
-    {
-        printWrongCommandInfo(std::move(rcVal));
-        ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    }
-}
-
-void CHECK_IF_FINISHED_PROPER(ERROR_CODE expVal, ResultCode rcVal)
-{
-    if(expVal == std::get<ONE>(rcVal))
-    {
-        std::cout << toString(std::get<ONE>(rcVal)) << POST_PRINT;
-    }
-    else
-    {
-        printWrongCommandInfo(std::move(rcVal));
-    }
-}
 }

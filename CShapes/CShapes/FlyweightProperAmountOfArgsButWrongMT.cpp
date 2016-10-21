@@ -40,7 +40,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createDefZ_OnEmptyCCFlyweight_Ex
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createDefsZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -53,7 +53,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createDefsZ_OnEmptyCCFlyweight_E
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createCopyZZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -66,7 +66,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createCopyZZ_OnEmptyCCFlyweight_
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, printZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -79,7 +79,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, printZ_OnEmptyCCFlyweight_Expect
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, getNameZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -92,7 +92,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, getNameZ_OnEmptyCCFlyweight_Expe
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, getSizeZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -105,7 +105,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, getSizeZ_OnEmptyCCFlyweight_Expe
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, deleteZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -118,7 +118,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, deleteZ_OnEmptyCCFlyweight_Expec
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, setNameZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -131,7 +131,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, setNameZ_OnEmptyCCFlyweight_Expe
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, getValueZZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -144,7 +144,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, getValueZZ_OnEmptyCCFlyweight_Ex
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, setValue0ZZZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -157,7 +157,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, setValue0ZZZ_OnEmptyCCFlyweight_
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, setSizeZZ_OnEmptyCCFlyweight_Expect_ERROR_ARGS_PARSING)
@@ -170,7 +170,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, setSizeZZ_OnEmptyCCFlyweight_Exp
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 
@@ -184,7 +184,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createZZZ_OnEmptyCCFlyweight_Exp
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 }
