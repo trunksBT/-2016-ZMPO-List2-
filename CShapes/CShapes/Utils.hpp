@@ -26,7 +26,7 @@ enum class ERROR_CODE : int
 
 namespace defaultVals
 {
-constexpr const char* BASH_DOLAR = "$ ";
+constexpr const char* CURSOR_SIGN = "! ";
 constexpr const char* PRE_PRINT = "   ";
 constexpr const char* POST_PRINT = "\n";
 constexpr const char* SEPARATOR = ": ";

@@ -22,7 +22,7 @@ std::vector<std::string> receiveAndLexCommandFromUser()
     std::string inChain;
     do
     {
-        std::cout << BASH_DOLAR;
+        std::cout << CURSOR_SIGN;
         getline(std::cin, inChain);
     } while(inChain.size() == ZERO);
 
