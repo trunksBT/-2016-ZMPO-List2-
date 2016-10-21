@@ -40,7 +40,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToSmall_OnEmptyCFlyweight_Expe
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToBig_OnEmptyCFlyweight_Expect_ERROR_SEEMS_LEGIT)
@@ -53,7 +53,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToBig_OnEmptyCFlyweight_Expect
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefsToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -66,7 +66,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefsToSmall_OnEmptyCFlyweight_Exp
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefsToBig_OnEmptyCFlyweight_Expect_WRONG_VALUE)
@@ -79,7 +79,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefsToBig_OnEmptyCFlyweight_Expec
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -92,7 +92,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToSmall_OnEmptyCFlyweight_Ex
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
@@ -105,7 +105,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToBig_OnEmptyCFlyweight_Expe
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, printToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -118,7 +118,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, printToSmall_OnEmptyCFlyweight_Expect_W
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, printToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
@@ -131,7 +131,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, printToBig_OnEmptyCFlyweight_Expect_UND
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, getNameToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -144,7 +144,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getNameToSmall_OnEmptyCFlyweight_Expect
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, getNameToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
@@ -157,7 +157,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getNameToBig_OnEmptyCFlyweight_Expect_U
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, getSizeToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -170,7 +170,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getSizeToSmall_OnEmptyCFlyweight_Expect
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, getSizeToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
@@ -183,7 +183,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getSizeToBig_OnEmptyCFlyweight_Expect_U
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -196,7 +196,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToSmall_OnEmptyCFlyweight_Expect_
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToBig_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
@@ -209,7 +209,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToBig_OnEmptyCFlyweight_Expect_SE
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteAllToBig_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
@@ -222,7 +222,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteAllToBig_OnEmptyCFlyweight_Expect
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, setName0ToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -235,7 +235,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, setName0ToSmall_OnEmptyCFlyweight_Expec
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, setName0ToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
@@ -248,7 +248,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, setName0ToBig_OnEmptyCFlyweight_Expect_
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -261,7 +261,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToSmall_OnEmptyCFlyweight_Ex
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
@@ -274,7 +274,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToBig_OnEmptyCFlyweight_Expe
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, getValueToBig_1_23_3_4_5_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
@@ -287,7 +287,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getValueToBig_1_23_3_4_5_OnEmptyCFlywei
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -300,7 +300,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToSmall_OnEmptyCFlyweight_Ex
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
@@ -313,7 +313,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToBig_OnEmptyCFlyweight_Expe
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToSmall_OnEmptyCFlyweight_Expect_ERROR_COMMAND_PARSING)
@@ -326,7 +326,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToSmall_OnEmptyCFlyweight_E
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToBig_OnEmptyCFlyweight_Expect_ERROR_COMMAND_PARSING)
@@ -339,7 +339,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToBig_OnEmptyCFlyweight_Exp
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, setSizeToSmall_getValue0_1_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -352,7 +352,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, setSizeToSmall_getValue0_1_Expect_WRONG
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, setSizeToBig_getValue0_1_Expect_UNDEFINED_OBJECT)
@@ -365,7 +365,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, setSizeToBig_getValue0_1_Expect_UNDEFIN
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, createToSmall_getValue_1_2_Expect_WRONG_AMOUNT_OF_ARGS)
@@ -379,7 +379,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createToSmall_getValue_1_2_Expect_WRONG
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 TEST_F(CFlyweightUnproperAmountOfArgsMT, createToBig_getValue_1_2_Expect_SEEMS_LEGIT)
@@ -393,7 +393,7 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createToBig_getValue_1_2_Expect_SEEMS_L
     });
 
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
-    printWrongCommandInfo(std::move(rcVal));
+
 }
 
 }
