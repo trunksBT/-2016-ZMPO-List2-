@@ -4,6 +4,7 @@
 #include <iostream>
 #include <limits>
 #include <sstream>
+#include "Logger.h"
 
 using namespace defaultVals;
 using namespace funs;
@@ -14,10 +15,7 @@ CTable::CTable()
     size_ = DEFAULT_IN_TABLE_SIZE;
     allocateMemory(size_);
     initTable(memory_, size_, DEFAULT_TABLE_VAL);
-    if(flag::PRINT_ON)
-    {
-        std::cout << CTOR_DEFAULT_PRE_PRINT << name_ << POST_PRINT;
-    }
+    Logger::info() << CTOR_DEFAULT_PRE_PRINT << name_ << POST_PRINT;
 }
 
 CTable::CTable(int inSize)
@@ -26,10 +24,7 @@ CTable::CTable(int inSize)
     size_ = inSize;
     allocateMemory(size_);
     initTable(memory_, size_, DEFAULT_TABLE_VAL);
-    if(flag::PRINT_ON)
-    {
-        std::cout << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
-    }
+    Logger::info() << CTOR_ARG1_PRE_PRINT<< name_ << POST_PRINT;
 }
 
 CTable::CTable(int inSize, int initValue)

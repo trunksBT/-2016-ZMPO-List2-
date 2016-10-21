@@ -4,6 +4,7 @@
 #include <map>
 #include <iostream>
 #include <string>
+#include "Logger.h"
 
 using namespace defaultVals;
 
@@ -123,10 +124,7 @@ namespace funs
     ERROR_CODE returnResultCode(ERROR_CODE inResultCode)
     {
         ERROR_CODE resultCode = inResultCode;
-        if(flag::PRINT_ON)
-        {
-            std::cout << toString(resultCode);
-        }
+        Logger::info() << toString(resultCode);
         return resultCode;
     }
 

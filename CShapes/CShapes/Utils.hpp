@@ -7,7 +7,7 @@
 namespace flag
 {
 constexpr bool PRINT_ON = true;
-constexpr bool DEBUG_TESTS_ON = false;
+constexpr bool DEBUG_TESTS_ON = true;
 }
 
 enum class ERROR_CODE : int
