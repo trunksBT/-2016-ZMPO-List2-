@@ -4,8 +4,6 @@
 #include "CTable.hpp"
 #include <limits>
 
-
-
 enum class ERROR_CODE : int
 {
     DONE = 0,
@@ -111,6 +109,3 @@ extern std::string closeArgs;
 extern std::string helpArgs;
 extern std::vector<std::string> allCommands;
 }
-
-
-
