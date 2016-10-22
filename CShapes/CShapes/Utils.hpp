@@ -75,21 +75,15 @@ constexpr const int INITIAL_NAME = 3;
 
 namespace messageLiterals
 {
-constexpr const char* CLEAR = "clear";
 constexpr const char* CREATE = "create";
 constexpr const char* CREATE_DEF = "createDef";
-constexpr const char* CREATE_DEFS = "createDefs";
 constexpr const char* CREATE_COPY = "createCopy";
-constexpr const char* GET_NAME = "getName";
-constexpr const char* GET_SIZE = "getSize";
 constexpr const char* GET_VALUE = "getValue";
 constexpr const char* DELETE = "delete";
 constexpr const char* REMOVE_ALL = "deleteAll";
-constexpr const char* SET_NAME = "setName";
 constexpr const char* SET_VALUE = "setValue";
 constexpr const char* PRINT = "print";
 constexpr const char* PRINT_ALL = "printAll";
-constexpr const char* SET_SIZE = "setSize";
 constexpr const char* ERROR = "close";
 constexpr const char* HELP = "help";
 }
@@ -106,18 +100,13 @@ namespace fullCommands
 {
 extern std::string createArgs;
 extern std::string createDefArgs;
-extern std::string createDefsArgs;
 extern std::string createCopyArgs;
-extern std::string getNameArgs;
-extern std::string getSizeArgs;
 extern std::string getValueArgs;
 extern std::string setValueArgs;
-extern std::string setNameArgs;
 extern std::string printArgs;
 extern std::string printAllArgs;
 extern std::string deleteArgs;
 extern std::string deleteAllArgs;
-extern std::string setSizeArgs;
 extern std::string closeArgs;
 extern std::string helpArgs;
 extern std::vector<std::string> allCommands;
