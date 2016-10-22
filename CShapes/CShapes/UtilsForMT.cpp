@@ -13,15 +13,15 @@ namespace assertWrapper
 ResultCode getFinalResultCode(std::vector<ERROR_CODE> inCodes)
 {
     bool isLegit = true;
-    ERROR_CODE resultCode = ERROR_CODE::INITIAL_VAL;
+    ERROR_CODE resultCode = ERROR_CODE::ERROR;
     int idxOfWrongCode = MINUS_ONE;
 
     for(int i = 0; i < inCodes.size() && isLegit; i++)
     {
-        if(inCodes[i] == ERROR_CODE::SEEMS_LEGIT)
+        if(inCodes[i] == ERROR_CODE::DONE)
         {
             isLegit &= true;
-            resultCode = ERROR_CODE::SEEMS_LEGIT;
+            resultCode = ERROR_CODE::DONE;
         }
         else
         {

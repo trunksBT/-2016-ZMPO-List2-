@@ -4,20 +4,14 @@
 #include "Utils.hpp"
 #include "Handlers/CreateHandler.h"
 #include "Handlers/CreateDefHandler.h"
-#include "Handlers/CreateDefsHandler.h"
-#include "Handlers/RemoveHandler.h"
 #include "Handlers/RemoveAllHandler.h"
-#include "Handlers/SetNameHandler.h"
+#include "Handlers/RemoveHandler.h"
 #include "Handlers/SetValueHandler.h"
-#include "Handlers/GetNameHandler.h"
-#include "Handlers/GetSizeHandler.h"
 #include "Handlers/GetValueHandler.h"
 #include "Handlers/CreateCopyHandler.h"
 #include "Handlers/PrintHandler.h"
 #include "Handlers/PrintAllHandler.h"
-#include "Handlers/ChangeSizeHandler.h"
 #include "Handlers/HelpHandler.h"
-#include "Handlers/ClearHandler.h"
 
 using namespace defaultVals;
 using namespace messageLiterals;
@@ -29,10 +23,10 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 {
     if(inCommand.size() == ZERO)
     {
-        return ERROR_CODE::ERROR_COMMAND_PARSING;
+        return ERROR_CODE::ERROR;
     }
 
-    ERROR_CODE returnedCode = ERROR_CODE::INITIAL_VAL;
+    ERROR_CODE returnedCode = ERROR_CODE::ERROR;
     std::string command(inCommand[idxOf::COMMAND]);
 
     if(command == CREATE)
@@ -45,24 +39,9 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CCreateDefHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
-    else if(command == CREATE_DEFS)
-    {
-        CCreateDefsHandler evaluate(inCommand);
-        returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
-    }
     else if(command == CREATE_COPY)
     {
         CCreateCopyHandler evaluate(inCommand);
-        returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
-    }
-    else if(command == DELETE)
-    {
-        CRemoveHandler evaluate(inCommand);
-        returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
-    }
-    else if(command == CLEAR)
-    {
-        CClearHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
     else if(command == REMOVE_ALL)
@@ -70,24 +49,9 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CRemoveAllHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
-    else if(command == SET_NAME)
-    {
-        CSetNameHandler evaluate(inCommand);
-        returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
-    }
     else if(command == SET_VALUE)
     {
         CSetValueHandler evaluate(inCommand);
-        returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
-    }
-    else if(command == GET_NAME)
-    {
-        CGetNameHandler evaluate(inCommand);
-        returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
-    }
-    else if(command == GET_SIZE)
-    {
-        CGetSizeHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
     else if(command == GET_VALUE)
@@ -100,14 +64,14 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CPrintHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
+    else if (command == DELETE)
+    {
+        CRemoveHandler evaluate(inCommand);
+        returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
+    }
     else if(command == PRINT_ALL)
     {
         CPrintAllHandler evaluate(inCommand);
-        returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
-    }
-    else if(command == SET_SIZE)
-    {
-        CChangeSizeHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
     else if(command == HELP)
@@ -115,13 +79,13 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CHelpHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
-    else if(command == CLOSE)
+    else if(command == ERROR)
     {
-        returnedCode = ERROR_CODE::CLOSE;
+        returnedCode = ERROR_CODE::ERROR;
     }
     else
     {
-        returnedCode = returnResultCode(ERROR_CODE::ERROR_COMMAND_PARSING);
+        returnedCode = returnResultCode(ERROR_CODE::ERROR);
     }
 
     return returnedCode;

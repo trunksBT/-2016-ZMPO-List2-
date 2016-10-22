@@ -4,20 +4,10 @@
 #include "CTable.hpp"
 #include <limits>
 
-
-
 enum class ERROR_CODE : int
 {
-    SEEMS_LEGIT = 0,
-    UNDEFINED_OBJECT = 1,
-    INDEX_OUT_OF_BOUNDS = 2,
-    ERROR_COMMAND_PARSING = 3,
-    NOT_HANDLED_ERROR_REPORTING = 4,
-    INITIAL_VAL = 5,
-    WRONG_AMOUNT_OF_ARGS = 6,
-    ERROR_ARGS_PARSING = 7,
-    WRONG_VALUE = 8,
-    CLOSE = 10
+    DONE = 0,
+    ERROR = 1
 };
 
 namespace defaultVals
@@ -27,7 +17,7 @@ constexpr const char* PRE_PRINT = "   ";
 constexpr const char* POST_PRINT = "\n";
 constexpr const char* SEPARATOR = ": ";
 constexpr const char* BRACKET_OPEN = "( ";
-constexpr const char* BRACKET_CLOSE = " )";
+constexpr const char* BRACKET_ERROR = " )";
 constexpr const char* LEN = "len";
 constexpr const char* VALUES = "values";
 constexpr const char* SPACE = " ";
@@ -83,22 +73,16 @@ constexpr const int INITIAL_NAME = 3;
 
 namespace messageLiterals
 {
-constexpr const char* CLEAR = "clear";
 constexpr const char* CREATE = "create";
 constexpr const char* CREATE_DEF = "createDef";
-constexpr const char* CREATE_DEFS = "createDefs";
 constexpr const char* CREATE_COPY = "createCopy";
-constexpr const char* GET_NAME = "getName";
-constexpr const char* GET_SIZE = "getSize";
 constexpr const char* GET_VALUE = "getValue";
 constexpr const char* DELETE = "delete";
 constexpr const char* REMOVE_ALL = "deleteAll";
-constexpr const char* SET_NAME = "setName";
 constexpr const char* SET_VALUE = "setValue";
 constexpr const char* PRINT = "print";
 constexpr const char* PRINT_ALL = "printAll";
-constexpr const char* SET_SIZE = "setSize";
-constexpr const char* CLOSE = "close";
+constexpr const char* ERROR = "close";
 constexpr const char* HELP = "help";
 }
 
@@ -114,22 +98,14 @@ namespace fullCommands
 {
 extern std::string createArgs;
 extern std::string createDefArgs;
-extern std::string createDefsArgs;
 extern std::string createCopyArgs;
-extern std::string getNameArgs;
-extern std::string getSizeArgs;
 extern std::string getValueArgs;
 extern std::string setValueArgs;
-extern std::string setNameArgs;
 extern std::string printArgs;
 extern std::string printAllArgs;
 extern std::string deleteArgs;
 extern std::string deleteAllArgs;
-extern std::string setSizeArgs;
 extern std::string closeArgs;
 extern std::string helpArgs;
 extern std::vector<std::string> allCommands;
 }
-
-
-

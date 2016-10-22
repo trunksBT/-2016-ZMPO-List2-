@@ -213,6 +213,6 @@ std::string CTable::toString() const
     std::string stringedStream(retVal.str());
     stringedStream = stringedStream.substr(ZERO, stringedStream.size() - TWO);
 
-    return std::move(stringedStream + std::string(BRACKET_CLOSE));
+    return std::move(stringedStream + std::string(BRACKET_ERROR));
 }
 

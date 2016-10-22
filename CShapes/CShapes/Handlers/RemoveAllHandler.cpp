@@ -29,10 +29,10 @@ ERROR_CODE CRemoveAllHandler::performOn(std::vector<CTable*>& inCache)
 {
     if(isVectorEmpty(inCache))
     {
-        return returnResultCode(ERROR_CODE::UNDEFINED_OBJECT);
+        return returnResultCode(ERROR_CODE::ERROR);
     }
 
     CFlyweight::releaseResources();
 
-    return ERROR_CODE::SEEMS_LEGIT;
+    return ERROR_CODE::DONE;
 }

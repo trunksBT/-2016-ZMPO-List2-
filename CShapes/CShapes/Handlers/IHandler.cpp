@@ -17,11 +17,11 @@ ERROR_CODE IHandler::checkCorrectnessAndPerform(std::vector<CTable*>& inCache)
 {
     if(!isProperAmmountOfArgs(wholeCommand_, getProperAmountOfArgs()))
     {
-        return returnResultCode(ERROR_CODE::WRONG_AMOUNT_OF_ARGS);
+        return returnResultCode(ERROR_CODE::ERROR);
     }
     else if(!isProperTypeOfArgs(wholeCommand_, getProperTypesOfArgs()))
     {
-        return returnResultCode(ERROR_CODE::ERROR_ARGS_PARSING);
+        return returnResultCode(ERROR_CODE::ERROR);
     }
     else
     {

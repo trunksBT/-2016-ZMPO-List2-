@@ -34,7 +34,7 @@ ERROR_CODE CCreateHandler::performOn(std::vector<CTable*>& inCache)
 
     if(idxOrAmount < 0)
     {
-        return returnResultCode(ERROR_CODE::INDEX_OUT_OF_BOUNDS);
+        return returnResultCode(ERROR_CODE::ERROR);
     }
     else
     {
@@ -52,9 +52,9 @@ ERROR_CODE CCreateHandler::performOn(std::vector<CTable*>& inCache)
         }
         else
         {
-            return returnResultCode(ERROR_CODE::WRONG_VALUE);
+            return returnResultCode(ERROR_CODE::ERROR);
         }
     }
 
-    return ERROR_CODE::SEEMS_LEGIT;
+    return ERROR_CODE::DONE;
 }

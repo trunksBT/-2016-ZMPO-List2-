@@ -24,36 +24,8 @@ namespace funs
     {
         static std::map<ERROR_CODE, std::string> codeToString;
 
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::SEEMS_LEGIT),
-            std::forward_as_tuple("SEEMS_LEGIT"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::UNDEFINED_OBJECT),
-            std::forward_as_tuple("UNDEFINED_OBJECT"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::INDEX_OUT_OF_BOUNDS),
-            std::forward_as_tuple("INDEX_OUT_OF_BOUND"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::ERROR_COMMAND_PARSING),
-            std::forward_as_tuple("ERROR_COMMAND_PARSING"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::NOT_HANDLED_ERROR_REPORTING),
-            std::forward_as_tuple("NOT_HANDLED_ERROR_REPORTING"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::INITIAL_VAL),
-            std::forward_as_tuple("INITIAL_VAL"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::WRONG_AMOUNT_OF_ARGS),
-            std::forward_as_tuple("WRONG_AMOUNT_OF_ARGS"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::ERROR_ARGS_PARSING),
-            std::forward_as_tuple("ERROR_ARGS_PARSING"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::WRONG_VALUE),
-            std::forward_as_tuple("WRONG_VALUE"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::CLOSE),
-            std::forward_as_tuple("WRONG_VALUE"));
+        codeToString[ERROR_CODE::DONE] = "DONE";
+        codeToString[ERROR_CODE::ERROR]= "ERROR";
 
         return codeToString[inCode];
     }
@@ -173,25 +145,10 @@ namespace fullCommands
         std::string(defaultVals::SPACE) +
         std::string(commandArgs::IDX);
 
-    std::string createDefsArgs =
-        std::string(messageLiterals::CREATE_DEFS) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::SIZE);
-
     std::string createCopyArgs =
         std::string(messageLiterals::CREATE_COPY) +
         std::string(defaultVals::SPACE) +
         std::string(commandArgs::IDX) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX);
-
-    std::string getNameArgs =
-        std::string(messageLiterals::GET_NAME) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX);
-
-    std::string getSizeArgs =
-        std::string(messageLiterals::GET_SIZE) +
         std::string(defaultVals::SPACE) +
         std::string(commandArgs::IDX);
 
@@ -211,13 +168,6 @@ namespace fullCommands
         std::string(defaultVals::SPACE) +
         std::string(commandArgs::VALUE);
 
-    std::string setNameArgs =
-        std::string(messageLiterals::SET_NAME) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::NAME);
-
     std::string printArgs =
         std::string(messageLiterals::PRINT) +
         std::string(defaultVals::SPACE) +
@@ -234,20 +184,8 @@ namespace fullCommands
     std::string deleteAllArgs =
         std::string(messageLiterals::REMOVE_ALL);
 
-    std::string setSizeArgs =
-        std::string(messageLiterals::SET_SIZE) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::SIZE);
-
-    std::string clearArgs =
-        std::string(messageLiterals::CLEAR) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX);
-
     std::string closeArgs =
-        std::string(messageLiterals::CLOSE);
+        std::string(messageLiterals::ERROR);
 
     std::string helpArgs =
         std::string(messageLiterals::HELP);
@@ -256,18 +194,13 @@ namespace fullCommands
     {
         createArgs,
         createDefArgs,
-        createDefsArgs,
         createCopyArgs,
-        getNameArgs,
-        getSizeArgs,
         getValueArgs,
         setValueArgs,
-        setNameArgs,
         printArgs,
         printAllArgs,
         deleteArgs,
         deleteAllArgs,
-        setSizeArgs,
         closeArgs,
         helpArgs
     };

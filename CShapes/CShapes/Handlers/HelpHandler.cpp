@@ -31,5 +31,5 @@ ERROR_CODE CHelpHandler::performOn(std::vector<CTable*>& inCache)
         std::cout << fullCommands::allCommands[i] << POST_PRINT;
     }
 
-    return ERROR_CODE::SEEMS_LEGIT;
+    return ERROR_CODE::DONE;
 }

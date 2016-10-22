@@ -12,8 +12,7 @@ using namespace funs;
 
 CRemoveHandler::CRemoveHandler(std::vector<std::string>& inCommand)
     : IHandler(inCommand)
-{
-}
+{}
 
 const int CRemoveHandler::getProperAmountOfArgs()
 {
@@ -29,10 +28,10 @@ ERROR_CODE CRemoveHandler::performOn(std::vector<CTable*>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
-    if(isProperIdx(idxOrAmount, inCache))
+    if (isProperIdx(idxOrAmount, inCache))
     {
         CTable* retTable = inCache.at(idxOrAmount);
-        if(retTable != nullptr)
+        if (retTable != nullptr)
         {
             std::cout << retTable->getName();
         }
@@ -41,8 +40,8 @@ ERROR_CODE CRemoveHandler::performOn(std::vector<CTable*>& inCache)
     }
     else
     {
-        return returnResultCode(ERROR_CODE::INDEX_OUT_OF_BOUNDS);
+        return returnResultCode(ERROR_CODE::ERROR);
     }
-    
-    return ERROR_CODE::SEEMS_LEGIT;
+
+    return ERROR_CODE::DONE;
 }
