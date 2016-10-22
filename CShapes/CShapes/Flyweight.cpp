@@ -23,10 +23,10 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 {
     if(inCommand.size() == ZERO)
     {
-        return ERROR_CODE::ERROR_COMMAND_PARSING;
+        return ERROR_CODE::ERROR;
     }
 
-    ERROR_CODE returnedCode = ERROR_CODE::INITIAL_VAL;
+    ERROR_CODE returnedCode = ERROR_CODE::ERROR;
     std::string command(inCommand[idxOf::COMMAND]);
 
     if(command == CREATE)
@@ -79,13 +79,13 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CHelpHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
-    else if(command == CLOSE)
+    else if(command == ERROR)
     {
-        returnedCode = ERROR_CODE::CLOSE;
+        returnedCode = ERROR_CODE::ERROR;
     }
     else
     {
-        returnedCode = returnResultCode(ERROR_CODE::ERROR_COMMAND_PARSING);
+        returnedCode = returnResultCode(ERROR_CODE::ERROR);
     }
 
     return returnedCode;

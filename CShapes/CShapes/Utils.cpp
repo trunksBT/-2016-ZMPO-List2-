@@ -24,36 +24,8 @@ namespace funs
     {
         static std::map<ERROR_CODE, std::string> codeToString;
 
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::SEEMS_LEGIT),
-            std::forward_as_tuple("SEEMS_LEGIT"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::UNDEFINED_OBJECT),
-            std::forward_as_tuple("UNDEFINED_OBJECT"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::INDEX_OUT_OF_BOUNDS),
-            std::forward_as_tuple("INDEX_OUT_OF_BOUND"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::ERROR_COMMAND_PARSING),
-            std::forward_as_tuple("ERROR_COMMAND_PARSING"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::NOT_HANDLED_ERROR_REPORTING),
-            std::forward_as_tuple("NOT_HANDLED_ERROR_REPORTING"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::INITIAL_VAL),
-            std::forward_as_tuple("INITIAL_VAL"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::WRONG_AMOUNT_OF_ARGS),
-            std::forward_as_tuple("WRONG_AMOUNT_OF_ARGS"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::ERROR_ARGS_PARSING),
-            std::forward_as_tuple("ERROR_ARGS_PARSING"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::WRONG_VALUE),
-            std::forward_as_tuple("WRONG_VALUE"));
-        codeToString.emplace(std::piecewise_construct,
-            std::forward_as_tuple(ERROR_CODE::CLOSE),
-            std::forward_as_tuple("WRONG_VALUE"));
+        codeToString[ERROR_CODE::DONE] = "DONE";
+        codeToString[ERROR_CODE::ERROR]= "ERROR";
 
         return codeToString[inCode];
     }
@@ -247,7 +219,7 @@ namespace fullCommands
         std::string(commandArgs::IDX);
 
     std::string closeArgs =
-        std::string(messageLiterals::CLOSE);
+        std::string(messageLiterals::ERROR);
 
     std::string helpArgs =
         std::string(messageLiterals::HELP);

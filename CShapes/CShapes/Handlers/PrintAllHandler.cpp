@@ -28,7 +28,7 @@ ERROR_CODE CPrintAllHandler::performOn(std::vector<CTable*>& inCache)
 {
     if(inCache.size() == 0)
     {
-        return returnResultCode(ERROR_CODE::UNDEFINED_OBJECT);
+        return returnResultCode(ERROR_CODE::ERROR);
     }
     else
     {
@@ -38,7 +38,7 @@ ERROR_CODE CPrintAllHandler::performOn(std::vector<CTable*>& inCache)
 
             if(inCache[i] == nullptr)
             {
-                std::cout << toString(ERROR_CODE::UNDEFINED_OBJECT);
+                std::cout << toString(ERROR_CODE::ERROR);
             }
             else
             {
@@ -49,5 +49,5 @@ ERROR_CODE CPrintAllHandler::performOn(std::vector<CTable*>& inCache)
         }
     }
 
-    return ERROR_CODE::SEEMS_LEGIT;
+    return ERROR_CODE::DONE;
 }

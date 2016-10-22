@@ -36,7 +36,7 @@ ERROR_CODE CCreateCopyHandler::performOn(std::vector<CTable*>& inCache)
     {
         if(inCache[sourceId] == nullptr)
         {
-            return returnResultCode(ERROR_CODE::UNDEFINED_OBJECT);
+            return returnResultCode(ERROR_CODE::ERROR);
         }
         else if(destinyId != sourceId)
         {
@@ -58,13 +58,13 @@ ERROR_CODE CCreateCopyHandler::performOn(std::vector<CTable*>& inCache)
         }
         else
         {
-            return returnResultCode(ERROR_CODE::INDEX_OUT_OF_BOUNDS);
+            return returnResultCode(ERROR_CODE::ERROR);
         }
     }
     else
     {
-        return returnResultCode(ERROR_CODE::INDEX_OUT_OF_BOUNDS);
+        return returnResultCode(ERROR_CODE::ERROR);
     }
 
-    return ERROR_CODE::SEEMS_LEGIT;
+    return ERROR_CODE::DONE;
 }

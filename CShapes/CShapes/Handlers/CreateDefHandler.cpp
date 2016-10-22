@@ -31,7 +31,7 @@ ERROR_CODE CCreateDefHandler::performOn(std::vector<CTable*>& inCache)
     int idxOrAmount = std::stoi(receivedId);
     if(!isProperIdx(idxOrAmount, inCache))
     {
-        return returnResultCode(ERROR_CODE::INDEX_OUT_OF_BOUNDS);
+        return returnResultCode(ERROR_CODE::ERROR);
     }
 
     if(inCache[idxOrAmount] != nullptr)
@@ -40,5 +40,5 @@ ERROR_CODE CCreateDefHandler::performOn(std::vector<CTable*>& inCache)
     }
     inCache[idxOrAmount] = CTable::buildNewObj();
 
-    return ERROR_CODE::SEEMS_LEGIT;
+    return ERROR_CODE::DONE;
 }

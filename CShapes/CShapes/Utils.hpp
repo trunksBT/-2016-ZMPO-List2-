@@ -8,16 +8,8 @@
 
 enum class ERROR_CODE : int
 {
-    SEEMS_LEGIT = 0,
-    UNDEFINED_OBJECT = 1,
-    INDEX_OUT_OF_BOUNDS = 2,
-    ERROR_COMMAND_PARSING = 3,
-    NOT_HANDLED_ERROR_REPORTING = 4,
-    INITIAL_VAL = 5,
-    WRONG_AMOUNT_OF_ARGS = 6,
-    ERROR_ARGS_PARSING = 7,
-    WRONG_VALUE = 8,
-    CLOSE = 10
+    DONE = 0,
+    ERROR = 1
 };
 
 namespace defaultVals
@@ -27,7 +19,7 @@ constexpr const char* PRE_PRINT = "   ";
 constexpr const char* POST_PRINT = "\n";
 constexpr const char* SEPARATOR = ": ";
 constexpr const char* BRACKET_OPEN = "( ";
-constexpr const char* BRACKET_CLOSE = " )";
+constexpr const char* BRACKET_ERROR = " )";
 constexpr const char* LEN = "len";
 constexpr const char* VALUES = "values";
 constexpr const char* SPACE = " ";
@@ -98,7 +90,7 @@ constexpr const char* SET_VALUE = "setValue";
 constexpr const char* PRINT = "print";
 constexpr const char* PRINT_ALL = "printAll";
 constexpr const char* SET_SIZE = "setSize";
-constexpr const char* CLOSE = "close";
+constexpr const char* ERROR = "close";
 constexpr const char* HELP = "help";
 }
 

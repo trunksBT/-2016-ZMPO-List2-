@@ -39,14 +39,14 @@ ERROR_CODE CPrintHandler::performOn(std::vector<CTable*>& inCache)
         }
         else
         {
-            return returnResultCode(ERROR_CODE::UNDEFINED_OBJECT);
+            return returnResultCode(ERROR_CODE::ERROR);
         }
         retTable = nullptr;
     }
     else
     {
-        return returnResultCode(ERROR_CODE::INDEX_OUT_OF_BOUNDS);
+        return returnResultCode(ERROR_CODE::ERROR);
     }
 
-    return ERROR_CODE::SEEMS_LEGIT;
+    return ERROR_CODE::DONE;
 }

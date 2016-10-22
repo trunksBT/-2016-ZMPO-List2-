@@ -20,7 +20,7 @@ class CFlyweightUnproperAmountOfArgsMT : public testing::Test
 protected:
     virtual void SetUp()
     {
-        rcVal = std::move(std::make_pair(MINUS_ONE, ERROR_CODE::INITIAL_VAL));
+        rcVal = std::move(std::make_pair(MINUS_ONE, ERROR_CODE::ERROR));
     }
 
     virtual void TearDown()
@@ -30,9 +30,9 @@ protected:
     ResultCode rcVal;
 };
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToSmall_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::WRONG_AMOUNT_OF_ARGS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -43,9 +43,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToSmall_OnEmptyCFlyweight_Expe
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToBig_OnEmptyCFlyweight_Expect_ERROR_SEEMS_LEGIT)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToBig_OnEmptyCFlyweight_Expect_ERROR_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::SEEMS_LEGIT;
+    ERROR_CODE expVal = ERROR_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
@@ -56,9 +56,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToBig_OnEmptyCFlyweight_Expect
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToSmall_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::WRONG_AMOUNT_OF_ARGS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -69,9 +69,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToSmall_OnEmptyCFlyweight_Ex
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToBig_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::UNDEFINED_OBJECT;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -82,9 +82,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToBig_OnEmptyCFlyweight_Expe
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, printToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, printToSmall_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::WRONG_AMOUNT_OF_ARGS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -95,9 +95,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, printToSmall_OnEmptyCFlyweight_Expect_W
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, printToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, printToBig_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::UNDEFINED_OBJECT;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -108,9 +108,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, printToBig_OnEmptyCFlyweight_Expect_UND
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToSmall_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::WRONG_AMOUNT_OF_ARGS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -121,9 +121,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToSmall_OnEmptyCFlyweight_Expect_
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToBig_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToBig_OnEmptyCFlyweight_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::SEEMS_LEGIT;
+    ERROR_CODE expVal = ERROR_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
@@ -134,9 +134,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToBig_OnEmptyCFlyweight_Expect_SE
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteAllToBig_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteAllToBig_OnEmptyCFlyweight_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::UNDEFINED_OBJECT;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -148,9 +148,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteAllToBig_OnEmptyCFlyweight_Expect
 }
 
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToSmall_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::WRONG_AMOUNT_OF_ARGS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -161,9 +161,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToSmall_OnEmptyCFlyweight_Ex
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToBig_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::UNDEFINED_OBJECT;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -174,9 +174,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToBig_OnEmptyCFlyweight_Expe
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, getValueToBig_1_23_3_4_5_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, getValueToBig_1_23_3_4_5_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::UNDEFINED_OBJECT;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -187,9 +187,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, getValueToBig_1_23_3_4_5_OnEmptyCFlywei
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToSmall_OnEmptyCFlyweight_Expect_WRONG_AMOUNT_OF_ARGS)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToSmall_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::WRONG_AMOUNT_OF_ARGS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -200,9 +200,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToSmall_OnEmptyCFlyweight_Ex
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToBig_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToBig_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::UNDEFINED_OBJECT;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -213,9 +213,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToBig_OnEmptyCFlyweight_Expe
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToSmall_OnEmptyCFlyweight_Expect_ERROR_COMMAND_PARSING)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToSmall_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::ERROR_COMMAND_PARSING;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -226,9 +226,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToSmall_OnEmptyCFlyweight_E
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToBig_OnEmptyCFlyweight_Expect_ERROR_COMMAND_PARSING)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToBig_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::ERROR_COMMAND_PARSING;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -239,9 +239,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToBig_OnEmptyCFlyweight_Exp
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, createToSmall_getValue_1_2_Expect_WRONG_AMOUNT_OF_ARGS)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, createToSmall_getValue_1_2_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::WRONG_AMOUNT_OF_ARGS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -253,9 +253,9 @@ TEST_F(CFlyweightUnproperAmountOfArgsMT, createToSmall_getValue_1_2_Expect_WRONG
 
 }
 
-TEST_F(CFlyweightUnproperAmountOfArgsMT, createToBig_getValue_1_2_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightUnproperAmountOfArgsMT, createToBig_getValue_1_2_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::SEEMS_LEGIT;
+    ERROR_CODE expVal = ERROR_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({

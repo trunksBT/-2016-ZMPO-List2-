@@ -20,7 +20,7 @@ class CFlyweightProperArgsMT : public testing::Test
 protected:
     virtual void SetUp()
     {
-        rcVal = std::make_pair(MINUS_ONE, ERROR_CODE::INITIAL_VAL);
+        rcVal = std::make_pair(MINUS_ONE, ERROR_CODE::ERROR);
     }
 
     virtual void TearDown()
@@ -30,9 +30,9 @@ protected:
     ResultCode rcVal;
 };
 
-TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::SEEMS_LEGIT;
+    ERROR_CODE expVal = ERROR_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
@@ -45,9 +45,9 @@ TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_SEEMS_LEGIT)
 
 }
 
-TEST_F(CFlyweightProperArgsMT, emptyCommand_Expect_ERROR_COMMAND_PARSING)
+TEST_F(CFlyweightProperArgsMT, emptyCommand_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::ERROR_COMMAND_PARSING;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -58,9 +58,9 @@ TEST_F(CFlyweightProperArgsMT, emptyCommand_Expect_ERROR_COMMAND_PARSING)
 
 }
 
-TEST_F(CFlyweightProperArgsMT, noCommand_Expect_ERROR_COMMAND_PARSING)
+TEST_F(CFlyweightProperArgsMT, noCommand_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::ERROR_COMMAND_PARSING;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -72,9 +72,9 @@ TEST_F(CFlyweightProperArgsMT, noCommand_Expect_ERROR_COMMAND_PARSING)
 
 }
 
-TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_INDEX_OUT_OF_BOUNDS)
+TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::INDEX_OUT_OF_BOUNDS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -86,9 +86,9 @@ TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_INDEX_OUT_OF_
     ASSERT_EQ(expVal, std::get<ONE>(rcVal));
 }
 
-TEST_F(CFlyweightProperArgsMT, create1_5_Name_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightProperArgsMT, create1_5_Name_OnEmptyCFlyweight_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::SEEMS_LEGIT;
+    ERROR_CODE expVal = ERROR_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
@@ -99,9 +99,9 @@ TEST_F(CFlyweightProperArgsMT, create1_5_Name_OnEmptyCFlyweight_Expect_SEEMS_LEG
 
 }
 
-TEST_F(CFlyweightProperArgsMT, create1_m5_Name_OnEmptyCFlyweight_Expect_WRONG_VALUE)
+TEST_F(CFlyweightProperArgsMT, create1_m5_Name_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::WRONG_VALUE;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -112,9 +112,9 @@ TEST_F(CFlyweightProperArgsMT, create1_m5_Name_OnEmptyCFlyweight_Expect_WRONG_VA
 
 }
 
-TEST_F(CFlyweightProperArgsMT, createm1_5_Name_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightProperArgsMT, createm1_5_Name_OnEmptyCFlyweight_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::INDEX_OUT_OF_BOUNDS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -125,9 +125,9 @@ TEST_F(CFlyweightProperArgsMT, createm1_5_Name_OnEmptyCFlyweight_Expect_SEEMS_LE
 
 }
 
-TEST_F(CFlyweightProperArgsMT, create6_5_Name_Name_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightProperArgsMT, create6_5_Name_Name_OnEmptyCFlyweight_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::SEEMS_LEGIT;
+    ERROR_CODE expVal = ERROR_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
@@ -138,9 +138,9 @@ TEST_F(CFlyweightProperArgsMT, create6_5_Name_Name_OnEmptyCFlyweight_Expect_SEEM
 
 }
 
-TEST_F(CFlyweightProperArgsMT, createDefm1_OnEmptyCFlyweight_Expect_INDEX_OUT_OF_BOUNDS)
+TEST_F(CFlyweightProperArgsMT, createDefm1_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::INDEX_OUT_OF_BOUNDS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
     
     rcVal = getFinalResultCode
     ({
@@ -151,9 +151,9 @@ TEST_F(CFlyweightProperArgsMT, createDefm1_OnEmptyCFlyweight_Expect_INDEX_OUT_OF
 
 }
 
-TEST_F(CFlyweightProperArgsMT, createDef0_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightProperArgsMT, createDef0_OnEmptyCFlyweight_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::SEEMS_LEGIT;
+    ERROR_CODE expVal = ERROR_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
@@ -164,9 +164,9 @@ TEST_F(CFlyweightProperArgsMT, createDef0_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 
 }
 
-TEST_F(CFlyweightProperArgsMT, createDef6_OnEmptyCFlyweight_Expect_INDEX_OUT_OF_BOUNDS)
+TEST_F(CFlyweightProperArgsMT, createDef6_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::INDEX_OUT_OF_BOUNDS;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -177,9 +177,9 @@ TEST_F(CFlyweightProperArgsMT, createDef6_OnEmptyCFlyweight_Expect_INDEX_OUT_OF_
 
 }
 
-TEST_F(CFlyweightProperArgsMT, createCopy01_Expect_UNDEFINED_OBJECT)
+TEST_F(CFlyweightProperArgsMT, createCopy01_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::UNDEFINED_OBJECT;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -190,9 +190,9 @@ TEST_F(CFlyweightProperArgsMT, createCopy01_Expect_UNDEFINED_OBJECT)
 
 }
 
-TEST_F(CFlyweightProperArgsMT, print_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
+TEST_F(CFlyweightProperArgsMT, print_OnEmptyCFlyweight_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::UNDEFINED_OBJECT;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -203,9 +203,9 @@ TEST_F(CFlyweightProperArgsMT, print_OnEmptyCFlyweight_Expect_UNDEFINED_OBJECT)
 
 }
 
-TEST_F(CFlyweightProperArgsMT, deleteAll_Expect_UNDEFINED_OBJECT)
+TEST_F(CFlyweightProperArgsMT, deleteAll_Expect_ERROR)
 {
-    ERROR_CODE expVal = ERROR_CODE::UNDEFINED_OBJECT;
+    ERROR_CODE expVal = ERROR_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -216,9 +216,9 @@ TEST_F(CFlyweightProperArgsMT, deleteAll_Expect_UNDEFINED_OBJECT)
 
 }
 
-TEST_F(CFlyweightProperArgsMT, printAll_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightProperArgsMT, printAll_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::SEEMS_LEGIT;
+    ERROR_CODE expVal = ERROR_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
@@ -229,9 +229,9 @@ TEST_F(CFlyweightProperArgsMT, printAll_Expect_SEEMS_LEGIT)
 
 }
 
-TEST_F(CFlyweightProperArgsMT, help_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightProperArgsMT, help_Expect_DONE)
 {
-    ERROR_CODE expVal = ERROR_CODE::SEEMS_LEGIT;
+    ERROR_CODE expVal = ERROR_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({

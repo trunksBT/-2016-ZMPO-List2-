@@ -25,14 +25,14 @@ int main(int argc, char **argv)
 {
    //{
    //     CFlyweight application;
-   //     ERROR_CODE commandResult = ERROR_CODE::INITIAL_VAL;
+   //     ERROR_CODE commandResult = ERROR_CODE::ERROR;
 
    //     std::cout << "Pass command" << std::endl;
    //     do
    //     {
    //         auto command = receiveAndLexCommandFromUser();
    //         commandResult = application.interpretCommand(command);
-   //     } while(commandResult != ERROR_CODE::CLOSE);
+   //     } while(commandResult != ERROR_CODE::ERROR);
 
    //     std::cout << std::endl << "Dzieki za uzycie programu, Korytko_MS" << POST_PRINT << POST_PRINT;
    //     system("Pause");
