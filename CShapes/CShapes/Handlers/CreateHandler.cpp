@@ -3,7 +3,7 @@
 
 #include "CreateHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -24,7 +24,7 @@ std::string CCreateHandler::getProperTypesOfArgs()
     return "siis";
 }
 
-ERROR_CODE CCreateHandler::performOn(std::vector<CTableWithSize>& inCache)
+ERROR_CODE CCreateHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::ID_OF_CTABLE]);
     int idxOrAmount = std::stoi(receivedId);
@@ -48,7 +48,7 @@ ERROR_CODE CCreateHandler::performOn(std::vector<CTableWithSize>& inCache)
     //        {
     //            delete inCache[idxOrAmount].first;
     //        }
-    //        inCache[idxOrAmount].first = CTable::buildNewObj(newSize, initialName);
+    //        inCache[idxOrAmount].first = CPoint::buildNewObj(newSize, initialName);
     //    }
     //    else
     //    {

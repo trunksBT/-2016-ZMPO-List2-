@@ -3,7 +3,7 @@
 
 #include "PrintAllHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -24,7 +24,7 @@ std::string CPrintAllHandler::getProperTypesOfArgs()
     return "s";
 }
 
-ERROR_CODE CPrintAllHandler::performOn(std::vector<CTableWithSize>& inCache)
+ERROR_CODE CPrintAllHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     //if(inCache.size() == 0)
     //{

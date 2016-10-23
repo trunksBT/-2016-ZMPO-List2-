@@ -3,7 +3,7 @@
 
 #include "CreateCopyHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -25,7 +25,7 @@ std::string CCreateCopyHandler::getProperTypesOfArgs()
     return "sii";
 }
 
-ERROR_CODE CCreateCopyHandler::performOn(std::vector<CTableWithSize>& inCache)
+ERROR_CODE CCreateCopyHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     std::string receivedDestinyId(wholeCommand_[idxOf::ID_OF_CTABLE]);
     int destinyId = std::stoi(receivedDestinyId);
@@ -40,7 +40,7 @@ ERROR_CODE CCreateCopyHandler::performOn(std::vector<CTableWithSize>& inCache)
     //    }
     //    else if(destinyId != sourceId)
     //    {
-    //        CTable* copiedObj = CTable::buildNewObj(*inCache[sourceId].first);
+    //        CPoint* copiedObj = CPoint::buildNewObj(*inCache[sourceId].first);
     //        bool isProperDestinyIdx = isProperIdx(destinyId, inCache);
     //        if(isProperDestinyIdx && inCache[destinyId].first == nullptr)
     //        {

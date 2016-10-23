@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Utils.hpp"
-#include "CTable.hpp"
+#include "CPoint.hpp"
 #include <map>
 #include <iostream>
 #include <string>
@@ -10,7 +10,7 @@ using namespace defaultVals;
 
 namespace funs
 {
-    bool isProperIdx(int idxOrAmount, std::vector<CTableWithSize>& inCache)
+    bool isProperIdx(int idxOrAmount, std::vector<CPointWithSize>& inCache)
     {
         return idxOrAmount > MINUS_ONE && idxOrAmount < inCache.size();
     }
@@ -113,7 +113,14 @@ namespace funs
         return isProperType;
     }
 
-    bool isVectorEmpty(std::vector<CTableWithSize>& inCache)
+    std::vector<CPointWithSize> toVectorOfPairs(CPoint** inCache, int inSize)
+    {
+        std::vector<CPointWithSize> retVal;
+        retVal.push_back({ inCache, inSize });
+        return retVal;
+    }
+
+    bool isVectorEmpty(std::vector<CPointWithSize>& inCache)
     {
         bool isEmpty = true;
         for(int i = 0; i < inCache.size(); i++)

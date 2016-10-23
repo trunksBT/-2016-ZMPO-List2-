@@ -3,7 +3,7 @@
 
 #include "GetValueHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -24,7 +24,7 @@ std::string CGetValueHandler::getProperTypesOfArgs()
     return "sii";
 }
 
-ERROR_CODE CGetValueHandler::performOn(std::vector<CTableWithSize>& inCache)
+ERROR_CODE CGetValueHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
@@ -33,7 +33,7 @@ ERROR_CODE CGetValueHandler::performOn(std::vector<CTableWithSize>& inCache)
 
     //if(isProperIdx(idxOrAmount, inCache))
     //{
-    //    CTable* retTable = inCache[idxOrAmount].first;
+    //    CPoint* retTable = inCache[idxOrAmount].first;
     //    if(retTable != nullptr)
     //    {
     //        if(isProperIdx(idOfNewVal, retTable->getSize()))

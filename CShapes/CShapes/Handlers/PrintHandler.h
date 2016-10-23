@@ -11,7 +11,7 @@ class CPrintHandler final : public IHandler
 public:
     CPrintHandler(std::vector<std::string>& inCommand);
 protected:
-    ERROR_CODE performOn(std::vector<CTableWithSize>& inCache) override;
+    ERROR_CODE performOn(std::vector<CPointWithSize>& inCache) override;
     const int getProperAmountOfArgs() override;
     std::string getProperTypesOfArgs() override;
 };

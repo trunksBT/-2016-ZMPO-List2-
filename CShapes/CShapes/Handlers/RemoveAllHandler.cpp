@@ -3,7 +3,7 @@
 
 #include "RemoveAllHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -25,7 +25,7 @@ std::string CRemoveAllHandler::getProperTypesOfArgs()
     return "s";
 }
 
-ERROR_CODE CRemoveAllHandler::performOn(std::vector<CTableWithSize>& inCache)
+ERROR_CODE CRemoveAllHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     if(isVectorEmpty(inCache))
     {

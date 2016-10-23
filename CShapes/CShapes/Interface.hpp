@@ -1,7 +1,7 @@
 #pragma once
 
 #include <boost/tokenizer.hpp>
-#include "CTable.hpp"
+#include "CPoint.hpp"
 
 namespace communication
 {

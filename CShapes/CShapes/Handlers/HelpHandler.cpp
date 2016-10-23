@@ -3,7 +3,7 @@
 
 #include "HelpHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -24,7 +24,7 @@ std::string CHelpHandler::getProperTypesOfArgs()
     return "s";
 }
 
-ERROR_CODE CHelpHandler::performOn(std::vector<CTableWithSize>& inCache)
+ERROR_CODE CHelpHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     for(int i = 0; i < fullCommands::allCommands.size(); i++)
     {

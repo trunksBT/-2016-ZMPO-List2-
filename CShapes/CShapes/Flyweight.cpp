@@ -4,6 +4,7 @@
 #include "Utils.hpp"
 #include "Handlers/CreateHandler.h"
 #include "Handlers/CreateDefHandler.h"
+#include "Handlers/CreateDefsHandler.h"
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
 #include "Handlers/SetValueHandler.h"
@@ -17,18 +18,28 @@ using namespace defaultVals;
 using namespace messageLiterals;
 using namespace funs;
 
-CTable* CFlyweight::cache_;
+CPoint** CFlyweight::cache_;
+int CFlyweight::sizeOfPointCache_;
+std::map<int, bool> CFlyweight::isInitializedPointCache_;
 
 ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 {
-    if(inCommand.size() == ZERO)
-    {
-        return ERROR_CODE::ERROR;
-    }
-
     ERROR_CODE returnedCode = ERROR_CODE::ERROR;
-    std::string command(inCommand[idxOf::COMMAND]);
+    {
+        if (inCommand.size() == ZERO)
+        {
+            return ERROR_CODE::ERROR;
+        }
 
+        std::string command(inCommand[idxOf::COMMAND]);
+        std::vector<CPointWithSize> pairedCache = toVectorOfPairs(cache_, sizeOfPointCache_);
+
+        if (command == CREATE_DEFS)
+        {
+            CCreateDefsHandler evaluate(inCommand);
+            returnedCode = evaluate.checkCorrectnessAndPerform(pairedCache);
+        }
+    }
     /*if(command == CREATE)
     {
         CCreateHandler evaluate(inCommand);
@@ -39,6 +50,7 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CCreateDefHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
+
     else if(command == CREATE_COPY)
     {
         CCreateCopyHandler evaluate(inCommand);
@@ -95,13 +107,35 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 
 void CFlyweight::releaseResources()
 {
-    delete[] cache_;
+    for (int i = 0; i < DEFAULT_FLYWEIGHT_CACHE_SIZE; i++)
+    {
+        if (cache_[i] == nullptr)
+        {
+            delete cache_[i];
+            cache_[i] = nullptr;
+        }
+    }
     cache_ = nullptr;
 }
 
 CFlyweight::CFlyweight()
 {
-    cache_ = new CTable[DEFAULT_FLYWEIGHT_CACHE_SIZE];
+    sizeOfPointCache_ = DEFAULT_FLYWEIGHT_CACHE_SIZE;
+    cache_ = new CPoint*[sizeOfPointCache_];
+    for (int i = 0; i < sizeOfPointCache_; i++)
+    {
+        isInitializedPointCache_[i] = false;
+    }
+}
+
+CFlyweight::CFlyweight(int inCacheSize)
+{
+    sizeOfPointCache_ = inCacheSize;
+    cache_ = new CPoint*[sizeOfPointCache_];
+    for (int i = 0; i < sizeOfPointCache_; i++)
+    {
+        isInitializedPointCache_[i] = false;
+    }
 }
 
 CFlyweight::~CFlyweight()

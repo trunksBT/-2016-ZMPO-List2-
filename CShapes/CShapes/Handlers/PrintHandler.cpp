@@ -3,7 +3,7 @@
 
 #include "PrintHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -25,14 +25,14 @@ std::string CPrintHandler::getProperTypesOfArgs()
     return "si";
 }
 
-ERROR_CODE CPrintHandler::performOn(std::vector<CTableWithSize>& inCache)
+ERROR_CODE CPrintHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
 
     //if(isProperIdx(idxOrAmount, inCache))
     //{
-    //    CTable* retTable = inCache[idxOrAmount].first;
+    //    CPoint* retTable = inCache[idxOrAmount].first;
     //    if(retTable != nullptr)
     //    {
     //        std::cout << retTable->toString();

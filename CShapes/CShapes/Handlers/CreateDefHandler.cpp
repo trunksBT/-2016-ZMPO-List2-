@@ -3,11 +3,12 @@
 
 #include "CreateDefHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
 using namespace funs;
+using namespace cacheIdx;
 
 CCreateDefHandler::CCreateDefHandler(std::vector<std::string>& inCommand)
     : IHandler(inCommand)
@@ -24,21 +25,21 @@ std::string CCreateDefHandler::getProperTypesOfArgs()
     return "si";
 }
 
-ERROR_CODE CCreateDefHandler::performOn(std::vector<CTableWithSize>& inCache)
+ERROR_CODE CCreateDefHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::ID_OF_CTABLE]);
 
-    //int idxOrAmount = std::stoi(receivedId);
-    //if(!isProperIdx(idxOrAmount, inCache))
-    //{
-    //    return returnResultCode(ERROR_CODE::ERROR);
-    //}
+    int idxOrAmount = std::stoi(receivedId);
+    if(!isProperIdx(idxOrAmount, inCache[CTABLE_IDX].second))
+    {
+        return returnResultCode(ERROR_CODE::ERROR);
+    }
 
     //if(inCache[idxOrAmount].first != nullptr)
     //{
     //    delete inCache[idxOrAmount].first;
     //}
-    //inCache[idxOrAmount].first = CTable::buildNewObj();
+    //inCache[idxOrAmount].first = CPoint::buildNewObj();
 
     return ERROR_CODE::DONE;
 }

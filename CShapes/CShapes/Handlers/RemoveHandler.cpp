@@ -3,7 +3,7 @@
 
 #include "RemoveHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -24,14 +24,14 @@ std::string CRemoveHandler::getProperTypesOfArgs()
     return "si";
 }
 
-ERROR_CODE CRemoveHandler::performOn(std::vector<CTableWithSize>& inCache)
+ERROR_CODE CRemoveHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
 
     //if (isProperIdx(idxOrAmount, inCache))
     //{
-    //    CTable* retTable = inCache[idxOrAmount].first;
+    //    CPoint* retTable = inCache[idxOrAmount].first;
     //    if (retTable != nullptr)
     //    {
     //        std::cout << retTable->getName();
