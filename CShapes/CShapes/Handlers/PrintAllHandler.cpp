@@ -99,10 +99,8 @@ CODE CPrintAllHandler::purePerform(CPointWithSize inCache)
         {
             Logger::info() << toString(CODE::NOT_INITIALIZED);
         }
-
         Logger::info() << POST_PRINT;
     }
-
     return CODE::DONE;
 }
 
@@ -124,7 +122,6 @@ CODE CPrintAllHandler::purePerform(CShapeWithSize inCache)
         {
             Logger::info() << toString(CODE::NOT_INITIALIZED);
         }
-
         Logger::info() << POST_PRINT;
     }
 

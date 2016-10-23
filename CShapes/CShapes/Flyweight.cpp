@@ -136,6 +136,8 @@ void CFlyweight::releaseResources()
     }
     delete[] pointCache_;
     pointCache_ = nullptr;
+    pointCacheSize_ = ZERO;
+    pointCacheIsInitialized_.clear();
 
     for (int i = 0; i < shapeCacheSize_; i++)
     {
@@ -147,6 +149,8 @@ void CFlyweight::releaseResources()
     }
     delete[] shapeCache_;
     shapeCache_ = nullptr;
+    shapeCacheSize_ = ZERO;
+    shapeCacheIsInitialized_.clear();
 }
 
 void CFlyweight::initPointCache(int inCacheSize)
