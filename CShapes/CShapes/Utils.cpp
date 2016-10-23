@@ -10,9 +10,9 @@ using namespace defaultVals;
 
 namespace funs
 {
-    bool isProperIdx(int idxOrAmount, std::vector<CPointWithSize>& inCache)
+    bool isProperIdx(int idxOrAmount, CShapeWithSize inCache)
     {
-        return idxOrAmount > MINUS_ONE && idxOrAmount < inCache.size();
+        return idxOrAmount > MINUS_ONE && idxOrAmount < inCache.second;
     }
 
     bool isProperIdx(int inIdx, int inSize)
@@ -25,7 +25,8 @@ namespace funs
         static std::map<RETURN_CODE, std::string> codeToString;
 
         codeToString[RETURN_CODE::DONE] = "DONE";
-        codeToString[RETURN_CODE::ERROR]= "ERROR";
+        codeToString[RETURN_CODE::ERROR] = "ERROR";
+        codeToString[RETURN_CODE::CLOSE]= "CLOSE";
 
         return codeToString[inCode];
     }
@@ -104,30 +105,6 @@ namespace funs
             }
         }
         return isProperType;
-    }
-
-    std::vector<CPointWithSize> toVectorOfPairsOfPoints(CPoint** inCache, int inSize)
-    {
-        std::vector<CPointWithSize> retVal;
-        retVal.push_back({ inCache, inSize });
-        return retVal;
-    }
-
-    std::vector<CShapeWithSize> toVectorOfPairsOfShapes(CShape** inCache, int inSize)
-    {
-        std::vector<CShapeWithSize> retVal;
-        retVal.push_back({ inCache, inSize });
-        return retVal;
-    }
-
-    bool isVectorEmpty(std::vector<CPointWithSize>& inCache)
-    {
-        bool isEmpty = true;
-        for(int i = 0; i < inCache.size(); i++)
-        {
-            isEmpty = inCache[i].first == nullptr;
-        }
-        return isEmpty;
     }
 
     int toInt(char inChar)

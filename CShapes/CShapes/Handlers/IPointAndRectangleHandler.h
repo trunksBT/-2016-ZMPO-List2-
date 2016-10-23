@@ -12,17 +12,17 @@ public:
     IPointAndRectangleHandler(std::vector<std::string>& inCommand);
     virtual ~IPointAndRectangleHandler();
 
-    virtual RETURN_CODE performOn(std::vector<CShapeWithSize>& inCache) = 0;
-    virtual RETURN_CODE perform(std::vector<CShapeWithSize>& inCache) = 0;
-    virtual RETURN_CODE performOn(std::vector<CPointWithSize>& inCache) = 0;
-    virtual RETURN_CODE perform(std::vector<CPointWithSize>& inCache) = 0;
+    virtual RETURN_CODE performOn(CShapeWithSize inCache) = 0;
+    virtual RETURN_CODE perform(CShapeWithSize inCache) = 0;
+    virtual RETURN_CODE performOn(CPointWithSize inCache) = 0;
+    virtual RETURN_CODE perform(CPointWithSize inCache) = 0;
 
     virtual RETURN_CODE performOn(
-        std::vector<CPointWithSize>& inPointCache,
-        std::vector<CShapeWithSize>& inRectangleCache) = 0;
+        CPointWithSize inPointCache,
+        CShapeWithSize inRectangleCache) = 0;
     virtual RETURN_CODE perform(
-        std::vector<CPointWithSize>& inPointCache,
-        std::vector<CShapeWithSize>& inRectangleCache) = 0;
+        CPointWithSize inPointCache,
+        CShapeWithSize inRectangleCache) = 0;
 
     virtual const int getProperAmountOfArgs() = 0;
     virtual std::string getProperTypesOfArgs() = 0;

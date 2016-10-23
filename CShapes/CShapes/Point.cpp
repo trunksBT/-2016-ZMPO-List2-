@@ -9,16 +9,7 @@
 using namespace defaultVals;
 using namespace funs;
 
-CPoint::CPoint()
-{
-    name_ = DEFAULT_TABLE_NAME;
-    size_ = DEFAULT_IN_TABLE_SIZE;
-    allocateMemory(size_);
-    initTable(memory_, size_, DEFAULT_TABLE_VAL);
-    Logger::info() << CTOR_DEFAULT_PRE_PRINT << name_ << POST_PRINT;
-}
-
-CPoint::CPoint(int inSize)
+CPoint::CPoint(int inSize) : CShape()
 {
     name_ = DEFAULT_TABLE_NAME;
     size_ = inSize;
@@ -27,7 +18,7 @@ CPoint::CPoint(int inSize)
     Logger::info() << CTOR_ARG1_PRE_PRINT<< name_ << POST_PRINT;
 }
 
-CPoint::CPoint(int inSize, int initValue)
+CPoint::CPoint(int inSize, int initValue) : CShape()
 {
     name_ = DEFAULT_TABLE_NAME;
     size_ = inSize;
@@ -36,7 +27,7 @@ CPoint::CPoint(int inSize, int initValue)
     Logger::info() << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
 }
 
-CPoint::CPoint(std::string inName)
+CPoint::CPoint(std::string inName) : CShape()
 {
     name_ = inName;
     size_ = DEFAULT_IN_TABLE_SIZE;
@@ -45,7 +36,7 @@ CPoint::CPoint(std::string inName)
     Logger::info() << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
 }
 
-CPoint::CPoint(int inSize, std::string inName)
+CPoint::CPoint(int inSize, std::string inName) : CShape()
 {
     name_ = inName;
     size_ = inSize;
@@ -114,11 +105,6 @@ void CPoint::setSize(int inNewSize)
         memory_ = newTable;
         size_ = inNewSize;
     }
-}
-
-CPoint* CPoint::buildNewObj()
-{
-    return new CPoint();
 }
 
 CPoint* CPoint::buildNewObj(CPoint& inVal)

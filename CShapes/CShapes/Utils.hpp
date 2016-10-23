@@ -8,7 +8,8 @@
 enum class RETURN_CODE : int
 {
     DONE = 0,
-    ERROR = 1
+    ERROR = 1,
+    CLOSE = 10
 };
 
 namespace defaultVals
@@ -50,11 +51,12 @@ constexpr const int DEFAULT_FLYWEIGHT_CACHE_SIZE = FIVE;
 
 namespace cacheIdx
 {
-constexpr const int CTABLE_IDX = 0;
+constexpr const int POINTS_IDX = 0;
+constexpr const int SHAPES_IDX = 1;
 }
 
-using CPointWithSize = std::pair<CPoint**, int>;
 using CShapeWithSize = std::pair<CShape**, int>;
+using CPointWithSize = std::pair<CPoint**, int>;
 
 namespace funs
 {
@@ -62,19 +64,16 @@ int toInt(char inChar);
 std::string toString(RETURN_CODE inCode);
 bool isNumber(std::string inChain);
 bool isProperIdx(int inIdx, int inSize);
-bool isVectorEmpty(std::vector<CPointWithSize>& inCache);
-bool isProperIdx(int idxOrAmount, std::vector<CPointWithSize>& inCache);
-bool isProperIdx(int inIdxOrAmount, std::vector<CPointWithSize>& inCache);
+bool isProperIdx(int idxOrAmount, CShapeWithSize inCache);
 bool isProperAmmountOfArgs(std::vector<std::string>& inCommand, int inProperAmountOfArgs);
 bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs);
-std::vector<CPointWithSize> toVectorOfPairsOfPoints(CPoint** inCache, int inSize);
-std::vector<CShapeWithSize> toVectorOfPairsOfShapes(CShape** inCache, int inSize);
 }
 
 namespace idxOf
 {
 constexpr const int COMMAND = 0;
-constexpr const int ID_OF_CTABLE = 1;
+constexpr const int ID_OF_POINTS = 1;
+constexpr const int ID_OF_SHAPES = 2;
 constexpr const int AMOUNT = 1;
 constexpr const int NEW_NAME = 2;
 constexpr const int NEW_SIZE = 2;

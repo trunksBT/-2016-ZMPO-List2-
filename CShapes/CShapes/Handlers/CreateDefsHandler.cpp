@@ -28,8 +28,8 @@ std::string CGoHandler::getProperTypesOfArgs()
 }
 
 RETURN_CODE CGoHandler::perform(
-    std::vector<CPointWithSize>& inPointCache,
-    std::vector<CShapeWithSize>& inRectangleCache)
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
 {
     RETURN_CODE retCode = RETURN_CODE::ERROR;
 
@@ -39,17 +39,17 @@ RETURN_CODE CGoHandler::perform(
         perform(inRectangleCache),
     });
 
-    return RETURN_CODE::ERROR;
+    return retCode;
 }
 
 RETURN_CODE CGoHandler::performOn(
-    std::vector<CPointWithSize>& inPointCache,
-    std::vector<CShapeWithSize>& inRectangleCache)
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
 {
     return RETURN_CODE::ERROR;
 }
 
-RETURN_CODE CGoHandler::perform(std::vector<CShapeWithSize>& inCache)
+RETURN_CODE CGoHandler::perform(CShapeWithSize inCache)
 {
     if (checkCorrectnessAndPerform() == RETURN_CODE::DONE)
     {
@@ -61,7 +61,7 @@ RETURN_CODE CGoHandler::perform(std::vector<CShapeWithSize>& inCache)
     }
 }
 
-RETURN_CODE CGoHandler::perform(std::vector<CPointWithSize>& inCache)
+RETURN_CODE CGoHandler::perform(CPointWithSize inCache)
 {
     if (checkCorrectnessAndPerform() == RETURN_CODE::DONE)
     {
@@ -73,13 +73,13 @@ RETURN_CODE CGoHandler::perform(std::vector<CPointWithSize>& inCache)
     }
 }
 
-RETURN_CODE CGoHandler::performOn(std::vector<CPointWithSize>& inCache)
+RETURN_CODE CGoHandler::performOn(CPointWithSize inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
-    int cacheSize = inCache[CTABLE_IDX].second;
+    int cacheSize = inCache.second;
 
-    if (idxOrAmount <= ZERO)
+    if (idxOrAmount < ZERO)
     {
         return RETURN_CODE::ERROR;
     }
@@ -102,13 +102,13 @@ RETURN_CODE CGoHandler::performOn(std::vector<CPointWithSize>& inCache)
     return RETURN_CODE::DONE;
 }
 
-RETURN_CODE CGoHandler::performOn(std::vector<CShapeWithSize>& inCache)
+RETURN_CODE CGoHandler::performOn(CShapeWithSize inCache)
 {
-    std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
+    std::string receivedId(wholeCommand_[idxOf::ID_OF_SHAPES]);
     int idxOrAmount = std::stoi(receivedId);
-    int cacheSize = inCache[CTABLE_IDX].second;
+    int cacheSize = inCache.second;
 
-    if (idxOrAmount <= ZERO)
+    if (idxOrAmount < ZERO)
     {
         return RETURN_CODE::ERROR;
     }

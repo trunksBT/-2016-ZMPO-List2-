@@ -14,15 +14,19 @@
 #include "Handlers/PrintAllHandler.h"
 #include "Handlers/HelpHandler.h"
 #include "UtilsForMT.h"
+#include "Logger.h"
 
 using namespace defaultVals;
 using namespace messageLiterals;
 using namespace funs;
 
-CPoint** CFlyweight::cache_;
-CShape** CFlyweight::shapeCache_;
+CShape** CFlyweight::pointCache_;
 int CFlyweight::sizeOfPointCache_;
 std::map<int, bool> CFlyweight::isInitializedPointCache_;
+
+CShape** CFlyweight::shapeCache_;
+int CFlyweight::sizeOfShapeCache_;
+std::map<int, bool> CFlyweight::isInitializedShapeCache_;
 
 RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 {
@@ -34,14 +38,18 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         }
 
         std::string command(inCommand[idxOf::COMMAND]);
-        std::vector<CPointWithSize> pairedPointCache = toVectorOfPairsOfPoints(cache_, sizeOfPointCache_);
-        std::vector<CShapeWithSize> pairedShapeCache = toVectorOfPairsOfShapes(shapeCache_, sizeOfPointCache_);
+        CPointWithSize pairedPointCache = std::make_pair(reinterpret_cast<CPoint**>(pointCache_), sizeOfPointCache_ );
+        CShapeWithSize pairedShapeCache = std::make_pair(shapeCache_, sizeOfPointCache_);
 
         if (command == GO)
         {
             IPointAndRectangleHandler* evaluate = new CGoHandler(inCommand);
             returnedCode = evaluate->perform(pairedPointCache, pairedShapeCache);
             delete evaluate;
+        }
+        else if (command == CLOSE)
+        {
+            returnedCode = RETURN_CODE::CLOSE;
         }
     }
     /*if(command == CREATE)
@@ -94,11 +102,8 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
     {
         CHelpHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
-    }
-    else if(command == CLOSE)
-    {
-        returnedCode = RETURN_CODE::ERROR;
     }*/
+
     //else
     //{
     //    returnedCode = returnResultCode(RETURN_CODE::ERROR);
@@ -111,35 +116,61 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 
 void CFlyweight::releaseResources()
 {
-    for (int i = 0; i < DEFAULT_FLYWEIGHT_CACHE_SIZE; i++)
+    for (int i = 0; i < DEFAULT_FLYWEIGHT_CACHE_SIZE && isInitializedPointCache_[i]; i++)
     {
-        if (cache_[i] == nullptr)
+        if (pointCache_[i] == nullptr)
         {
-            delete cache_[i];
-            cache_[i] = nullptr;
+            delete pointCache_[i];
+            pointCache_[i] = nullptr;
         }
     }
-    cache_ = nullptr;
+    pointCache_ = nullptr;
+
+    for (int i = 0; i < DEFAULT_FLYWEIGHT_CACHE_SIZE && isInitializedShapeCache_[i]; i++)
+    {
+        if (shapeCache_[i] == nullptr)
+        {
+            delete shapeCache_[i];
+            shapeCache_[i] = nullptr;
+        }
+    }
+    shapeCache_ = nullptr;
+}
+
+void CFlyweight::initPointCache(int inCacheSize)
+{
+    sizeOfPointCache_ = inCacheSize;
+    pointCache_ = nullptr;
+    for (int i = 0; i < sizeOfPointCache_; i++)
+    {
+        isInitializedPointCache_[i] = false;
+    }
+
+    pointCache_ = new CShape*[sizeOfPointCache_];
+}
+
+void CFlyweight::initShapesCache(int inCacheSize)
+{
+    sizeOfShapeCache_ = inCacheSize;
+    shapeCache_ = nullptr;
+    for (int i = 0; i < sizeOfPointCache_; i++)
+    {
+        isInitializedShapeCache_[i] = false;
+    }
+
+    shapeCache_ = new CShape*[sizeOfShapeCache_];
 }
 
 CFlyweight::CFlyweight()
 {
-    sizeOfPointCache_ = DEFAULT_FLYWEIGHT_CACHE_SIZE;
-    cache_ = new CPoint*[sizeOfPointCache_];
-    for (int i = 0; i < sizeOfPointCache_; i++)
-    {
-        isInitializedPointCache_[i] = false;
-    }
+    initPointCache(DEFAULT_FLYWEIGHT_CACHE_SIZE);
+    initPointCache(DEFAULT_FLYWEIGHT_CACHE_SIZE);
 }
 
-CFlyweight::CFlyweight(int inCacheSize)
+CFlyweight::CFlyweight(int inPointCacheSize, int inShapeCacheSize)
 {
-    sizeOfPointCache_ = inCacheSize;
-    cache_ = new CPoint*[sizeOfPointCache_];
-    for (int i = 0; i < sizeOfPointCache_; i++)
-    {
-        isInitializedPointCache_[i] = false;
-    }
+    initPointCache(inPointCacheSize);
+    initPointCache(inShapeCacheSize);
 }
 
 CFlyweight::~CFlyweight()
