@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include <gtest/gtest.h>
-#include "CPoint.hpp"
+#include "Point.hpp"
 #include "Utils.hpp"
 #include <limits>
 #include <vector>

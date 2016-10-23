@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "CPoint.hpp"
+#include "Point.hpp"
 #include "Utils.hpp"
 #include <iostream>
 #include <limits>

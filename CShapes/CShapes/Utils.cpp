@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Utils.hpp"
-#include "CPoint.hpp"
+#include "Point.hpp"
 #include <map>
 #include <iostream>
 #include <string>

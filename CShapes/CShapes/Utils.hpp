@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "CPoint.hpp"
+#include "Point.hpp"
 #include <limits>
 
 enum class ERROR_CODE : int

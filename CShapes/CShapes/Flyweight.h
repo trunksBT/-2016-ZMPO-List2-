@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "CPoint.hpp"
+#include "Point.hpp"
 #include "Utils.hpp"
 
 class CFlyweight

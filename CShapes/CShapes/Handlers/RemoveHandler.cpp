@@ -3,7 +3,7 @@
 
 #include "RemoveHandler.h"
 #include "../Utils.hpp"
-#include "../CPoint.hpp"
+#include "../Point.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
