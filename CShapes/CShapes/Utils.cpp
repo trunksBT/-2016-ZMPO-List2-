@@ -7,12 +7,13 @@
 #include "Logger.h"
 
 using namespace defaultVals;
+using namespace tupleIdx;
 
 namespace funs
 {
     bool isProperIdx(int idxOrAmount, CShapeWithSize inCache)
     {
-        return idxOrAmount > MINUS_ONE && idxOrAmount < inCache.second;
+        return idxOrAmount > MINUS_ONE && idxOrAmount < std::get<SIZE>(inCache);
     }
 
     bool isProperIdx(int inIdx, int inSize)

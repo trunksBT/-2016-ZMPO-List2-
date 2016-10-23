@@ -4,6 +4,8 @@
 #include "Point.hpp"
 #include "Shape.h"
 #include <limits>
+#include <tuple>
+#include <map>
 
 enum class RETURN_CODE : int
 {
@@ -55,8 +57,15 @@ constexpr const int POINTS_IDX = 0;
 constexpr const int SHAPES_IDX = 1;
 }
 
-using CShapeWithSize = std::pair<CShape**, int>;
-using CPointWithSize = std::pair<CPoint**, int>;
+namespace tupleIdx
+{
+constexpr const int ARRAY = 0;
+constexpr const int SIZE = 1;
+constexpr const int INITIALIZED_MAP = 2;
+}
+
+using CShapeWithSize = std::tuple<CShape**, int, std::map<int, bool>>;
+using CPointWithSize = std::tuple<CPoint**, int, std::map<int, bool>>;
 
 namespace funs
 {
@@ -74,7 +83,6 @@ namespace idxOf
 constexpr const int COMMAND = 0;
 constexpr const int ID_OF_POINTS = 1;
 constexpr const int ID_OF_SHAPES = 2;
-constexpr const int AMOUNT = 1;
 constexpr const int NEW_NAME = 2;
 constexpr const int NEW_SIZE = 2;
 constexpr const int GOAL_ID = 2;

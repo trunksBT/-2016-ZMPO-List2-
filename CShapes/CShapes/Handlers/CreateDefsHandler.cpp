@@ -11,6 +11,7 @@ using namespace defaultVals;
 using namespace cacheIdx;
 using namespace funs;
 using namespace assertWrapper;
+using namespace tupleIdx;
 
 CGoHandler::CGoHandler(std::vector<std::string>& inCommand)
     : IHandler(inCommand), IPointHandler(inCommand), IShapeHandler(inCommand), IPointAndRectangleHandler(inCommand)
@@ -75,9 +76,9 @@ RETURN_CODE CGoHandler::perform(CPointWithSize inCache)
 
 RETURN_CODE CGoHandler::performOn(CPointWithSize inCache)
 {
-    std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
+    std::string receivedId(wholeCommand_[idxOf::ID_OF_POINTS]);
     int idxOrAmount = std::stoi(receivedId);
-    int cacheSize = inCache.second;
+    int cacheSize = std::get<SIZE>(inCache);
 
     if (idxOrAmount < ZERO)
     {
@@ -89,6 +90,7 @@ RETURN_CODE CGoHandler::performOn(CPointWithSize inCache)
     }
     else
     {
+        //if( )
         //for (int ammountOfCreatedObj = ZERO; ammountOfCreatedObj < idxOrAmount;)
         //{
         //    if (!CFlyweight::isInitializedPointCache_[ammountOfCreatedObj] || inCache[CTABLE_IDX].first[ammountOfCreatedObj] == nullptr)
@@ -106,7 +108,7 @@ RETURN_CODE CGoHandler::performOn(CShapeWithSize inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::ID_OF_SHAPES]);
     int idxOrAmount = std::stoi(receivedId);
-    int cacheSize = inCache.second;
+    int cacheSize = std::get<SIZE>(inCache);
 
     if (idxOrAmount < ZERO)
     {

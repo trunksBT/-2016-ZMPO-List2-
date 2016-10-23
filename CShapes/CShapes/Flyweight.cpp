@@ -38,8 +38,18 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         }
 
         std::string command(inCommand[idxOf::COMMAND]);
-        CPointWithSize pairedPointCache = std::make_pair(reinterpret_cast<CPoint**>(pointCache_), sizeOfPointCache_ );
-        CShapeWithSize pairedShapeCache = std::make_pair(shapeCache_, sizeOfPointCache_);
+        CPointWithSize pairedPointCache = { 
+            reinterpret_cast<CPoint**>(pointCache_),
+            sizeOfPointCache_,
+            isInitializedPointCache_
+        };
+
+        CShapeWithSize pairedShapeCache = 
+        {
+        shapeCache_,
+        sizeOfPointCache_,
+        isInitializedShapeCache_ 
+        };
 
         if (command == GO)
         {
