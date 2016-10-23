@@ -25,14 +25,14 @@
 //    return "s";
 //}
 //
-//RETURN_CODE CRemoveAllHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CRemoveAllHandler::performOn(std::vector<CPointWithSize>& inCache)
 //{
 //    if(isVectorEmpty(inCache))
 //    {
-//        return returnResultCode(RETURN_CODE::ERROR);
+//        return returnResultCode(CODE::ERROR);
 //    }
 //
 //    CFlyweight::releaseResources();
 //
-//    return RETURN_CODE::DONE;
+//    return CODE::DONE;
 //}

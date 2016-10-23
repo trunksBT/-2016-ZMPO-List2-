@@ -3,11 +3,11 @@
 #include <utility>
 #include <vector>
 
-enum class RETURN_CODE;
+enum class CODE;
 
 
 namespace assertWrapper
 {
-RETURN_CODE getFinalResultCode(std::vector<RETURN_CODE> inCodes);
+CODE getFinalResultCode(std::vector<CODE> inCodes);
 }
 

@@ -11,7 +11,7 @@
 //public:
 //    CPrintHandler(std::vector<std::string>& inCommand);
 //protected:
-//    RETURN_CODE performOn(std::vector<CPointWithSize>& inCache) override;
+//    CODE performOn(std::vector<CPointWithSize>& inCache) override;
 //    const int getProperAmountOfArgs() override;
 //    std::string getProperTypesOfArgs() override;
 //};

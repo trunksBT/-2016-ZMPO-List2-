@@ -20,19 +20,19 @@ class CFlyweightUnproperAmountOfArgsMT : public testing::Test
 protected:
     virtual void SetUp()
     {
-        rcVal = RETURN_CODE::ERROR;
+        rcVal = CODE::ERROR;
     }
 
     virtual void TearDown()
     {}
 protected:
     CFlyweight application;
-    RETURN_CODE rcVal;
+    CODE rcVal;
 };
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToSmall_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -45,7 +45,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, createDefToBig_OnEmptyCFlyweight_Expect_ERROR_DONE)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::DONE;
+//    CODE expVal = CODE::DONE;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -58,7 +58,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToSmall_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -71,7 +71,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, createCopy0ToBig_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -84,7 +84,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, printToSmall_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -97,7 +97,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, printToBig_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -110,7 +110,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToSmall_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -123,7 +123,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteToBig_OnEmptyCFlyweight_Expect_DONE)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::DONE;
+//    CODE expVal = CODE::DONE;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -136,7 +136,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, deleteAllToBig_OnEmptyCFlyweight_Expect_DONE)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -150,7 +150,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToSmall_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -163,7 +163,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, getValue0ToToBig_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -176,7 +176,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, getValueToBig_1_23_3_4_5_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -189,7 +189,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToSmall_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -202,7 +202,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, setValue0_0ToBig_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -215,7 +215,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToSmall_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -228,7 +228,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, wrongCommandToBig_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -241,7 +241,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, createToSmall_getValue_1_2_Expect_ERROR)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::ERROR;
+//    CODE expVal = CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -255,7 +255,7 @@ protected:
 //
 //TEST_F(CFlyweightUnproperAmountOfArgsMT, createToBig_getValue_1_2_Expect_DONE)
 //{
-//    RETURN_CODE expVal = RETURN_CODE::DONE;
+//    CODE expVal = CODE::DONE;
 //
 //    rcVal = getFinalResultCode
 //    ({

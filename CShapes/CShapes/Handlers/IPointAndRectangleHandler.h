@@ -12,15 +12,15 @@ public:
     IPointAndRectangleHandler(std::vector<std::string>& inCommand);
     virtual ~IPointAndRectangleHandler();
 
-    virtual RETURN_CODE performOn(CShapeWithSize inCache) = 0;
-    virtual RETURN_CODE perform(CShapeWithSize inCache) = 0;
-    virtual RETURN_CODE performOn(CPointWithSize inCache) = 0;
-    virtual RETURN_CODE perform(CPointWithSize inCache) = 0;
+    virtual CODE performOn(CShapeWithSize inCache) = 0;
+    virtual CODE perform(CShapeWithSize inCache) = 0;
+    virtual CODE performOn(CPointWithSize inCache) = 0;
+    virtual CODE perform(CPointWithSize inCache) = 0;
 
-    virtual RETURN_CODE performOn(
+    virtual CODE performOn(
         CPointWithSize inPointCache,
         CShapeWithSize inRectangleCache) = 0;
-    virtual RETURN_CODE perform(
+    virtual CODE perform(
         CPointWithSize inPointCache,
         CShapeWithSize inRectangleCache) = 0;
 

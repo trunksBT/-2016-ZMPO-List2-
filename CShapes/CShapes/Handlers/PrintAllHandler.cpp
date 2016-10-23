@@ -28,11 +28,25 @@ std::string CPrintAllHandler::getProperTypesOfArgs()
     return "s";
 }
 
-RETURN_CODE CPrintAllHandler::perform(
+CODE CPrintAllHandler::perform(
     CPointWithSize inPointCache,
     CShapeWithSize inRectangleCache)
 {
-    RETURN_CODE retCode = RETURN_CODE::ERROR;
+    if (checkCorrectnessAndPerform() == CODE::DONE)
+    {
+        return performOn(inPointCache, inRectangleCache);
+    }
+    else
+    {
+        return CODE::ERROR;
+    }
+}
+
+CODE CPrintAllHandler::performOn(
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
+{
+    CODE retCode = CODE::ERROR;
 
     retCode = getFinalResultCode
     ({
@@ -43,40 +57,34 @@ RETURN_CODE CPrintAllHandler::perform(
     return retCode;
 }
 
-RETURN_CODE CPrintAllHandler::performOn(
-    CPointWithSize inPointCache,
-    CShapeWithSize inRectangleCache)
+CODE CPrintAllHandler::perform(CShapeWithSize inCache)
 {
-    return RETURN_CODE::ERROR;
-}
-
-RETURN_CODE CPrintAllHandler::perform(CShapeWithSize inCache)
-{
-    if (checkCorrectnessAndPerform() == RETURN_CODE::DONE)
+    if (checkCorrectnessAndPerform() == CODE::DONE)
     {
         return performOn(inCache);
     }
     else
     {
-        return RETURN_CODE::ERROR;
+        return CODE::ERROR;
     }
 }
 
-RETURN_CODE CPrintAllHandler::perform(CPointWithSize inCache)
+CODE CPrintAllHandler::perform(CPointWithSize inCache)
 {
-    if (checkCorrectnessAndPerform() == RETURN_CODE::DONE)
+    if (checkCorrectnessAndPerform() == CODE::DONE)
     {
         return performOn(inCache);
     }
     else
     {
-        return RETURN_CODE::ERROR;
+        return CODE::ERROR;
     }
 }
 
-RETURN_CODE CPrintAllHandler::performOn(CPointWithSize inCache)
+CODE CPrintAllHandler::performOn(CPointWithSize inCache)
 {
     int cacheSize = std::get<SIZE>(inCache);
+    std::cout << cacheSize << std::endl;
 
     Logger::info() << POINTS << POST_PRINT;
 
@@ -88,18 +96,19 @@ RETURN_CODE CPrintAllHandler::performOn(CPointWithSize inCache)
         }
         else
         {
-            Logger::info() << toString(RETURN_CODE::NOT_INITIALIZED);
+            Logger::info() << toString(CODE::NOT_INITIALIZED);
         }
 
         Logger::info() << POST_PRINT;
     }
 
-    return RETURN_CODE::DONE;
+    return CODE::DONE;
 }
 
-RETURN_CODE CPrintAllHandler::performOn(CShapeWithSize inCache)
+CODE CPrintAllHandler::performOn(CShapeWithSize inCache)
 {
     int cacheSize = std::get<SIZE>(inCache);
+    std::cout << cacheSize << std::endl;
 
     Logger::info() << SHAPES << POST_PRINT;
 
@@ -111,11 +120,11 @@ RETURN_CODE CPrintAllHandler::performOn(CShapeWithSize inCache)
         }
         else
         {
-            Logger::info() << toString(RETURN_CODE::NOT_INITIALIZED);
+            Logger::info() << toString(CODE::NOT_INITIALIZED);
         }
 
         Logger::info() << POST_PRINT;
     }
 
-    return RETURN_CODE::DONE;
+    return CODE::DONE;
 }

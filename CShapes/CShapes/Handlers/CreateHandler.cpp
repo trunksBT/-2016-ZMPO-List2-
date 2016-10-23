@@ -24,7 +24,7 @@
 //    return "siis";
 //}
 //
-//RETURN_CODE CCreateHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CCreateHandler::performOn(std::vector<CPointWithSize>& inCache)
 //{
 //    std::string receivedId(wholeCommand_[idxOf::ID_OF_CTABLE]);
 //    int idxOrAmount = std::stoi(receivedId);
@@ -34,7 +34,7 @@
 //
 //    //if(idxOrAmount < 0)
 //    //{
-//    //    return returnResultCode(RETURN_CODE::ERROR);
+//    //    return returnResultCode(CODE::ERROR);
 //    //}
 //    //else
 //    //{
@@ -52,9 +52,9 @@
 //    //    }
 //    //    else
 //    //    {
-//    //        return returnResultCode(RETURN_CODE::ERROR);
+//    //        return returnResultCode(CODE::ERROR);
 //    //    }
 //    //}
 //
-//    return RETURN_CODE::DONE;
+//    return CODE::DONE;
 //}

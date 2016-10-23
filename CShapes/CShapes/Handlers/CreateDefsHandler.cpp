@@ -92,12 +92,12 @@ CODE CGoHandler::performOn(CPointWithSize inCache)
     {
         return CODE::ERROR;
     }
+    else if (idxOrAmount == ZERO)
+    {
+        return CODE::DONE;
+    }
     else
     {
-        if (idxOrAmount == ZERO)
-        {
-            return CODE::DONE;
-        }
         int newSize = cacheSize + idxOrAmount;
         CShape** newTable = new CShape*[newSize];
 
@@ -129,6 +129,10 @@ CODE CGoHandler::performOn(CShapeWithSize inCache)
     if (idxOrAmount < ZERO)
     {
         return CODE::ERROR;
+    }
+    else if (idxOrAmount == ZERO)
+    {
+        return CODE::DONE;
     }
     else
     {

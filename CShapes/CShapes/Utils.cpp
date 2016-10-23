@@ -21,14 +21,14 @@ namespace funs
         return inIdx > MINUS_ONE && inIdx < inSize;
     }
 
-    std::string toString(RETURN_CODE inCode)
+    std::string toString(CODE inCode)
     {
-        static std::map<RETURN_CODE, std::string> codeToString;
+        static std::map<CODE, std::string> codeToString;
 
-        codeToString[RETURN_CODE::DONE] = "DONE";
-        codeToString[RETURN_CODE::ERROR] = "ERROR";
-        codeToString[RETURN_CODE::CLOSE] = "CLOSE";
-        codeToString[RETURN_CODE::NOT_INITIALIZED] = "NOT_INITIALIZED";
+        codeToString[CODE::DONE] = "DONE";
+        codeToString[CODE::ERROR] = "ERROR";
+        codeToString[CODE::CLOSE] = "CLOSE";
+        codeToString[CODE::NOT_INITIALIZED] = "NOT_INITIALIZED";
 
         return codeToString[inCode];
     }

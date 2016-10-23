@@ -28,13 +28,13 @@ CShape** CFlyweight::shapeCache_;
 int CFlyweight::shapeCacheSize_;
 std::map<int, bool> CFlyweight::shapeCacheIsInitialized_;
 
-RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
+CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 {
-    RETURN_CODE returnedCode = RETURN_CODE::ERROR;
+    CODE returnedCode = CODE::ERROR;
     {
         if (inCommand.size() == ZERO)
         {
-            return RETURN_CODE::ERROR;
+            return CODE::ERROR;
         }
 
         std::string command(inCommand[idxOf::COMMAND]);
@@ -47,7 +47,7 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CShapeWithSize pairedShapeCache = 
         {
             shapeCache_,
-            pointCacheSize_,
+            shapeCacheSize_,
             shapeCacheIsInitialized_ 
         };
 
@@ -63,7 +63,7 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         }
         else if (command == CLOSE)
         {
-            returnedCode = RETURN_CODE::CLOSE;
+            returnedCode = CODE::CLOSE;
         }
     }
     /*if(command == CREATE)
@@ -116,7 +116,7 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 
     //else
     //{
-    //    returnedCode = returnResultCode(RETURN_CODE::ERROR);
+    //    returnedCode = returnResultCode(CODE::ERROR);
     //}
 
     return returnedCode;
@@ -126,24 +126,26 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 
 void CFlyweight::releaseResources()
 {
-    for (int i = 0; i < DEFAULT_FLYWEIGHT_CACHE_SIZE && shapeCacheIsInitialized_[i]; i++)
+    for (int i = 0; i < pointCacheSize_; i++)
     {
-        if (pointCache_[i] == nullptr)
+        if (pointCacheIsInitialized_[i] && pointCache_[i] == nullptr)
         {
             delete pointCache_[i];
             pointCache_[i] = nullptr;
         }
     }
+    delete[] pointCache_;
     pointCache_ = nullptr;
 
-    for (int i = 0; i < DEFAULT_FLYWEIGHT_CACHE_SIZE && shapeCacheIsInitialized_[i]; i++)
+    for (int i = 0; i < shapeCacheSize_; i++)
     {
-        if (shapeCache_[i] == nullptr)
+        if ( shapeCacheIsInitialized_[i] && shapeCache_[i] == nullptr )
         {
             delete shapeCache_[i];
             shapeCache_[i] = nullptr;
         }
     }
+    delete[] shapeCache_;
     shapeCache_ = nullptr;
 }
 
@@ -162,13 +164,13 @@ void CFlyweight::initPointCache(int inCacheSize)
     }
 }
 
-void CFlyweight::initShapesCache(int inCacheSize)
+void CFlyweight::initShapeCache(int inCacheSize)
 {
     if (inCacheSize >= ZERO)
     {
         shapeCacheSize_ = inCacheSize;
         shapeCache_ = nullptr;
-        for (int i = 0; i < pointCacheSize_; i++)
+        for (int i = 0; i < shapeCacheSize_; i++)
         {
             shapeCacheIsInitialized_[i] = false;
         }

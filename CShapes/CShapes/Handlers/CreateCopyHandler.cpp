@@ -25,7 +25,7 @@
 //    return "sii";
 //}
 //
-//RETURN_CODE CCreateCopyHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CCreateCopyHandler::performOn(std::vector<CPointWithSize>& inCache)
 //{
 //    std::string receivedDestinyId(wholeCommand_[idxOf::ID_OF_CTABLE]);
 //    int destinyId = std::stoi(receivedDestinyId);
@@ -36,7 +36,7 @@
 //    //{
 //    //    if(inCache[sourceId].first == nullptr)
 //    //    {
-//    //        return returnResultCode(RETURN_CODE::ERROR);
+//    //        return returnResultCode(CODE::ERROR);
 //    //    }
 //    //    else if(destinyId != sourceId)
 //    //    {
@@ -58,13 +58,13 @@
 //    //    }
 //    //    else
 //    //    {
-//    //        return returnResultCode(RETURN_CODE::ERROR);
+//    //        return returnResultCode(CODE::ERROR);
 //    //    }
 //    //}
 //    //else
 //    //{
-//    //    return returnResultCode(RETURN_CODE::ERROR);
+//    //    return returnResultCode(CODE::ERROR);
 //    //}
 //
-//    return RETURN_CODE::DONE;
+//    return CODE::DONE;
 //}

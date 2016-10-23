@@ -25,14 +25,14 @@
 //    return "si";
 //}
 //
-//RETURN_CODE CCreateDefHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CCreateDefHandler::performOn(std::vector<CPointWithSize>& inCache)
 //{
 //    std::string receivedId(wholeCommand_[idxOf::ID_OF_CTABLE]);
 //
 //    int idxOrAmount = std::stoi(receivedId);
 //    if(!isProperIdx(idxOrAmount, inCache[CTABLE_IDX].second))
 //    {
-//        return returnResultCode(RETURN_CODE::ERROR);
+//        return returnResultCode(CODE::ERROR);
 //    }
 //
 //    //if(inCache[idxOrAmount].first != nullptr)
@@ -41,5 +41,5 @@
 //    //}
 //    //inCache[idxOrAmount].first = CPoint::buildNewObj();
 //
-//    return RETURN_CODE::DONE;
+//    return CODE::DONE;
 //}

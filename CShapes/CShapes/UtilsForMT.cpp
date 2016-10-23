@@ -10,18 +10,18 @@ using namespace funs;
 
 namespace assertWrapper
 {
-RETURN_CODE getFinalResultCode(std::vector<RETURN_CODE> inCodes)
+CODE getFinalResultCode(std::vector<CODE> inCodes)
 {
     bool isLegit = true;
-    RETURN_CODE resultCode = RETURN_CODE::ERROR;
+    CODE resultCode = CODE::ERROR;
     int idxOfWrongCode = MINUS_ONE;
 
     for(int i = 0; i < inCodes.size() && isLegit; i++)
     {
-        if(inCodes[i] == RETURN_CODE::DONE)
+        if(inCodes[i] == CODE::DONE)
         {
             isLegit &= true;
-            resultCode = RETURN_CODE::DONE;
+            resultCode = CODE::DONE;
         }
         else
         {
