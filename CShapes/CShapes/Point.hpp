@@ -8,6 +8,7 @@ class CPoint : public CShape
 {
 public:
     CPoint(int inSize);
+    explicit CPoint(double xAxis, double yAxis);
     CPoint(CPoint& inVal);
     CPoint(std::string inVal);
     CPoint(int inSize, int inInitVal);

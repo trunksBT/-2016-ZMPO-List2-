@@ -10,6 +10,11 @@ using namespace defaultVals;
 using namespace funs;
 using namespace typeLiterals;
 
+CPoint::CPoint(double xAxis, double yAxis)
+{
+
+}
+
 CPoint::CPoint(int inSize) : CShape()
 {
     name_ = DEFAULT_TABLE_NAME;

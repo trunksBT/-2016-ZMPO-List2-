@@ -91,6 +91,7 @@ namespace idxOf
 {
 constexpr const int COMMAND = 0;
 constexpr const int ID_OF_POINTS = 1;
+constexpr const int ID_FOR_CREATE = 1;
 constexpr const int ID_OF_SHAPES = 2;
 constexpr const int NEW_NAME = 2;
 constexpr const int NEW_SIZE = 2;
@@ -102,7 +103,7 @@ constexpr const int INITIAL_NAME = 3;
 namespace messageLiterals
 {
 constexpr const char* CREATE = "create";
-constexpr const char* CREATE_DEF = "createDef";
+constexpr const char* CREATE_POINT = "createPoint";
 constexpr const char* GO = "go";
 constexpr const char* CREATE_COPY = "createCopy";
 constexpr const char* GET_VALUE = "getValue";
@@ -125,16 +126,16 @@ constexpr const char* VALUE = "<value>";
 
 namespace fullCommands
 {
-extern std::string createArgs;
-extern std::string createDefArgs;
-extern std::string createCopyArgs;
-extern std::string getValueArgs;
-extern std::string setValueArgs;
-extern std::string printArgs;
-extern std::string printAllArgs;
-extern std::string deleteArgs;
-extern std::string deleteAllArgs;
-extern std::string closeArgs;
-extern std::string helpArgs;
-extern std::vector<std::string> allCommands;
+//extern std::string createArgs;
+//extern std::string createDefArgs;
+//extern std::string createCopyArgs;
+//extern std::string getValueArgs;
+//extern std::string setValueArgs;
+//extern std::string printArgs;
+//extern std::string printAllArgs;
+//extern std::string deleteArgs;
+//extern std::string deleteAllArgs;
+//extern std::string closeArgs;
+//extern std::string helpArgs;
+//extern std::vector<std::string> allCommands;
 }

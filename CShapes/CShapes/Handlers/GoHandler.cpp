@@ -28,14 +28,6 @@ std::string CGoHandler::getProperTypesOfArgs()
     return "sii";
 }
 
-//void repointTable(CShape** newTable, CShape** oldTable, int size)
-//{
-//    for (int i = 0; i < size; i++)
-//    {
-//        newTable[i] = oldTable[i];
-//    }
-//}
-
 CODE CGoHandler::checkArgsAndPerform(
     CPointWithSize inPointCache,
     CShapeWithSize inRectangleCache)
