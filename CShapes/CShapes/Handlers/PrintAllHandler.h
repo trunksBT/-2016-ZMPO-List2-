@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-#include "IHandler.h"
+#include "IPointHandler.h"
 
-class CPrintAllHandler final : public IHandler
+class CPrintAllHandler final : public IPointHandler
 {
 public:
     CPrintAllHandler(std::vector<std::string>& inCommand);

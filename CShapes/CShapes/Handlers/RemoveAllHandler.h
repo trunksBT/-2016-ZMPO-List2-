@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-#include "IHandler.h"
+#include "IPointHandler.h"
 
-class CRemoveAllHandler final : public IHandler
+class CRemoveAllHandler final : public IPointHandler
 {
 public:
     CRemoveAllHandler(std::vector<std::string>& inCommand);

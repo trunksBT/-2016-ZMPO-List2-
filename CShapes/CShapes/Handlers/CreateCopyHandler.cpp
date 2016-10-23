@@ -11,7 +11,7 @@ using namespace defaultVals;
 using namespace funs;
 
 CCreateCopyHandler::CCreateCopyHandler(std::vector<std::string>& inCommand)
-    : IHandler(inCommand)
+    : IPointHandler(inCommand)
 {
 }
 

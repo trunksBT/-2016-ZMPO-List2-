@@ -11,7 +11,7 @@ using namespace defaultVals;
 using namespace funs;
 
 CHelpHandler::CHelpHandler(std::vector<std::string>& inCommand)
-    : IHandler(inCommand)
+    : IPointHandler(inCommand)
 {}
 
 const int CHelpHandler::getProperAmountOfArgs()

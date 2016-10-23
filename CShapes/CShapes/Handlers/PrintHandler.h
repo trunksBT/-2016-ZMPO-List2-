@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-#include "IHandler.h"
+#include "IPointHandler.h"
 
-class CPrintHandler final : public IHandler
+class CPrintHandler final : public IPointHandler
 {
 
 public:

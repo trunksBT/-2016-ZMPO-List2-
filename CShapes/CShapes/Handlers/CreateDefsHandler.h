@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-#include "IHandler.h"
+#include "IPointHandler.h"
 
-class CCreateDefsHandler final : public IHandler
+class CCreateDefsHandler final : public IPointHandler
 {
 public:
     CCreateDefsHandler(std::vector<std::string>& inCommand);

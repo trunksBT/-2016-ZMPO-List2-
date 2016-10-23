@@ -5,11 +5,11 @@
 #include "../Utils.hpp"
 
 class CPoint;
-class IHandler
+class IRectangleHandler
 {
 public:
-    IHandler(std::vector<std::string>& inCommand);
-    virtual ~IHandler();
+    IRectangleHandler(std::vector<std::string>& inCommand);
+    virtual ~IRectangleHandler();
     ERROR_CODE checkCorrectnessAndPerform(std::vector<CPointWithSize>& inCache);
     virtual ERROR_CODE performOn(std::vector<CPointWithSize>& inCache) = 0;
     virtual const int getProperAmountOfArgs() = 0;

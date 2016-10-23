@@ -11,7 +11,7 @@ using namespace cacheIdx;
 using namespace funs;
 
 CCreateDefsHandler::CCreateDefsHandler(std::vector<std::string>& inCommand)
-    : IHandler(inCommand)
+    : IPointHandler(inCommand)
 {}
 
 const int CCreateDefsHandler::getProperAmountOfArgs()

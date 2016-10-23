@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-#include "IHandler.h"
+#include "IPointHandler.h"
 
-class CGetValueHandler final : public IHandler
+class CGetValueHandler final : public IPointHandler
 {
 public:
     CGetValueHandler(std::vector<std::string>& inCommand);

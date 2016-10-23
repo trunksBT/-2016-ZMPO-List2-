@@ -11,7 +11,7 @@ using namespace defaultVals;
 using namespace funs;
 
 CRemoveHandler::CRemoveHandler(std::vector<std::string>& inCommand)
-    : IHandler(inCommand)
+    : IPointHandler(inCommand)
 {}
 
 const int CRemoveHandler::getProperAmountOfArgs()

@@ -11,7 +11,7 @@ using namespace defaultVals;
 using namespace funs;
 
 CPrintHandler::CPrintHandler(std::vector<std::string>& inCommand)
-    : IHandler(inCommand)
+    : IPointHandler(inCommand)
 {
 }
 

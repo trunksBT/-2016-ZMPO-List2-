@@ -11,7 +11,7 @@ using namespace defaultVals;
 using namespace funs;
 
 CGetValueHandler::CGetValueHandler(std::vector<std::string>& inCommand)
-    : IHandler(inCommand)
+    : IPointHandler(inCommand)
 {}
 
 const int CGetValueHandler::getProperAmountOfArgs()

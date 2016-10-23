@@ -3,9 +3,9 @@
 #include <vector>
 #include <string>
 
-#include "IHandler.h"
+#include "IPointHandler.h"
 
-class CHelpHandler final : public IHandler
+class CHelpHandler final : public IPointHandler
 {
 public:
     CHelpHandler(std::vector<std::string>& inCommand);
