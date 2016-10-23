@@ -46,9 +46,9 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 
         CShapeWithSize pairedShapeCache = 
         {
-        shapeCache_,
-        pointCacheSize_,
-        shapeCacheIsInitialized_ 
+            shapeCache_,
+            pointCacheSize_,
+            shapeCacheIsInitialized_ 
         };
 
         if (command == GO)
@@ -172,8 +172,8 @@ void CFlyweight::initShapesCache(int inCacheSize)
 
 CFlyweight::CFlyweight()
 {
-    initPointCache(DEFAULT_FLYWEIGHT_CACHE_SIZE);
-    initPointCache(DEFAULT_FLYWEIGHT_CACHE_SIZE);
+    initPointCache(ZERO);
+    initPointCache(ZERO);
 }
 
 CFlyweight::CFlyweight(int inPointCacheSize, int inShapeCacheSize)

@@ -90,7 +90,18 @@ RETURN_CODE CGoHandler::performOn(CPointWithSize inCache)
     }
     else
     {
-
+        for (int i= 0; i < idxOrAmount; i++)
+        {
+            if (std::get<INITIALIZED_MAP>(inCache)[i])
+            {
+                delete std::get<ARRAY>(inCache);
+            }
+            else
+            {
+                CFlyweight::updateIsInitializedPointCache(i, true);
+            }
+            std::get<ARRAY>(inCache)[i] = CPoint::buildNewObj(DEFAULT_IN_TABLE_SIZE);
+        }
         //if( )
         //for (int ammountOfCreatedObj = ZERO; ammountOfCreatedObj < idxOrAmount;)
         //{

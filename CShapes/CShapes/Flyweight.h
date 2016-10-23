@@ -25,7 +25,6 @@ public:
     static CShape** shapeCache_;
     static int shapeCacheSize_;
     static std::map<int, bool> shapeCacheIsInitialized_;
-
 public:
     static void setPointCacheSize(int inSize);
     static void setShapeCacheSize(int inSize);
