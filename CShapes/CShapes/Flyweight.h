@@ -14,7 +14,7 @@ public:
     explicit CFlyweight(int inPointCacheSize, int inShapeCacheSize);
     ~CFlyweight();
 public:
-    static RETURN_CODE interpretCommand(std::vector<std::string>& inCommand);
+    static CODE interpretCommand(std::vector<std::string>& inCommand);
 public:
    static void releaseResources();
 public:
@@ -28,7 +28,7 @@ public:
     static void updateShapeCache(CShape** newShapeCache);
 private:
     static void initPointCache(int inCacheSize);
-    static void initShapesCache(int inCacheSize);
+    static void initShapeCache(int inCacheSize);
 private:
     static CShape** pointCache_;
     static int pointCacheSize_;

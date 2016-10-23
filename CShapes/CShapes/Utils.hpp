@@ -7,7 +7,7 @@
 #include <tuple>
 #include <map>
 
-enum class RETURN_CODE : int
+enum class CODE : int
 {
     DONE = 0,
     ERROR = 1,
@@ -79,7 +79,7 @@ using CPointWithSize = std::tuple<CPoint**, int, std::map<int, bool>>;
 namespace funs
 {
 int toInt(char inChar);
-std::string toString(RETURN_CODE inCode);
+std::string toString(CODE inCode);
 bool isNumber(std::string inChain);
 bool isProperIdx(int inIdx, int inSize);
 bool isProperIdx(int idxOrAmount, CShapeWithSize inCache);

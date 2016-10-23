@@ -25,7 +25,7 @@
 //    return "si";
 //}
 //
-//RETURN_CODE CPrintHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CPrintHandler::purePerform(std::vector<CPointWithSize>& inCache)
 //{
 //    std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
 //    int idxOrAmount = std::stoi(receivedId);
@@ -39,14 +39,14 @@
 //    //    }
 //    //    else
 //    //    {
-//    //        return returnResultCode(RETURN_CODE::ERROR);
+//    //        return returnResultCode(CODE::ERROR);
 //    //    }
 //    //    retTable = nullptr;
 //    //}
 //    //else
 //    //{
-//    //    return returnResultCode(RETURN_CODE::ERROR);
+//    //    return returnResultCode(CODE::ERROR);
 //    //}
 //
-//    return RETURN_CODE::DONE;
+//    return CODE::DONE;
 //}

@@ -10,7 +10,7 @@
 //public:
 //    CCreateDefHandler(std::vector<std::string>& inCommand);
 //protected:
-//    RETURN_CODE performOn(CPointWithSize& inCache) override;
+//    CODE purePerform(CPointWithSize& inCache) override;
 //    const int getProperAmountOfArgs() override;
 //    std::string getProperTypesOfArgs() override;
 //};

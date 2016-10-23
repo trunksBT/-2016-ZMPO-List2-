@@ -13,19 +13,19 @@ IHandler::IHandler(std::vector<std::string>& inCommand)
     Logger::info() << PRE_PRINT << wholeCommand_[idxOf::COMMAND] << POST_PRINT;
 }
 
-RETURN_CODE IHandler::checkCorrectnessAndPerform()
+CODE IHandler::checkTypeAndAmountOfArgs()
 {
     if (!isProperAmmountOfArgs(wholeCommand_, getProperAmountOfArgs()))
     {
-        return RETURN_CODE::ERROR;
+        return CODE::ERROR;
     }
     else if (!isProperTypeOfArgs(wholeCommand_, getProperTypesOfArgs()))
     {
-        return RETURN_CODE::ERROR;
+        return CODE::ERROR;
     }
     else
     {
-        return RETURN_CODE::DONE;
+        return CODE::DONE;
     }
 }
 

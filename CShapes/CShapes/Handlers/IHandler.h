@@ -10,7 +10,7 @@ class IHandler
 public:
     IHandler(std::vector<std::string>& inCommand);
     virtual ~IHandler();
-    RETURN_CODE checkCorrectnessAndPerform();
+    CODE checkTypeAndAmountOfArgs();
     virtual const int getProperAmountOfArgs() = 0;
     virtual std::string getProperTypesOfArgs() = 0;
 protected:

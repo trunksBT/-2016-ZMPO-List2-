@@ -24,12 +24,12 @@
 //    return "s";
 //}
 //
-//RETURN_CODE CHelpHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CHelpHandler::purePerform(std::vector<CPointWithSize>& inCache)
 //{
 //    for(int i = 0; i < fullCommands::allCommands.size(); i++)
 //    {
 //        std::cout << fullCommands::allCommands[i] << POST_PRINT;
 //    }
 //
-//    return RETURN_CODE::DONE;
+//    return CODE::DONE;
 //}

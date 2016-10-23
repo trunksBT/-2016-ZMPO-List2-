@@ -28,61 +28,68 @@ std::string CGoHandler::getProperTypesOfArgs()
     return "sii";
 }
 
-void repointTable(CShape** sourceTable, CShape** goalTable, int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        goalTable[i] = sourceTable[i];
-    }
-}
+//void repointTable(CShape** newTable, CShape** oldTable, int size)
+//{
+//    for (int i = 0; i < size; i++)
+//    {
+//        newTable[i] = oldTable[i];
+//    }
+//}
 
-RETURN_CODE CGoHandler::perform(
+CODE CGoHandler::checkArgsAndPerform(
     CPointWithSize inPointCache,
     CShapeWithSize inRectangleCache)
 {
-    RETURN_CODE retCode = RETURN_CODE::ERROR;
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)
+    {
+        return purePerform(inPointCache, inRectangleCache);
+    }
+    else
+    {
+        return CODE::ERROR;
+    }
+}
+
+CODE CGoHandler::purePerform(
+    CPointWithSize inPointCache,
+    CShapeWithSize inRectangleCache)
+{
+    CODE retCode = CODE::ERROR;
 
     retCode = getFinalResultCode
     ({
-        perform(inPointCache),
-        perform(inRectangleCache),
+        checkArgsAndPerform(inPointCache),
+        checkArgsAndPerform(inRectangleCache)
     });
 
     return retCode;
 }
 
-RETURN_CODE CGoHandler::performOn(
-    CPointWithSize inPointCache,
-    CShapeWithSize inRectangleCache)
+CODE CGoHandler::checkArgsAndPerform(CShapeWithSize inCache)
 {
-    return RETURN_CODE::ERROR;
-}
-
-RETURN_CODE CGoHandler::perform(CShapeWithSize inCache)
-{
-    if (checkCorrectnessAndPerform() == RETURN_CODE::DONE)
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)
     {
-        return performOn(inCache);
+        return purePerform(inCache);
     }
     else
     {
-        return RETURN_CODE::ERROR;
+        return CODE::ERROR;
     }
 }
 
-RETURN_CODE CGoHandler::perform(CPointWithSize inCache)
+CODE CGoHandler::checkArgsAndPerform(CPointWithSize inCache)
 {
-    if (checkCorrectnessAndPerform() == RETURN_CODE::DONE)
+    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)
     {
-        return performOn(inCache);
+        return purePerform(inCache);
     }
     else
     {
-        return RETURN_CODE::ERROR;
+        return CODE::ERROR;
     }
 }
 
-RETURN_CODE CGoHandler::performOn(CPointWithSize inCache)
+CODE CGoHandler::purePerform(CPointWithSize inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::ID_OF_POINTS]);
     int idxOrAmount = std::stoi(receivedId);
@@ -90,18 +97,21 @@ RETURN_CODE CGoHandler::performOn(CPointWithSize inCache)
 
     if (idxOrAmount < ZERO)
     {
-        return RETURN_CODE::ERROR;
+        return CODE::ERROR;
+    }
+    else if (idxOrAmount == ZERO)
+    {
+        return CODE::DONE;
     }
     else
     {
         int newSize = cacheSize + idxOrAmount;
         CShape** newTable = new CShape*[newSize];
 
-        repointTable(
-            reinterpret_cast<CShape**>(std::get<ARRAY>(inCache)),
-            newTable,
-            cacheSize
-        );
+        for (int i = 0; i < cacheSize; i++)
+        {
+            newTable[i] = std::get<ARRAY>(inCache)[i];
+        }
 
         int cursor = cacheSize;
         for (int i = 0; i < idxOrAmount; i++, cursor++)
@@ -111,30 +121,34 @@ RETURN_CODE CGoHandler::performOn(CPointWithSize inCache)
         }
         CFlyweight::setPointCacheSize(newSize);
         CFlyweight::updatePointCache(newTable);
+        newTable = nullptr;
     }
-    return RETURN_CODE::DONE;
+    return CODE::DONE;
 }
 
-RETURN_CODE CGoHandler::performOn(CShapeWithSize inCache)
+CODE CGoHandler::purePerform(CShapeWithSize inCache)
 {
-    std::string receivedId(wholeCommand_[idxOf::ID_OF_POINTS]);
+    std::string receivedId(wholeCommand_[idxOf::ID_OF_SHAPES]);
     int idxOrAmount = std::stoi(receivedId);
     int cacheSize = std::get<SIZE>(inCache);
 
     if (idxOrAmount < ZERO)
     {
-        return RETURN_CODE::ERROR;
+        return CODE::ERROR;
+    }
+    else if (idxOrAmount == ZERO)
+    {
+        return CODE::DONE;
     }
     else
     {
         int newSize = cacheSize + idxOrAmount;
         CShape** newTable = new CShape*[newSize];
 
-        repointTable(
-            reinterpret_cast<CShape**>(std::get<ARRAY>(inCache)),
-            newTable,
-            cacheSize
-        );
+        for (int i = 0; i < cacheSize; i++)
+        {
+            newTable[i] = std::get<ARRAY>(inCache)[i];
+        }
 
         int cursor = cacheSize;
         for (int i = 0; i < idxOrAmount; i++, cursor++)
@@ -144,8 +158,9 @@ RETURN_CODE CGoHandler::performOn(CShapeWithSize inCache)
         }
         CFlyweight::setShapeCacheSize(newSize);
         CFlyweight::updateShapeCache(newTable);
+        newTable = nullptr;
     }
-    return RETURN_CODE::DONE;
+    return CODE::DONE;
 }
 
 CGoHandler::~CGoHandler()

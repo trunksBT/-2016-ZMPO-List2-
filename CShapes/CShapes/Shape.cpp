@@ -3,8 +3,8 @@
 
 
 CShape::CShape()
-{}
-
+{
+}
 
 CShape::~CShape()
 {}

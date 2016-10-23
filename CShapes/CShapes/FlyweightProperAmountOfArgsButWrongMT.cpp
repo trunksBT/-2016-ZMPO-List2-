@@ -20,19 +20,19 @@ class CCFlyweightProperAmountOfArgsButWrongMT : public testing::Test
 protected:
     virtual void SetUp()
     {
-        rcVal = RETURN_CODE::ERROR;
+        rcVal = CODE::ERROR;
     }
 
     virtual void TearDown()
     {}
 protected:
     CFlyweight application;
-    RETURN_CODE rcVal;
+    CODE rcVal;
 };
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createDefZ_OnEmptyCCFlyweight_Expect_ERROR)
 {
-    RETURN_CODE expVal = RETURN_CODE::ERROR;
+    CODE expVal = CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -45,7 +45,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createDefZ_OnEmptyCCFlyweight_Ex
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createCopyZZ_OnEmptyCCFlyweight_Expect_ERROR)
 {
-    RETURN_CODE expVal = RETURN_CODE::ERROR;
+    CODE expVal = CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -58,7 +58,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createCopyZZ_OnEmptyCCFlyweight_
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, printZ_OnEmptyCCFlyweight_Expect_ERROR)
 {
-    RETURN_CODE expVal = RETURN_CODE::ERROR;
+    CODE expVal = CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -71,7 +71,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, printZ_OnEmptyCCFlyweight_Expect
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, deleteZ_OnEmptyCCFlyweight_Expect_ERROR)
 {
-    RETURN_CODE expVal = RETURN_CODE::ERROR;
+    CODE expVal = CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -84,7 +84,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, deleteZ_OnEmptyCCFlyweight_Expec
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, getValueZZ_OnEmptyCCFlyweight_Expect_ERROR)
 {
-    RETURN_CODE expVal = RETURN_CODE::ERROR;
+    CODE expVal = CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -97,7 +97,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, getValueZZ_OnEmptyCCFlyweight_Ex
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, setValue0ZZZ_OnEmptyCCFlyweight_Expect_ERROR)
 {
-    RETURN_CODE expVal = RETURN_CODE::ERROR;
+    CODE expVal = CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
@@ -110,7 +110,7 @@ TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, setValue0ZZZ_OnEmptyCCFlyweight_
 
 TEST_F(CCFlyweightProperAmountOfArgsButWrongMT, createZZZ_OnEmptyCCFlyweight_Expect_ERROR)
 {
-    RETURN_CODE expVal = RETURN_CODE::ERROR;
+    CODE expVal = CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
