@@ -28,6 +28,14 @@ std::string CGoHandler::getProperTypesOfArgs()
     return "sii";
 }
 
+void repointTable(CShape** sourceTable, CShape** goalTable, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        goalTable[i] = sourceTable[i];
+    }
+}
+
 RETURN_CODE CGoHandler::perform(
     CPointWithSize inPointCache,
     CShapeWithSize inRectangleCache)
@@ -84,41 +92,32 @@ RETURN_CODE CGoHandler::performOn(CPointWithSize inCache)
     {
         return RETURN_CODE::ERROR;
     }
-    else if (cacheSize < idxOrAmount)
-    {
-        return RETURN_CODE::ERROR;
-    }
     else
     {
-        for (int i= 0; i < idxOrAmount; i++)
-        {
-            if (std::get<INITIALIZED_MAP>(inCache)[i])
-            {
-                delete std::get<ARRAY>(inCache);
-            }
-            else
-            {
-                CFlyweight::updateIsInitializedPointCache(i, true);
-            }
-            std::get<ARRAY>(inCache)[i] = CPoint::buildNewObj(DEFAULT_IN_TABLE_SIZE);
-        }
-        //if( )
-        //for (int ammountOfCreatedObj = ZERO; ammountOfCreatedObj < idxOrAmount;)
-        //{
-        //    if (!CFlyweight::isInitializedPointCache_[ammountOfCreatedObj] || inCache[CTABLE_IDX].first[ammountOfCreatedObj] == nullptr)
-        //    {
-        //        inCache[CTABLE_IDX].first[ammountOfCreatedObj] = CPoint::buildNewObj();
-        //        ammountOfCreatedObj++;
-        //    }
-        //}
-    }
+        int newSize = cacheSize + idxOrAmount;
+        CShape** newTable = new CShape*[newSize];
 
+        repointTable(
+            reinterpret_cast<CShape**>(std::get<ARRAY>(inCache)),
+            newTable,
+            cacheSize
+        );
+
+        int cursor = cacheSize;
+        for (int i = 0; i < idxOrAmount; i++, cursor++)
+        {
+            CFlyweight::updateIsInitializedPointCache(cursor, true);
+            newTable[cursor] = CPoint::buildNewObj(DEFAULT_IN_TABLE_SIZE);
+        }
+        CFlyweight::setPointCacheSize(newSize);
+        CFlyweight::updatePointCache(newTable);
+    }
     return RETURN_CODE::DONE;
 }
 
 RETURN_CODE CGoHandler::performOn(CShapeWithSize inCache)
 {
-    std::string receivedId(wholeCommand_[idxOf::ID_OF_SHAPES]);
+    std::string receivedId(wholeCommand_[idxOf::ID_OF_POINTS]);
     int idxOrAmount = std::stoi(receivedId);
     int cacheSize = std::get<SIZE>(inCache);
 
@@ -126,22 +125,26 @@ RETURN_CODE CGoHandler::performOn(CShapeWithSize inCache)
     {
         return RETURN_CODE::ERROR;
     }
-    else if (cacheSize < idxOrAmount)
-    {
-        return RETURN_CODE::ERROR;
-    }
     else
     {
-        //for (int ammountOfCreatedObj = ZERO; ammountOfCreatedObj < idxOrAmount;)
-        //{
-        //    if (!CFlyweight::isInitializedPointCache_[ammountOfCreatedObj] || inCache[CTABLE_IDX].first[ammountOfCreatedObj] == nullptr)
-        //    {
-        //        inCache[CTABLE_IDX].first[ammountOfCreatedObj] = CPoint::buildNewObj();
-        //        ammountOfCreatedObj++;
-        //    }
-        //}
-    }
+        int newSize = cacheSize + idxOrAmount;
+        CShape** newTable = new CShape*[newSize];
 
+        repointTable(
+            reinterpret_cast<CShape**>(std::get<ARRAY>(inCache)),
+            newTable,
+            cacheSize
+        );
+
+        int cursor = cacheSize;
+        for (int i = 0; i < idxOrAmount; i++, cursor++)
+        {
+            CFlyweight::updateIsInitializedShapeCache(cursor, true);
+            newTable[cursor] = CRectangle::buildNewObj(DEFAULT_IN_TABLE_SIZE);
+        }
+        CFlyweight::setShapeCacheSize(newSize);
+        CFlyweight::updateShapeCache(newTable);
+    }
     return RETURN_CODE::DONE;
 }
 

@@ -27,7 +27,8 @@ namespace funs
 
         codeToString[RETURN_CODE::DONE] = "DONE";
         codeToString[RETURN_CODE::ERROR] = "ERROR";
-        codeToString[RETURN_CODE::CLOSE]= "CLOSE";
+        codeToString[RETURN_CODE::CLOSE] = "CLOSE";
+        codeToString[RETURN_CODE::NOT_INITIALIZED] = "NOT_INITIALIZED";
 
         return codeToString[inCode];
     }

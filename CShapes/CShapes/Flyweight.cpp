@@ -56,6 +56,11 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             IPointAndRectangleHandler* evaluate = new CGoHandler(inCommand);
             returnedCode = evaluate->perform(pairedPointCache, pairedShapeCache);
         }
+        else if (command == PRINT_ALL)
+        {
+            IPointAndRectangleHandler* evaluate = new CPrintAllHandler(inCommand);
+            returnedCode = evaluate->perform(pairedPointCache, pairedShapeCache);
+        }
         else if (command == CLOSE)
         {
             returnedCode = RETURN_CODE::CLOSE;
@@ -102,11 +107,7 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CRemoveHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
-    else if(command == PRINT_ALL)
-    {
-        CPrintAllHandler evaluate(inCommand);
-        returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
-    }
+
     else if(command == HELP)
     {
         CHelpHandler evaluate(inCommand);
@@ -148,26 +149,32 @@ void CFlyweight::releaseResources()
 
 void CFlyweight::initPointCache(int inCacheSize)
 {
-    pointCacheSize_ = inCacheSize;
-    pointCache_ = nullptr;
-    for (int i = 0; i < pointCacheSize_; i++)
+    if (inCacheSize >= ZERO)
     {
-        pointCacheIsInitialized_[i] = false;
-    }
+        pointCacheSize_ = inCacheSize;
+        pointCache_ = nullptr;
+        for (int i = 0; i < pointCacheSize_; i++)
+        {
+            pointCacheIsInitialized_[i] = false;
+        }
 
-    pointCache_ = new CShape*[pointCacheSize_];
+        pointCache_ = new CShape*[pointCacheSize_];
+    }
 }
 
 void CFlyweight::initShapesCache(int inCacheSize)
 {
-    shapeCacheSize_ = inCacheSize;
-    shapeCache_ = nullptr;
-    for (int i = 0; i < pointCacheSize_; i++)
+    if (inCacheSize >= ZERO)
     {
-        shapeCacheIsInitialized_[i] = false;
-    }
+        shapeCacheSize_ = inCacheSize;
+        shapeCache_ = nullptr;
+        for (int i = 0; i < pointCacheSize_; i++)
+        {
+            shapeCacheIsInitialized_[i] = false;
+        }
 
-    shapeCache_ = new CShape*[shapeCacheSize_];
+        shapeCache_ = new CShape*[shapeCacheSize_];
+    }
 }
 
 CFlyweight::CFlyweight()
@@ -204,6 +211,16 @@ void CFlyweight::updateIsInitializedPointCache(int idx, bool newVal)
 void CFlyweight::updateIsInitializedShapeCache(int idx, bool newVal)
 {
     shapeCacheIsInitialized_[idx] = newVal;
+}
+
+void CFlyweight::updatePointCache(CShape** newPointCache)
+{
+    pointCache_ = newPointCache;
+}
+
+void CFlyweight::updateShapeCache(CShape** newShapeCache)
+{
+    shapeCache_ = newShapeCache;
 }
 
 # pragma endregion

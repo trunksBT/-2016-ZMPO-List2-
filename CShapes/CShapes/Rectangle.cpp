@@ -8,6 +8,7 @@
 
 using namespace defaultVals;
 using namespace funs;
+using namespace typeLiterals;
 
 CRectangle::CRectangle()
 {
@@ -198,9 +199,15 @@ std::string CRectangle::getName() const
     return std::string(name_);
 }
 
-std::string CRectangle::toString() const
+std::string CRectangle::getType()
+{
+    return RECTANGLE;
+}
+
+std::string CRectangle::toString()
 {
     std::stringstream retVal;
+    retVal << getType() << SEPARATOR;
     retVal << BRACKET_OPEN << name_;
     retVal << SPACE << LEN << SEPARATOR << size_;
     retVal << SPACE << VALUES << SEPARATOR;

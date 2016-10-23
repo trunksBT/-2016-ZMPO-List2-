@@ -11,8 +11,17 @@ enum class RETURN_CODE : int
 {
     DONE = 0,
     ERROR = 1,
+    NOT_INITIALIZED = 2,
     CLOSE = 10
 };
+
+namespace typeLiterals
+{
+constexpr const char* POINT = "POINT";
+constexpr const char* RECTANGLE = "RECTANGLE";
+constexpr const char* POINTS = "POINTS";
+constexpr const char* SHAPES = "SHAPES";
+}
 
 namespace defaultVals
 {

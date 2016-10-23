@@ -18,6 +18,18 @@ public:
 public:
    static void releaseResources();
 public:
+    static void setPointCacheSize(int inSize);
+    static void setShapeCacheSize(int inSize);
+
+    static void updateIsInitializedPointCache(int idx, bool newVal);
+    static void updateIsInitializedShapeCache(int idx, bool newVal);
+
+    static void updatePointCache(CShape** newPointCache);
+    static void updateShapeCache(CShape** newShapeCache);
+private:
+    static void initPointCache(int inCacheSize);
+    static void initShapesCache(int inCacheSize);
+private:
     static CShape** pointCache_;
     static int pointCacheSize_;
     static std::map<int, bool> pointCacheIsInitialized_;
@@ -25,14 +37,5 @@ public:
     static CShape** shapeCache_;
     static int shapeCacheSize_;
     static std::map<int, bool> shapeCacheIsInitialized_;
-public:
-    static void setPointCacheSize(int inSize);
-    static void setShapeCacheSize(int inSize);
-
-    static void updateIsInitializedPointCache(int idx, bool newVal);
-    static void updateIsInitializedShapeCache(int idx, bool newVal);
-private:
-    static void initPointCache(int inCacheSize);
-    static void initShapesCache(int inCacheSize);
 };
 

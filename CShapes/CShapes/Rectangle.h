@@ -21,7 +21,8 @@ public:
     int getSize() const;
     int getVal(int inIdx) const;
     std::string getName() const;
-    std::string toString() const;
+    std::string toString() override;
+    std::string getType() override;
 public:
     void setSize(int inNewSize);
     void setName(std::string inName);

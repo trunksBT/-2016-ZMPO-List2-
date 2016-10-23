@@ -8,6 +8,7 @@
 
 using namespace defaultVals;
 using namespace funs;
+using namespace typeLiterals;
 
 CPoint::CPoint(int inSize) : CShape()
 {
@@ -184,9 +185,15 @@ std::string CPoint::getName() const
     return std::string(name_);
 }
 
-std::string CPoint::toString() const
+std::string CPoint::getType()
+{
+    return POINT;
+}
+
+std::string CPoint::toString()
 {
     std::stringstream retVal;
+    retVal << getType() << SEPARATOR;
     retVal << BRACKET_OPEN << name_;
     retVal << SPACE << LEN << SEPARATOR << size_;
     retVal << SPACE << VALUES << SEPARATOR;
