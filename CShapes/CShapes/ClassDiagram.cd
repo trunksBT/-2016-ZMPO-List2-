@@ -1,68 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="CPoint">
-    <Position X="10.5" Y="2.5" Width="2" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AAAkAIAAQICAAIgAAIAABghAAAAAAABIAAAkEAAAIAA=</HashCode>
-      <FileName>CPoint.hpp</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CFlyweight">
-    <Position X="7.5" Y="2.5" Width="2" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>ASAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAkAAIAAA=</HashCode>
-      <FileName>Flyweight.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CChangeSizeHandler" Collapsed="true">
-    <Position X="1.25" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAgAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
-      <FileName>Handlers\ChangeSizeHandler.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="IHandler">
-    <Position X="3.25" Y="2.25" Width="1.5" />
+    <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAiAAAABAAAAAAAQAAABAAAQAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAABAiAAAABAAAAAAAQAAABAAAAAAAAAA=</HashCode>
       <FileName>Handlers\IHandler.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CClearHandler" Collapsed="true">
-    <Position X="5.25" Y="5.5" Width="1.5" />
+  <Class Name="IPointHandler" Collapsed="true">
+    <Position X="0.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgBAgAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
-      <FileName>Handlers\ClearHandler.h</FileName>
+      <HashCode>AAAAAAACAAAAABAgAAAEAAAAAAAAAAAAAACAQAAAAAA=</HashCode>
+      <FileName>Handlers\IPointHandler.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CCreateDefHandler">
-    <Position X="3.25" Y="5.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <InheritanceLine Type="IHandler" ManuallyRouted="true">
-      <Path>
-        <Point X="4" Y="4.767" />
-        <Point X="4" Y="5.5" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="IShapeHandler" Collapsed="true">
+    <Position X="4.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAgAAAAAAAAABAAAAAAAAAAQAAAAAA=</HashCode>
-      <FileName>Handlers\CreateDefHandler.h</FileName>
+      <HashCode>AABAAAACAAAAABAgAAAAAAAAAAAAAAAAAAAAQAAAABA=</HashCode>
+      <FileName>Handlers\IShapeHandler.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="ERROR_CODE" Collapsed="true">
-    <Position X="10.75" Y="4.75" Width="1.5" />
+  <Class Name="CGoHandler" Collapsed="true">
+    <Position X="2.5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAgAAAAQCEAAAAAgAEgEAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
-      <FileName>Utils.hpp</FileName>
+      <HashCode>AAAAAAgCAAAAABAgAAAAAAAAAAAAAAAAAAAAQAAAgAA=</HashCode>
+      <FileName>Handlers\CreateDefsHandler.h</FileName>
     </TypeIdentifier>
-  </Enum>
+  </Class>
+  <Class Name="IPointAndRectangleHandler" Collapsed="true">
+    <Position X="2.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAABAgAAAAAAAAAAAAAAQAAAAAQAAAIAA=</HashCode>
+      <FileName>Handlers\IPointAndRectangleHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

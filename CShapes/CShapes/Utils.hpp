@@ -1,16 +1,27 @@
 #pragma once
 
 #include <vector>
-#include "CPoint.hpp"
+#include "Point.hpp"
+#include "Shape.h"
 #include <limits>
+#include <tuple>
+#include <map>
 
-enum class ERROR_CODE : int
+enum class RETURN_CODE : int
 {
     DONE = 0,
-    ERROR = 1
+    ERROR = 1,
+    NOT_INITIALIZED = 2,
+    CLOSE = 10
 };
 
-using CPointWithSize = std::pair<CPoint**, int>;
+namespace typeLiterals
+{
+constexpr const char* POINT = "POINT";
+constexpr const char* RECTANGLE = "RECTANGLE";
+constexpr const char* POINTS = "POINTS";
+constexpr const char* SHAPES = "SHAPES";
+}
 
 namespace defaultVals
 {
@@ -51,29 +62,36 @@ constexpr const int DEFAULT_FLYWEIGHT_CACHE_SIZE = FIVE;
 
 namespace cacheIdx
 {
-constexpr const int CTABLE_IDX = 0;
+constexpr const int POINTS_IDX = 0;
+constexpr const int SHAPES_IDX = 1;
 }
+
+namespace tupleIdx
+{
+constexpr const int ARRAY = 0;
+constexpr const int SIZE = 1;
+constexpr const int INITIALIZED_MAP = 2;
+}
+
+using CShapeWithSize = std::tuple<CShape**, int, std::map<int, bool>>;
+using CPointWithSize = std::tuple<CPoint**, int, std::map<int, bool>>;
 
 namespace funs
 {
 int toInt(char inChar);
-std::string toString(ERROR_CODE inCode);
+std::string toString(RETURN_CODE inCode);
 bool isNumber(std::string inChain);
 bool isProperIdx(int inIdx, int inSize);
-bool isVectorEmpty(std::vector<CPointWithSize>& inCache);
-bool isProperIdx(int idxOrAmount, std::vector<CPointWithSize>& inCache);
-bool isProperIdx(int inIdxOrAmount, std::vector<CPointWithSize>& inCache);
+bool isProperIdx(int idxOrAmount, CShapeWithSize inCache);
 bool isProperAmmountOfArgs(std::vector<std::string>& inCommand, int inProperAmountOfArgs);
 bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs);
-ERROR_CODE returnResultCode(ERROR_CODE inResultCode);
-std::vector<CPointWithSize> toVectorOfPairs(CPoint** inCache, int inSize);
 }
 
 namespace idxOf
 {
 constexpr const int COMMAND = 0;
-constexpr const int ID_OF_CTABLE = 1;
-constexpr const int AMOUNT = 1;
+constexpr const int ID_OF_POINTS = 1;
+constexpr const int ID_OF_SHAPES = 2;
 constexpr const int NEW_NAME = 2;
 constexpr const int NEW_SIZE = 2;
 constexpr const int GOAL_ID = 2;
@@ -85,7 +103,7 @@ namespace messageLiterals
 {
 constexpr const char* CREATE = "create";
 constexpr const char* CREATE_DEF = "createDef";
-constexpr const char* CREATE_DEFS = "createDefs";
+constexpr const char* GO = "go";
 constexpr const char* CREATE_COPY = "createCopy";
 constexpr const char* GET_VALUE = "getValue";
 constexpr const char* DELETE = "delete";

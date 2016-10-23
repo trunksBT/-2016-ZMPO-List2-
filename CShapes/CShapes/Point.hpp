@@ -2,11 +2,11 @@
 
 #include <string>
 #include <vector>
+#include "Shape.h"
 
-class CPoint
+class CPoint : public CShape
 {
 public:
-    CPoint();
     CPoint(int inSize);
     CPoint(CPoint& inVal);
     CPoint(std::string inVal);
@@ -20,13 +20,13 @@ public:
     int getSize() const;
     int getVal(int inIdx) const;
     std::string getName() const;
-    std::string toString() const;
+    std::string toString() override;
+    std::string getType() override;
 public:
     void setSize(int inNewSize);
     void setName(std::string inName);
     void setVal(int idx, int inNewVal);
 public:
-    static CPoint* buildNewObj();
     static CPoint* buildNewObj(CPoint & inVal);
     static CPoint* buildNewObj(int inSize);
     static CPoint* buildNewObj(int inSize, std::string inName);

@@ -1,18 +1,19 @@
 #include "stdafx.h"
 #include "Utils.hpp"
-#include "CPoint.hpp"
+#include "Point.hpp"
 #include <map>
 #include <iostream>
 #include <string>
 #include "Logger.h"
 
 using namespace defaultVals;
+using namespace tupleIdx;
 
 namespace funs
 {
-    bool isProperIdx(int idxOrAmount, std::vector<CPointWithSize>& inCache)
+    bool isProperIdx(int idxOrAmount, CShapeWithSize inCache)
     {
-        return idxOrAmount > MINUS_ONE && idxOrAmount < inCache.size();
+        return idxOrAmount > MINUS_ONE && idxOrAmount < std::get<SIZE>(inCache);
     }
 
     bool isProperIdx(int inIdx, int inSize)
@@ -20,12 +21,14 @@ namespace funs
         return inIdx > MINUS_ONE && inIdx < inSize;
     }
 
-    std::string toString(ERROR_CODE inCode)
+    std::string toString(RETURN_CODE inCode)
     {
-        static std::map<ERROR_CODE, std::string> codeToString;
+        static std::map<RETURN_CODE, std::string> codeToString;
 
-        codeToString[ERROR_CODE::DONE] = "DONE";
-        codeToString[ERROR_CODE::ERROR]= "ERROR";
+        codeToString[RETURN_CODE::DONE] = "DONE";
+        codeToString[RETURN_CODE::ERROR] = "ERROR";
+        codeToString[RETURN_CODE::CLOSE] = "CLOSE";
+        codeToString[RETURN_CODE::NOT_INITIALIZED] = "NOT_INITIALIZED";
 
         return codeToString[inCode];
     }
@@ -93,13 +96,6 @@ namespace funs
         return isNumber;
     }
 
-    ERROR_CODE returnResultCode(ERROR_CODE inResultCode)
-    {
-        ERROR_CODE resultCode = inResultCode;
-        Logger::info() << toString(resultCode);
-        return resultCode;
-    }
-
     bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs)
     {
         bool isProperType = true;
@@ -111,23 +107,6 @@ namespace funs
             }
         }
         return isProperType;
-    }
-
-    std::vector<CPointWithSize> toVectorOfPairs(CPoint** inCache, int inSize)
-    {
-        std::vector<CPointWithSize> retVal;
-        retVal.push_back({ inCache, inSize });
-        return retVal;
-    }
-
-    bool isVectorEmpty(std::vector<CPointWithSize>& inCache)
-    {
-        bool isEmpty = true;
-        for(int i = 0; i < inCache.size(); i++)
-        {
-            isEmpty = inCache[i].first == nullptr;
-        }
-        return isEmpty;
     }
 
     int toInt(char inChar)

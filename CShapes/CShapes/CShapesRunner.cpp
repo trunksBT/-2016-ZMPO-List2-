@@ -23,22 +23,23 @@ using namespace funs;
 
 int main(int argc, char **argv)
 {
-   //{
-   //     CFlyweight application(DEFAULT_FLYWEIGHT_CACHE_SIZE);
-   //     ERROR_CODE commandResult = ERROR_CODE::ERROR;
+   {
+        CFlyweight application(ZERO, ZERO);
+        RETURN_CODE commandResult = RETURN_CODE::ERROR;
 
-   //     std::cout << "Pass command" << std::endl;
-   //     do
-   //     {
-   //         auto command = receiveAndLexCommandFromUser();
-   //         commandResult = application.interpretCommand(command);
-   //     } while(commandResult != ERROR_CODE::ERROR);
+        std::cout << "Pass command" << std::endl;
+        do
+        {
+            auto command = receiveAndLexCommandFromUser();
+            commandResult = application.interpretCommand(command);
+            std::cout << toString(commandResult) << POST_PRINT;
+        } while(commandResult != RETURN_CODE::CLOSE);
 
-   //     std::cout << std::endl << "Dzieki za uzycie programu, Korytko_MS" << POST_PRINT << POST_PRINT;
-   //     system("Pause");
-   //}
-   ::testing::InitGoogleTest(&argc, argv);
-   return RUN_ALL_TESTS();
+        std::cout << std::endl << "Dzieki za uzycie programu, Korytko_MS" << POST_PRINT << POST_PRINT;
+        system("Pause");
+   }
+   //::testing::InitGoogleTest(&argc, argv);
+   //return RUN_ALL_TESTS();
 }
 
 

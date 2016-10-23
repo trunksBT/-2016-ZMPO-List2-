@@ -13,19 +13,19 @@ IHandler::IHandler(std::vector<std::string>& inCommand)
     Logger::info() << PRE_PRINT << wholeCommand_[idxOf::COMMAND] << POST_PRINT;
 }
 
-ERROR_CODE IHandler::checkCorrectnessAndPerform(std::vector<CPointWithSize>& inCache)
+RETURN_CODE IHandler::checkCorrectnessAndPerform()
 {
-    if(!isProperAmmountOfArgs(wholeCommand_, getProperAmountOfArgs()))
+    if (!isProperAmmountOfArgs(wholeCommand_, getProperAmountOfArgs()))
     {
-        return returnResultCode(ERROR_CODE::ERROR);
+        return RETURN_CODE::ERROR;
     }
-    else if(!isProperTypeOfArgs(wholeCommand_, getProperTypesOfArgs()))
+    else if (!isProperTypeOfArgs(wholeCommand_, getProperTypesOfArgs()))
     {
-        return returnResultCode(ERROR_CODE::ERROR);
+        return RETURN_CODE::ERROR;
     }
     else
     {
-        return performOn(inCache);
+        return RETURN_CODE::DONE;
     }
 }
 
