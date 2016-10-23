@@ -5,13 +5,15 @@
 #include "../Utils.hpp"
 #include "../Point.hpp"
 #include "../Flyweight.h"
+#include "../UtilsForMT.h"
 
 using namespace defaultVals;
 using namespace cacheIdx;
 using namespace funs;
+using namespace assertWrapper;
 
 CGoHandler::CGoHandler(std::vector<std::string>& inCommand)
-    : IHandler(inCommand), IPointHandler(inCommand), IShapeHandler(inCommand)
+    : IHandler(inCommand), IPointHandler(inCommand), IShapeHandler(inCommand), IPointAndRectangleHandler(inCommand)
 {
 }
 
@@ -23,6 +25,28 @@ const int CGoHandler::getProperAmountOfArgs()
 std::string CGoHandler::getProperTypesOfArgs()
 {
     return "sii";
+}
+
+RETURN_CODE CGoHandler::perform(
+    std::vector<CPointWithSize>& inPointCache,
+    std::vector<CShapeWithSize>& inRectangleCache)
+{
+    RETURN_CODE retCode = RETURN_CODE::ERROR;
+
+    retCode = getFinalResultCode
+    ({
+        perform(inPointCache),
+        perform(inRectangleCache),
+    });
+
+    return RETURN_CODE::ERROR;
+}
+
+RETURN_CODE CGoHandler::performOn(
+    std::vector<CPointWithSize>& inPointCache,
+    std::vector<CShapeWithSize>& inRectangleCache)
+{
+    return RETURN_CODE::ERROR;
 }
 
 RETURN_CODE CGoHandler::perform(std::vector<CShapeWithSize>& inCache)
@@ -53,40 +77,26 @@ RETURN_CODE CGoHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
+    int cacheSize = inCache[CTABLE_IDX].second;
 
     if (idxOrAmount <= ZERO)
     {
         return RETURN_CODE::ERROR;
     }
+    else if (cacheSize < idxOrAmount)
+    {
+        return RETURN_CODE::ERROR;
+    }
     else
     {
-        /* Here will be optional increasing size of Table
-        if (idxOrAmount > inCache[CTABLE_IDX].second)
-        {
-            inCache.reserve(idxOrAmount);
-        }
-        */
-        int cacheSize = inCache[CTABLE_IDX].second;
-        int cursorIdx = ZERO;
-        for (int ammountOfCreatedObj = ZERO; ammountOfCreatedObj < idxOrAmount && cursorIdx < cacheSize;)
-        {
-            if (cursorIdx < cacheSize)
-            {
-                if (!CFlyweight::isInitializedPointCache_[cursorIdx] || inCache[CTABLE_IDX].first[cursorIdx] == nullptr)
-                {
-                    inCache[CTABLE_IDX].first[cursorIdx] = CPoint::buildNewObj();
-                    ammountOfCreatedObj++;
-                }
-            }
-            /* Here will be optional increasing size of Table 
-            else
-            {
-                inCache.emplace_back(CPoint::buildNewObj());
-                ammountOfCreatedObj++;
-            }
-            */
-            cursorIdx++;
-        }
+        //for (int ammountOfCreatedObj = ZERO; ammountOfCreatedObj < idxOrAmount;)
+        //{
+        //    if (!CFlyweight::isInitializedPointCache_[ammountOfCreatedObj] || inCache[CTABLE_IDX].first[ammountOfCreatedObj] == nullptr)
+        //    {
+        //        inCache[CTABLE_IDX].first[ammountOfCreatedObj] = CPoint::buildNewObj();
+        //        ammountOfCreatedObj++;
+        //    }
+        //}
     }
 
     return RETURN_CODE::DONE;
@@ -96,41 +106,27 @@ RETURN_CODE CGoHandler::performOn(std::vector<CShapeWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
+    int cacheSize = inCache[CTABLE_IDX].second;
 
-    //if (idxOrAmount <= ZERO)
-    //{
-    //    return returnResultCode(RETURN_CODE::ERROR);
-    //}
-    //else
-    //{
-    //    /* Here will be optional increasing size of Table
-    //    if (idxOrAmount > inCache[CTABLE_IDX].second)
-    //    {
-    //    inCache.reserve(idxOrAmount);
-    //    }
-    //    */
-    //    int cacheSize = inCache[CTABLE_IDX].second;
-    //    int cursorIdx = ZERO;
-    //    for (int ammountOfCreatedObj = ZERO; ammountOfCreatedObj < idxOrAmount && cursorIdx < cacheSize;)
-    //    {
-    //        if (cursorIdx < cacheSize)
-    //        {
-    //            if (!CFlyweight::isInitializedPointCache_[cursorIdx] || inCache[CTABLE_IDX].first[cursorIdx] == nullptr)
-    //            {
-    //                inCache[CTABLE_IDX].first[cursorIdx] = CPoint::buildNewObj();
-    //                ammountOfCreatedObj++;
-    //            }
-    //        }
-    //        /* Here will be optional increasing size of Table
-    //        else
-    //        {
-    //        inCache.emplace_back(CPoint::buildNewObj());
-    //        ammountOfCreatedObj++;
-    //        }
-    //        */
-    //        cursorIdx++;
-    //    }
-    //}
+    if (idxOrAmount <= ZERO)
+    {
+        return RETURN_CODE::ERROR;
+    }
+    else if (cacheSize < idxOrAmount)
+    {
+        return RETURN_CODE::ERROR;
+    }
+    else
+    {
+        //for (int ammountOfCreatedObj = ZERO; ammountOfCreatedObj < idxOrAmount;)
+        //{
+        //    if (!CFlyweight::isInitializedPointCache_[ammountOfCreatedObj] || inCache[CTABLE_IDX].first[ammountOfCreatedObj] == nullptr)
+        //    {
+        //        inCache[CTABLE_IDX].first[ammountOfCreatedObj] = CPoint::buildNewObj();
+        //        ammountOfCreatedObj++;
+        //    }
+        //}
+    }
 
     return RETURN_CODE::DONE;
 }

@@ -39,13 +39,9 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 
         if (command == GO)
         {
-            CGoHandler evaluate(inCommand);
-
-            returnedCode = assertWrapper::getFinalResultCode
-            ({
-                evaluate.perform(pairedPointCache),
-                evaluate.perform(pairedShapeCache)
-            });
+            IPointAndRectangleHandler* evaluate = new CGoHandler(inCommand);
+            returnedCode = evaluate->perform(pairedPointCache, pairedShapeCache);
+            delete evaluate;
         }
     }
     /*if(command == CREATE)
