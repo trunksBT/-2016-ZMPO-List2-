@@ -28,13 +28,13 @@ std::string CPrintAllHandler::getProperTypesOfArgs()
     return "s";
 }
 
-CODE CPrintAllHandler::perform(
+CODE CPrintAllHandler::checkArgsAndPerform(
     CPointWithSize inPointCache,
     CShapeWithSize inRectangleCache)
 {
-    if (checkCorrectnessAndPerform() == CODE::DONE)
+    if (checkTypeAndAmountOfArgs() == CODE::DONE)
     {
-        return performOn(inPointCache, inRectangleCache);
+        return purePerform(inPointCache, inRectangleCache);
     }
     else
     {
@@ -42,7 +42,7 @@ CODE CPrintAllHandler::perform(
     }
 }
 
-CODE CPrintAllHandler::performOn(
+CODE CPrintAllHandler::purePerform(
     CPointWithSize inPointCache,
     CShapeWithSize inRectangleCache)
 {
@@ -50,18 +50,18 @@ CODE CPrintAllHandler::performOn(
 
     retCode = getFinalResultCode
     ({
-        perform(inPointCache),
-        perform(inRectangleCache),
+        checkArgsAndPerform(inPointCache),
+        checkArgsAndPerform(inRectangleCache)
     });
 
     return retCode;
 }
 
-CODE CPrintAllHandler::perform(CShapeWithSize inCache)
+CODE CPrintAllHandler::checkArgsAndPerform(CShapeWithSize inCache)
 {
-    if (checkCorrectnessAndPerform() == CODE::DONE)
+    if (checkTypeAndAmountOfArgs() == CODE::DONE)
     {
-        return performOn(inCache);
+        return purePerform(inCache);
     }
     else
     {
@@ -69,11 +69,11 @@ CODE CPrintAllHandler::perform(CShapeWithSize inCache)
     }
 }
 
-CODE CPrintAllHandler::perform(CPointWithSize inCache)
+CODE CPrintAllHandler::checkArgsAndPerform(CPointWithSize inCache)
 {
-    if (checkCorrectnessAndPerform() == CODE::DONE)
+    if (checkTypeAndAmountOfArgs() == CODE::DONE)
     {
-        return performOn(inCache);
+        return purePerform(inCache);
     }
     else
     {
@@ -81,16 +81,17 @@ CODE CPrintAllHandler::perform(CPointWithSize inCache)
     }
 }
 
-CODE CPrintAllHandler::performOn(CPointWithSize inCache)
+CODE CPrintAllHandler::purePerform(CPointWithSize inCache)
 {
     int cacheSize = std::get<SIZE>(inCache);
     std::cout << cacheSize << std::endl;
 
     Logger::info() << POINTS << POST_PRINT;
+    std::map<int, bool> isInitializedMap = std::get<INITIALIZED_MAP>(inCache);
 
     for (int i = 0; i < cacheSize; i++)
     {
-        if (std::get<INITIALIZED_MAP>(inCache)[i])
+        if (isInitializedMap[i])
         {
             Logger::info() << std::get<ARRAY>(inCache)[i]->toString();
         }
@@ -105,16 +106,17 @@ CODE CPrintAllHandler::performOn(CPointWithSize inCache)
     return CODE::DONE;
 }
 
-CODE CPrintAllHandler::performOn(CShapeWithSize inCache)
+CODE CPrintAllHandler::purePerform(CShapeWithSize inCache)
 {
     int cacheSize = std::get<SIZE>(inCache);
     std::cout << cacheSize << std::endl;
 
     Logger::info() << SHAPES << POST_PRINT;
+    std::map<int, bool> isInitializedMap = std::get<INITIALIZED_MAP>(inCache);
 
     for (int i = 0; i < cacheSize; i++)
     {
-        if (std::get<INITIALIZED_MAP>(inCache)[i])
+        if (isInitializedMap[i])
         {
             Logger::info() << std::get<ARRAY>(inCache)[i]->toString();
         }

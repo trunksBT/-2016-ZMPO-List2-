@@ -24,7 +24,7 @@
 //    return "s";
 //}
 //
-//CODE CHelpHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CHelpHandler::purePerform(std::vector<CPointWithSize>& inCache)
 //{
 //    for(int i = 0; i < fullCommands::allCommands.size(); i++)
 //    {

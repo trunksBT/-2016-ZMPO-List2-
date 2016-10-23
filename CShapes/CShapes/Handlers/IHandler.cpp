@@ -13,7 +13,7 @@ IHandler::IHandler(std::vector<std::string>& inCommand)
     Logger::info() << PRE_PRINT << wholeCommand_[idxOf::COMMAND] << POST_PRINT;
 }
 
-CODE IHandler::checkCorrectnessAndPerform()
+CODE IHandler::checkTypeAndAmountOfArgs()
 {
     if (!isProperAmmountOfArgs(wholeCommand_, getProperAmountOfArgs()))
     {

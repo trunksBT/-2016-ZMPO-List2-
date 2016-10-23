@@ -38,9 +38,9 @@ int main(int argc, char **argv)
         std::cout << std::endl << "Dzieki za uzycie programu, Korytko_MS" << POST_PRINT << POST_PRINT;
         system("Pause");
     }
-   //}
-   // ::testing::InitGoogleTest(&argc, argv);
-   //return RUN_ALL_TESTS();
+   
+    ::testing::InitGoogleTest(&argc, argv);
+   return RUN_ALL_TESTS();
 }
 
 

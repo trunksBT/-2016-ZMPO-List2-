@@ -24,7 +24,7 @@
 //    return "si";
 //}
 //
-//CODE CRemoveHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CRemoveHandler::purePerform(std::vector<CPointWithSize>& inCache)
 //{
 //    std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
 //    int idxOrAmount = std::stoi(receivedId);

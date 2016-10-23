@@ -25,7 +25,7 @@
 //    return "sii";
 //}
 //
-//CODE CCreateCopyHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CCreateCopyHandler::purePerform(std::vector<CPointWithSize>& inCache)
 //{
 //    std::string receivedDestinyId(wholeCommand_[idxOf::ID_OF_CTABLE]);
 //    int destinyId = std::stoi(receivedDestinyId);

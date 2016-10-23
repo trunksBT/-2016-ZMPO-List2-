@@ -25,7 +25,7 @@
 //    return "s";
 //}
 //
-//CODE CRemoveAllHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CRemoveAllHandler::purePerform(std::vector<CPointWithSize>& inCache)
 //{
 //    if(isVectorEmpty(inCache))
 //    {

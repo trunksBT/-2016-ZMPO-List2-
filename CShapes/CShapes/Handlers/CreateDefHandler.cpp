@@ -25,7 +25,7 @@
 //    return "si";
 //}
 //
-//CODE CCreateDefHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CCreateDefHandler::purePerform(std::vector<CPointWithSize>& inCache)
 //{
 //    std::string receivedId(wholeCommand_[idxOf::ID_OF_CTABLE]);
 //

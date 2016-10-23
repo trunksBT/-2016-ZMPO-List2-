@@ -24,7 +24,7 @@
 //    return "sii";
 //}
 //
-//CODE CGetValueHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CGetValueHandler::purePerform(std::vector<CPointWithSize>& inCache)
 //{
 //    std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
 //    int idxOrAmount = std::stoi(receivedId);

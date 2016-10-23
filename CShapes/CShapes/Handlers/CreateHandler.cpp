@@ -24,7 +24,7 @@
 //    return "siis";
 //}
 //
-//CODE CCreateHandler::performOn(std::vector<CPointWithSize>& inCache)
+//CODE CCreateHandler::purePerform(std::vector<CPointWithSize>& inCache)
 //{
 //    std::string receivedId(wholeCommand_[idxOf::ID_OF_CTABLE]);
 //    int idxOrAmount = std::stoi(receivedId);
