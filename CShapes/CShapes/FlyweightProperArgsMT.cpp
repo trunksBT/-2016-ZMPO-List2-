@@ -150,17 +150,5 @@ TEST_F(CFlyweightProperArgsMT, go06_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
     ASSERT_EQ(expVal, rcVal);
 }
 
-TEST_F(CFlyweightProperArgsMT, go1000_1000_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
-{
-    CODE expVal = CODE::DONE;
-
-    rcVal = getFinalResultCode
-    ({
-        application.interpretCommand(stub::go1000_1000)
-    });
-    std::cout << toString(rcVal);
-
-    ASSERT_EQ(expVal, rcVal);
-}
 }
 

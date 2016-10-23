@@ -15,7 +15,6 @@ std::vector<std::string> go01 = { "go", "0", "1" };
 std::vector<std::string> go66 = { "go", "6", "6" };
 std::vector<std::string> go60 = { "go", "6", "0" };
 std::vector<std::string> go06 = { "go", "0", "6" };
-std::vector<std::string> go1000_1000 = { "go", "1000" , "1000" };
 
 std::vector<std::string> create1_5_Name = { "create", "1", "5", "Name" };
 std::vector<std::string> create6_5_Name = { "create", "6", "5", "Name" };

@@ -4,7 +4,7 @@
 #include "Utils.hpp"
 #include "Handlers/CreateHandler.h"
 #include "Handlers/CreateDefHandler.h"
-#include "Handlers/CreateDefsHandler.h"
+#include "Handlers/GoHandler.h"
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
 #include "Handlers/SetValueHandler.h"

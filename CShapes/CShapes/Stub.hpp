@@ -17,7 +17,6 @@ extern std::vector<std::string> go01;
 extern std::vector<std::string> go66;
 extern std::vector<std::string> go60;
 extern std::vector<std::string> go06;
-extern std::vector<std::string> go1000_1000;
 
 extern std::vector<std::string> create1_5_Name;
 extern std::vector<std::string> create6_5_Name;
