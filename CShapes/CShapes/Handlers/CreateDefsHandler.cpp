@@ -90,6 +90,7 @@ RETURN_CODE CGoHandler::performOn(CPointWithSize inCache)
     }
     else
     {
+
         //if( )
         //for (int ammountOfCreatedObj = ZERO; ammountOfCreatedObj < idxOrAmount;)
         //{
