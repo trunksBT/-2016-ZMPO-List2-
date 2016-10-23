@@ -24,21 +24,21 @@ std::string CCreateDefHandler::getProperTypesOfArgs()
     return "si";
 }
 
-ERROR_CODE CCreateDefHandler::performOn(std::vector<CTable*>& inCache)
+ERROR_CODE CCreateDefHandler::performOn(std::vector<CTableWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::ID_OF_CTABLE]);
 
-    int idxOrAmount = std::stoi(receivedId);
-    if(!isProperIdx(idxOrAmount, inCache))
-    {
-        return returnResultCode(ERROR_CODE::ERROR);
-    }
+    //int idxOrAmount = std::stoi(receivedId);
+    //if(!isProperIdx(idxOrAmount, inCache))
+    //{
+    //    return returnResultCode(ERROR_CODE::ERROR);
+    //}
 
-    if(inCache[idxOrAmount] != nullptr)
-    {
-        delete inCache[idxOrAmount];
-    }
-    inCache[idxOrAmount] = CTable::buildNewObj();
+    //if(inCache[idxOrAmount].first != nullptr)
+    //{
+    //    delete inCache[idxOrAmount].first;
+    //}
+    //inCache[idxOrAmount].first = CTable::buildNewObj();
 
     return ERROR_CODE::DONE;
 }

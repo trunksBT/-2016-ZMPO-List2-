@@ -25,46 +25,46 @@ std::string CCreateCopyHandler::getProperTypesOfArgs()
     return "sii";
 }
 
-ERROR_CODE CCreateCopyHandler::performOn(std::vector<CTable*>& inCache)
+ERROR_CODE CCreateCopyHandler::performOn(std::vector<CTableWithSize>& inCache)
 {
     std::string receivedDestinyId(wholeCommand_[idxOf::ID_OF_CTABLE]);
     int destinyId = std::stoi(receivedDestinyId);
     std::string receivedSourceId(wholeCommand_[idxOf::GOAL_ID]);
     int sourceId = std::stoi(receivedSourceId);
 
-    if(isProperIdx(sourceId, inCache))
-    {
-        if(inCache[sourceId] == nullptr)
-        {
-            return returnResultCode(ERROR_CODE::ERROR);
-        }
-        else if(destinyId != sourceId)
-        {
-            CTable* copiedObj = CTable::buildNewObj(*inCache[sourceId]);
-            bool isProperDestinyIdx = isProperIdx(destinyId, inCache);
-            if(isProperDestinyIdx && inCache[destinyId] == nullptr)
-            {
-                inCache[destinyId] = copiedObj;
-            }
-            else if(isProperDestinyIdx && inCache[destinyId] != nullptr)
-            {
-                delete inCache[destinyId];
-                inCache[destinyId] = copiedObj;
-            }
-            else
-            {
-                inCache.emplace_back(copiedObj);
-            }
-        }
-        else
-        {
-            return returnResultCode(ERROR_CODE::ERROR);
-        }
-    }
-    else
-    {
-        return returnResultCode(ERROR_CODE::ERROR);
-    }
+    //if(isProperIdx(sourceId, inCache))
+    //{
+    //    if(inCache[sourceId].first == nullptr)
+    //    {
+    //        return returnResultCode(ERROR_CODE::ERROR);
+    //    }
+    //    else if(destinyId != sourceId)
+    //    {
+    //        CTable* copiedObj = CTable::buildNewObj(*inCache[sourceId].first);
+    //        bool isProperDestinyIdx = isProperIdx(destinyId, inCache);
+    //        if(isProperDestinyIdx && inCache[destinyId].first == nullptr)
+    //        {
+    //            inCache[destinyId].first = copiedObj;
+    //        }
+    //        else if(isProperDestinyIdx && inCache[destinyId].first != nullptr)
+    //        {
+    //            delete inCache[destinyId].first;
+    //            inCache[destinyId].first = copiedObj;
+    //        }
+    //        else
+    //        {
+    //            inCache.emplace_back(copiedObj);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        return returnResultCode(ERROR_CODE::ERROR);
+    //    }
+    //}
+    //else
+    //{
+    //    return returnResultCode(ERROR_CODE::ERROR);
+    //}
 
     return ERROR_CODE::DONE;
 }

@@ -10,7 +10,7 @@ using namespace defaultVals;
 
 namespace funs
 {
-    bool isProperIdx(int idxOrAmount, std::vector<CTable*>& inCache)
+    bool isProperIdx(int idxOrAmount, std::vector<CTableWithSize>& inCache)
     {
         return idxOrAmount > MINUS_ONE && idxOrAmount < inCache.size();
     }
@@ -113,12 +113,12 @@ namespace funs
         return isProperType;
     }
 
-    bool isVectorEmpty(std::vector<CTable*>& inCache)
+    bool isVectorEmpty(std::vector<CTableWithSize>& inCache)
     {
         bool isEmpty = true;
         for(int i = 0; i < inCache.size(); i++)
         {
-            isEmpty = inCache[i] == nullptr;
+            isEmpty = inCache[i].first == nullptr;
         }
         return isEmpty;
     }
@@ -185,7 +185,7 @@ namespace fullCommands
         std::string(messageLiterals::REMOVE_ALL);
 
     std::string closeArgs =
-        std::string(messageLiterals::ERROR);
+        std::string(messageLiterals::CLOSE);
 
     std::string helpArgs =
         std::string(messageLiterals::HELP);

@@ -13,7 +13,7 @@ IHandler::IHandler(std::vector<std::string>& inCommand)
     Logger::info() << PRE_PRINT << wholeCommand_[idxOf::COMMAND] << POST_PRINT;
 }
 
-ERROR_CODE IHandler::checkCorrectnessAndPerform(std::vector<CTable*>& inCache)
+ERROR_CODE IHandler::checkCorrectnessAndPerform(std::vector<CTableWithSize>& inCache)
 {
     if(!isProperAmmountOfArgs(wholeCommand_, getProperAmountOfArgs()))
     {

@@ -24,7 +24,7 @@ std::string CHelpHandler::getProperTypesOfArgs()
     return "s";
 }
 
-ERROR_CODE CHelpHandler::performOn(std::vector<CTable*>& inCache)
+ERROR_CODE CHelpHandler::performOn(std::vector<CTableWithSize>& inCache)
 {
     for(int i = 0; i < fullCommands::allCommands.size(); i++)
     {

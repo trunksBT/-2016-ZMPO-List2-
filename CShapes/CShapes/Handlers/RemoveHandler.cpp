@@ -24,24 +24,25 @@ std::string CRemoveHandler::getProperTypesOfArgs()
     return "si";
 }
 
-ERROR_CODE CRemoveHandler::performOn(std::vector<CTable*>& inCache)
+ERROR_CODE CRemoveHandler::performOn(std::vector<CTableWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
-    if (isProperIdx(idxOrAmount, inCache))
-    {
-        CTable* retTable = inCache.at(idxOrAmount);
-        if (retTable != nullptr)
-        {
-            std::cout << retTable->getName();
-        }
-        delete retTable;
-        inCache.at(idxOrAmount) = nullptr;
-    }
-    else
-    {
-        return returnResultCode(ERROR_CODE::ERROR);
-    }
+
+    //if (isProperIdx(idxOrAmount, inCache))
+    //{
+    //    CTable* retTable = inCache[idxOrAmount].first;
+    //    if (retTable != nullptr)
+    //    {
+    //        std::cout << retTable->getName();
+    //    }
+    //    delete retTable;
+    //    inCache[idxOrAmount].first = nullptr;
+    //}
+    //else
+    //{
+    //    return returnResultCode(ERROR_CODE::ERROR);
+    //}
 
     return ERROR_CODE::DONE;
 }

@@ -10,6 +10,8 @@ enum class ERROR_CODE : int
     ERROR = 1
 };
 
+using CTableWithSize = std::pair<CTable*, int>;
+
 namespace defaultVals
 {
 constexpr const char* CURSOR_SIGN = "! ";
@@ -37,12 +39,14 @@ constexpr const int ONE = 1;
 constexpr const int TWO = 2;
 constexpr const int FIVE = 5;
 constexpr const int TEN = 10;
-constexpr const int DEFAULT_TABLE_VAL = -1;
-constexpr const int DEFAULT_IN_TABLE_SIZE = FIVE;
 constexpr const long MAX_INT_VAL = (std::numeric_limits<int>::max)();
 constexpr const char* ERRORED_COMMAND_IDX = "Errored command idx";
 constexpr const char INT_TYPE = 'i';
 constexpr const char STRING_TYPE = 's';
+constexpr const int DEFAULT_TABLE_VAL = -1;
+
+constexpr const int DEFAULT_IN_TABLE_SIZE = FIVE;
+constexpr const int DEFAULT_FLYWEIGHT_CACHE_SIZE = FIVE;
 }
 
 namespace funs
@@ -51,9 +55,9 @@ int toInt(char inChar);
 std::string toString(ERROR_CODE inCode);
 bool isNumber(std::string inChain);
 bool isProperIdx(int inIdx, int inSize);
-bool isVectorEmpty(std::vector<CTable*>& inCache);
-bool isProperIdx(int idxOrAmount, std::vector<CTable*>& inCache);
-bool isProperIdx(int inIdxOrAmount, std::vector<CTable*>& inCache);
+bool isVectorEmpty(std::vector<CTableWithSize>& inCache);
+bool isProperIdx(int idxOrAmount, std::vector<CTableWithSize>& inCache);
+bool isProperIdx(int inIdxOrAmount, std::vector<CTableWithSize>& inCache);
 bool isProperAmmountOfArgs(std::vector<std::string>& inCommand, int inProperAmountOfArgs);
 bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs);
 ERROR_CODE returnResultCode(ERROR_CODE inResultCode);
@@ -82,7 +86,7 @@ constexpr const char* REMOVE_ALL = "deleteAll";
 constexpr const char* SET_VALUE = "setValue";
 constexpr const char* PRINT = "print";
 constexpr const char* PRINT_ALL = "printAll";
-constexpr const char* ERROR = "close";
+constexpr const char* CLOSE = "close";
 constexpr const char* HELP = "help";
 }
 

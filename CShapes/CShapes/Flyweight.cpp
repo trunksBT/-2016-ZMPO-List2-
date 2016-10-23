@@ -17,7 +17,7 @@ using namespace defaultVals;
 using namespace messageLiterals;
 using namespace funs;
 
-std::vector<CTable*> CFlyweight::cache_;
+CTable* CFlyweight::cache_;
 
 ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 {
@@ -29,7 +29,7 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
     ERROR_CODE returnedCode = ERROR_CODE::ERROR;
     std::string command(inCommand[idxOf::COMMAND]);
 
-    if(command == CREATE)
+    /*if(command == CREATE)
     {
         CCreateHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
@@ -79,59 +79,34 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CHelpHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
-    else if(command == ERROR)
+    else if(command == CLOSE)
     {
         returnedCode = ERROR_CODE::ERROR;
-    }
-    else
-    {
-        returnedCode = returnResultCode(ERROR_CODE::ERROR);
-    }
+    }*/
+    //else
+    //{
+    //    returnedCode = returnResultCode(ERROR_CODE::ERROR);
+    //}
 
     return returnedCode;
 }
 
 #pragma region ********** CTORS_DTORS **********
 
-void CFlyweight::createCFlyweight(int inSize)
-{
-    cache_ = std::vector<CTable*>(inSize);
-}
-
 void CFlyweight::releaseResources()
 {
-    releaseResources(cache_);
-}
-
-void CFlyweight::releaseResources(std::vector<CTable*>& inCache)
-{
-    for(auto i = ZERO; i < inCache.size(); i++)
-    {
-        delete inCache[i];
-    }
-    inCache.clear();
+    delete[] cache_;
+    cache_ = nullptr;
 }
 
 CFlyweight::CFlyweight()
 {
-    CFlyweight::createCFlyweight(INITIAL_FLYWEIGHT_CACHE_SIZE);
-}
-
-CFlyweight::CFlyweight(std::vector<std::string>& inCommand,
-    std::vector<CTable*>& inCache)
-{
-    CFlyweight::createCFlyweight(inCache);
-    CFlyweight::interpretCommand(std::move(inCommand));
+    cache_ = new CTable[DEFAULT_FLYWEIGHT_CACHE_SIZE];
 }
 
 CFlyweight::~CFlyweight()
 {
     CFlyweight::releaseResources();
-}
-
-void CFlyweight::createCFlyweight(std::vector<CTable*>& inCache)
-{
-    cache_ = std::move(inCache);
 }
 
 # pragma endregion

@@ -25,7 +25,7 @@ std::string CRemoveAllHandler::getProperTypesOfArgs()
     return "s";
 }
 
-ERROR_CODE CRemoveAllHandler::performOn(std::vector<CTable*>& inCache)
+ERROR_CODE CRemoveAllHandler::performOn(std::vector<CTableWithSize>& inCache)
 {
     if(isVectorEmpty(inCache))
     {

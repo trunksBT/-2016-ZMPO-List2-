@@ -25,7 +25,7 @@ std::string CSetValueHandler::getProperTypesOfArgs()
     return "siii";
 }
 
-ERROR_CODE CSetValueHandler::performOn(std::vector<CTable*>& inCache)
+ERROR_CODE CSetValueHandler::performOn(std::vector<CTableWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
@@ -34,30 +34,30 @@ ERROR_CODE CSetValueHandler::performOn(std::vector<CTable*>& inCache)
     std::string receivedNewVal(wholeCommand_[idxOf::NEW_VAL]);
     int newVal = std::stoi(receivedNewVal);
 
-    if(isProperIdx(idxOrAmount, inCache))
-    {
-        CTable* retTable = inCache.at(idxOrAmount);
-        if(retTable != nullptr)
-        {
-            if(isProperIdx(idOfNewVal, retTable->getSize()))
-            {
-                retTable->setVal(idOfNewVal, newVal);
-            }
-            else
-            {
-                return returnResultCode(ERROR_CODE::ERROR);
-            }
-        }
-        else
-        {
-            return returnResultCode(ERROR_CODE::ERROR);
-        }
-        retTable = nullptr;
-    }
-    else
-    {
-        return returnResultCode(ERROR_CODE::ERROR);
-    }
+    //if(isProperIdx(idxOrAmount, inCache))
+    //{
+    //    CTable* retTable = inCache[idxOrAmount].first;
+    //    if(retTable != nullptr)
+    //    {
+    //        if(isProperIdx(idOfNewVal, retTable->getSize()))
+    //        {
+    //            retTable->setVal(idOfNewVal, newVal);
+    //        }
+    //        else
+    //        {
+    //            return returnResultCode(ERROR_CODE::ERROR);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        return returnResultCode(ERROR_CODE::ERROR);
+    //    }
+    //    retTable = nullptr;
+    //}
+    //else
+    //{
+    //    return returnResultCode(ERROR_CODE::ERROR);
+    //}
 
     return ERROR_CODE::DONE;
 }
