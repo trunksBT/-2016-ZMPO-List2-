@@ -7,39 +7,26 @@
 class CPoint : public CShape
 {
 public:
-    CPoint(int inSize);
-    CPoint(CPoint& inVal);
-    CPoint(std::string inVal);
-    CPoint(int inSize, int inInitVal);
-    CPoint(int inSize, std::string inName);
-    ~CPoint();
-    void copyCtor(CPoint & inVal);
-    CPoint& operator=(CPoint& inObj);
-    CPoint* clone();
+    explicit CPoint(double xAxis, double yAxis);
+    CPoint(const CPoint& inVal);
+    virtual ~CPoint();
+    CPoint& operator=(const CPoint& inObj);
 public:
-    int getSize() const;
-    int getVal(int inIdx) const;
-    std::string getName() const;
+    double getX() const;
+    double getY() const;
     std::string toString() override;
     std::string getType() override;
 public:
-    void setSize(int inNewSize);
-    void setName(std::string inName);
-    void setVal(int idx, int inNewVal);
+    void setX(double newX);
+    void setY(double newY);
 public:
-    static CPoint* buildNewObj(CPoint & inVal);
-    static CPoint* buildNewObj(int inSize);
-    static CPoint* buildNewObj(int inSize, std::string inName);
-    static CPoint* buildNewObj(int inSize, int inInitValue);
-    void initTable(int* inTable, int inSize, int inDefaultVal);
-    void initTable();
+    static CPoint* buildNewObj(double xAxis, double yAxis);
 
 private:
-    void deepCopy(CPoint& inVal);
-    void allocateMemory(int inSize);
+    void copyCtor(const CPoint& inVal);
+    void deepCopy(const CPoint& inVal);
     void deallocateMemory();
 private:
-    std::string name_;
-    int* memory_;
-    int size_;
+    double* xAxis_;
+    double* yAxis_;
 };

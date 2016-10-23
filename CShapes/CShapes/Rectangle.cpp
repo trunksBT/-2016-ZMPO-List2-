@@ -13,7 +13,7 @@ using namespace typeLiterals;
 CRectangle::CRectangle()
 {
     name_ = DEFAULT_TABLE_NAME;
-    size_ = DEFAULT_IN_TABLE_SIZE;
+    size_ = DEFAULT_AXIS_VAL;
     allocateMemory(size_);
     initTable(memory_, size_, DEFAULT_TABLE_VAL);
     Logger::info() << CTOR_DEFAULT_PRE_PRINT << name_ << POST_PRINT;
@@ -40,7 +40,7 @@ CRectangle::CRectangle(int inSize, int initValue)
 CRectangle::CRectangle(std::string inName)
 {
     name_ = inName;
-    size_ = DEFAULT_IN_TABLE_SIZE;
+    size_ = DEFAULT_AXIS_VAL;
     allocateMemory(size_);
     initTable(memory_, size_, DEFAULT_TABLE_VAL);
     Logger::info() << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
@@ -69,7 +69,7 @@ CRectangle* CRectangle::clone()
 
 void CRectangle::initTable()
 {
-    initTable(memory_, DEFAULT_IN_TABLE_SIZE, DEFAULT_TABLE_VAL);
+    initTable(memory_, DEFAULT_AXIS_VAL, DEFAULT_TABLE_VAL);
 }
 
 
@@ -220,6 +220,6 @@ std::string CRectangle::toString()
     std::string stringedStream(retVal.str());
     stringedStream = stringedStream.substr(ZERO, stringedStream.size() - TWO);
 
-    return std::move(stringedStream + std::string(BRACKET_ERROR));
+    return std::move(stringedStream + std::string(BRACKET_CLOSE));
 }
 

@@ -13,7 +13,7 @@ public:
     CRectangle(std::string inVal);
     CRectangle(int inSize, int inInitVal);
     CRectangle(int inSize, std::string inName);
-    ~CRectangle();
+    virtual ~CRectangle();
     void copyCtor(CRectangle & inVal);
     CRectangle& operator=(CRectangle& inObj);
     CRectangle* clone();

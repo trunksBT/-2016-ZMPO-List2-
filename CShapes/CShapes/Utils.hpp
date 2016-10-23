@@ -21,6 +21,8 @@ constexpr const char* POINT = "POINT";
 constexpr const char* RECTANGLE = "RECTANGLE";
 constexpr const char* POINTS = "POINTS";
 constexpr const char* SHAPES = "SHAPES";
+constexpr const char* X = "X";
+constexpr const char* Y = "Y";
 }
 
 namespace defaultVals
@@ -30,7 +32,7 @@ constexpr const char* PRE_PRINT = "   ";
 constexpr const char* POST_PRINT = "\n";
 constexpr const char* SEPARATOR = ": ";
 constexpr const char* BRACKET_OPEN = "( ";
-constexpr const char* BRACKET_ERROR = " )";
+constexpr const char* BRACKET_CLOSE = " )";
 constexpr const char* LEN = "len";
 constexpr const char* VALUES = "values";
 constexpr const char* SPACE = " ";
@@ -56,7 +58,7 @@ constexpr const char INT_TYPE = 'i';
 constexpr const char STRING_TYPE = 's';
 constexpr const int DEFAULT_TABLE_VAL = -1;
 
-constexpr const int DEFAULT_IN_TABLE_SIZE = FIVE;
+constexpr const int DEFAULT_AXIS_VAL = FIVE;
 constexpr const int DEFAULT_FLYWEIGHT_CACHE_SIZE = FIVE;
 }
 
@@ -91,18 +93,21 @@ namespace idxOf
 {
 constexpr const int COMMAND = 0;
 constexpr const int ID_OF_POINTS = 1;
+constexpr const int ID_FOR_CREATE = 1;
 constexpr const int ID_OF_SHAPES = 2;
 constexpr const int NEW_NAME = 2;
 constexpr const int NEW_SIZE = 2;
 constexpr const int GOAL_ID = 2;
 constexpr const int NEW_VAL = 3;
+constexpr const int X_AXIS_VAL = 2;
+constexpr const int Y_AXIS_VAL = 3;
 constexpr const int INITIAL_NAME = 3;
 }
 
 namespace messageLiterals
 {
 constexpr const char* CREATE = "create";
-constexpr const char* CREATE_DEF = "createDef";
+constexpr const char* CREATE_POINT = "createPoint";
 constexpr const char* GO = "go";
 constexpr const char* CREATE_COPY = "createCopy";
 constexpr const char* GET_VALUE = "getValue";
@@ -125,16 +130,16 @@ constexpr const char* VALUE = "<value>";
 
 namespace fullCommands
 {
-extern std::string createArgs;
-extern std::string createDefArgs;
-extern std::string createCopyArgs;
-extern std::string getValueArgs;
-extern std::string setValueArgs;
-extern std::string printArgs;
-extern std::string printAllArgs;
-extern std::string deleteArgs;
-extern std::string deleteAllArgs;
-extern std::string closeArgs;
-extern std::string helpArgs;
-extern std::vector<std::string> allCommands;
+//extern std::string createArgs;
+//extern std::string createDefArgs;
+//extern std::string createCopyArgs;
+//extern std::string getValueArgs;
+//extern std::string setValueArgs;
+//extern std::string printArgs;
+//extern std::string printAllArgs;
+//extern std::string deleteArgs;
+//extern std::string deleteAllArgs;
+//extern std::string closeArgs;
+//extern std::string helpArgs;
+//extern std::vector<std::string> allCommands;
 }

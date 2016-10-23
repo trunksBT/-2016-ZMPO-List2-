@@ -3,8 +3,8 @@
 #include "Flyweight.h"
 #include "Utils.hpp"
 #include "Handlers/CreateHandler.h"
-#include "Handlers/CreateDefHandler.h"
-#include "Handlers/CreateDefsHandler.h"
+#include "Handlers/CreatePointHandler.h"
+#include "Handlers/GoHandler.h"
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
 #include "Handlers/SetValueHandler.h"
@@ -56,6 +56,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             IPointAndRectangleHandler* evaluate = new CGoHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
         }
+        else if(command == CREATE_POINT)
+        {
+            IPointHandler* evaluate = new CCreatePointHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
+        }
         else if (command == PRINT_ALL)
         {
             IPointAndRectangleHandler* evaluate = new CPrintAllHandler(inCommand);
@@ -63,6 +68,7 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         }
         else if (command == CLOSE)
         {
+            releaseResources();
             returnedCode = CODE::CLOSE;
         }
     }
@@ -128,7 +134,7 @@ void CFlyweight::releaseResources()
 {
     for (int i = 0; i < pointCacheSize_; i++)
     {
-        if (pointCacheIsInitialized_[i] && pointCache_[i] == nullptr)
+        if (pointCacheIsInitialized_[i] && pointCache_[i] != nullptr)
         {
             delete pointCache_[i];
             pointCache_[i] = nullptr;
@@ -141,7 +147,7 @@ void CFlyweight::releaseResources()
 
     for (int i = 0; i < shapeCacheSize_; i++)
     {
-        if ( shapeCacheIsInitialized_[i] && shapeCache_[i] == nullptr )
+        if ( shapeCacheIsInitialized_[i] && shapeCache_[i] != nullptr )
         {
             delete shapeCache_[i];
             shapeCache_[i] = nullptr;
@@ -230,5 +236,11 @@ void CFlyweight::updateShapeCache(CShape** newShapeCache)
 {
     shapeCache_ = newShapeCache;
 }
+
+void CFlyweight::updatePointCache(int idx, CShape* newPointCache)
+{
+    pointCache_[idx] = newPointCache;
+}
+
 
 # pragma endregion

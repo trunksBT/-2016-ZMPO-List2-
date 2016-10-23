@@ -117,78 +117,73 @@ namespace funs
 }
 namespace fullCommands
 {
-    std::string createArgs =
-        std::string(messageLiterals::CREATE) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::SIZE) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::NAME);
+    //std::string createArgs =
+    //    std::string(messageLiterals::CREATE) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::IDX) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::SIZE) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::NAME);
 
-    std::string createDefArgs =
-        std::string(messageLiterals::CREATE_DEF) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX);
+    //std::string createCopyArgs =
+    //    std::string(messageLiterals::CREATE_COPY) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::IDX) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::IDX);
 
-    std::string createCopyArgs =
-        std::string(messageLiterals::CREATE_COPY) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX);
+    //std::string getValueArgs =
+    //    std::string(messageLiterals::GET_VALUE) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::IDX) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::IDX);
 
-    std::string getValueArgs =
-        std::string(messageLiterals::GET_VALUE) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX);
+    //std::string setValueArgs =
+    //    std::string(messageLiterals::SET_VALUE) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::IDX) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::IDX) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::VALUE);
 
-    std::string setValueArgs =
-        std::string(messageLiterals::SET_VALUE) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::VALUE);
+    //std::string printArgs =
+    //    std::string(messageLiterals::PRINT) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::IDX);
 
-    std::string printArgs =
-        std::string(messageLiterals::PRINT) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX);
+    //std::string printAllArgs =
+    //    std::string(messageLiterals::PRINT_ALL);
 
-    std::string printAllArgs =
-        std::string(messageLiterals::PRINT_ALL);
+    //std::string deleteArgs =
+    //    std::string(messageLiterals::DELETE) +
+    //    std::string(defaultVals::SPACE) +
+    //    std::string(commandArgs::IDX);
 
-    std::string deleteArgs =
-        std::string(messageLiterals::DELETE) +
-        std::string(defaultVals::SPACE) +
-        std::string(commandArgs::IDX);
+    //std::string deleteAllArgs =
+    //    std::string(messageLiterals::REMOVE_ALL);
 
-    std::string deleteAllArgs =
-        std::string(messageLiterals::REMOVE_ALL);
+    //std::string closeArgs =
+    //    std::string(messageLiterals::CLOSE);
 
-    std::string closeArgs =
-        std::string(messageLiterals::CLOSE);
+    //std::string helpArgs =
+    //    std::string(messageLiterals::HELP);
 
-    std::string helpArgs =
-        std::string(messageLiterals::HELP);
-
-    std::vector<std::string> allCommands =
-    {
-        createArgs,
-        createDefArgs,
-        createCopyArgs,
-        getValueArgs,
-        setValueArgs,
-        printArgs,
-        printAllArgs,
-        deleteArgs,
-        deleteAllArgs,
-        closeArgs,
-        helpArgs
-    };
+    //std::vector<std::string> allCommands =
+    //{
+    //    createArgs,
+    //    createDefArgs,
+    //    createCopyArgs,
+    //    getValueArgs,
+    //    setValueArgs,
+    //    printArgs,
+    //    printAllArgs,
+    //    deleteArgs,
+    //    deleteAllArgs,
+    //    closeArgs,
+    //    helpArgs
+    //};
 }
 

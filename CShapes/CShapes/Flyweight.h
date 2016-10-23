@@ -25,6 +25,7 @@ public:
     static void updateIsInitializedShapeCache(int idx, bool newVal);
 
     static void updatePointCache(CShape** newPointCache);
+    static void updatePointCache(int idx, CShape* newPointCache);
     static void updateShapeCache(CShape** newShapeCache);
 private:
     static void initPointCache(int inCacheSize);

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include <iostream>
 
-#include "CreateDefsHandler.h"
+#include "GoHandler.h"
 #include "../Utils.hpp"
 #include "../Point.hpp"
 #include "../Flyweight.h"
@@ -27,14 +27,6 @@ std::string CGoHandler::getProperTypesOfArgs()
 {
     return "sii";
 }
-
-//void repointTable(CShape** newTable, CShape** oldTable, int size)
-//{
-//    for (int i = 0; i < size; i++)
-//    {
-//        newTable[i] = oldTable[i];
-//    }
-//}
 
 CODE CGoHandler::checkArgsAndPerform(
     CPointWithSize inPointCache,
@@ -117,7 +109,7 @@ CODE CGoHandler::purePerform(CPointWithSize inCache)
         for (int i = 0; i < idxOrAmount; i++, cursor++)
         {
             CFlyweight::updateIsInitializedPointCache(cursor, true);
-            newTable[cursor] = CPoint::buildNewObj(DEFAULT_IN_TABLE_SIZE);
+            newTable[cursor] = CPoint::buildNewObj(DEFAULT_AXIS_VAL, DEFAULT_AXIS_VAL);
         }
         CFlyweight::setPointCacheSize(newSize);
         CFlyweight::updatePointCache(newTable);
@@ -154,7 +146,7 @@ CODE CGoHandler::purePerform(CShapeWithSize inCache)
         for (int i = 0; i < idxOrAmount; i++, cursor++)
         {
             CFlyweight::updateIsInitializedShapeCache(cursor, true);
-            newTable[cursor] = CRectangle::buildNewObj(DEFAULT_IN_TABLE_SIZE);
+            newTable[cursor] = CRectangle::buildNewObj(DEFAULT_AXIS_VAL);
         }
         CFlyweight::setShapeCacheSize(newSize);
         CFlyweight::updateShapeCache(newTable);
