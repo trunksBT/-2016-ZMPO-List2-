@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "Point.hpp"
+#include "Shape.h"
 #include <limits>
 
 enum class ERROR_CODE : int
@@ -11,6 +12,7 @@ enum class ERROR_CODE : int
 };
 
 using CPointWithSize = std::pair<CPoint**, int>;
+using CShapeWithSize = std::pair<CShape**, int>;
 
 namespace defaultVals
 {

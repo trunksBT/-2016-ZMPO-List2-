@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "IRectangleHandler.h"
+#include "IShapeHandler.h"
 #include <iostream>
 #include "../Utils.hpp"
 #include "../Logger.h"
@@ -7,13 +7,13 @@
 using namespace defaultVals;
 using namespace funs;
 
-IRectangleHandler::IRectangleHandler(std::vector<std::string>& inCommand)
+IShapeHandler::IShapeHandler(std::vector<std::string>& inCommand)
 {
     wholeCommand_ = inCommand;
     Logger::info() << PRE_PRINT << wholeCommand_[idxOf::COMMAND] << POST_PRINT;
 }
 
-ERROR_CODE IRectangleHandler::checkCorrectnessAndPerform(std::vector<CPointWithSize>& inCache)
+ERROR_CODE IShapeHandler::checkCorrectnessAndPerform(std::vector<CShapeWithSize>& inCache)
 {
     if (!isProperAmmountOfArgs(wholeCommand_, getProperAmountOfArgs()))
     {
@@ -29,7 +29,7 @@ ERROR_CODE IRectangleHandler::checkCorrectnessAndPerform(std::vector<CPointWithS
     }
 }
 
-IRectangleHandler::~IRectangleHandler()
+IShapeHandler::~IShapeHandler()
 {
     Logger::info() << POST_PRINT;
 }
