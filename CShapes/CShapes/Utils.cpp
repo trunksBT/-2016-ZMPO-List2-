@@ -20,12 +20,12 @@ namespace funs
         return inIdx > MINUS_ONE && inIdx < inSize;
     }
 
-    std::string toString(ERROR_CODE inCode)
+    std::string toString(RETURN_CODE inCode)
     {
-        static std::map<ERROR_CODE, std::string> codeToString;
+        static std::map<RETURN_CODE, std::string> codeToString;
 
-        codeToString[ERROR_CODE::DONE] = "DONE";
-        codeToString[ERROR_CODE::ERROR]= "ERROR";
+        codeToString[RETURN_CODE::DONE] = "DONE";
+        codeToString[RETURN_CODE::ERROR]= "ERROR";
 
         return codeToString[inCode];
     }
@@ -93,9 +93,9 @@ namespace funs
         return isNumber;
     }
 
-    ERROR_CODE returnResultCode(ERROR_CODE inResultCode)
+    RETURN_CODE returnResultCode(RETURN_CODE inResultCode)
     {
-        ERROR_CODE resultCode = inResultCode;
+        RETURN_CODE resultCode = inResultCode;
         Logger::info() << toString(resultCode);
         return resultCode;
     }
@@ -113,9 +113,16 @@ namespace funs
         return isProperType;
     }
 
-    std::vector<CPointWithSize> toVectorOfPairs(CPoint** inCache, int inSize)
+    std::vector<CPointWithSize> toVectorOfPairsOfPoints(CPoint** inCache, int inSize)
     {
         std::vector<CPointWithSize> retVal;
+        retVal.push_back({ inCache, inSize });
+        return retVal;
+    }
+
+    std::vector<CShapeWithSize> toVectorOfPairsOfShapes(CShape** inCache, int inSize)
+    {
+        std::vector<CShapeWithSize> retVal;
         retVal.push_back({ inCache, inSize });
         return retVal;
     }

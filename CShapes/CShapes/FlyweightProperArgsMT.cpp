@@ -20,67 +20,67 @@ class CFlyweightProperArgsMT : public testing::Test
 protected:
     virtual void SetUp()
     {
-        rcVal = std::make_pair(MINUS_ONE, ERROR_CODE::ERROR);
+        rcVal = RETURN_CODE::ERROR;
     }
 
     virtual void TearDown()
     {}
 protected:
     CFlyweight application = CFlyweight(DEFAULT_FLYWEIGHT_CACHE_SIZE);
-    ResultCode rcVal;
+    RETURN_CODE rcVal;
 };
 
 TEST_F(CFlyweightProperArgsMT, createDefsm1_OnEmptyCFlyweight_Expect_WRONG_VALUE)
 {
-    ERROR_CODE expVal = ERROR_CODE::ERROR;
+    RETURN_CODE expVal = RETURN_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
         application.interpretCommand(stub::createDefsm1)
     });
 
-    ASSERT_EQ(expVal, std::get<ONE>(rcVal));
+    ASSERT_EQ(expVal, rcVal);
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs0_OnEmptyCFlyweight_Expect_WRONG_VALUE)
 {
-    ERROR_CODE expVal = ERROR_CODE::ERROR;
+    RETURN_CODE expVal = RETURN_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
         application.interpretCommand(stub::createDefs0)
     });
 
-    ASSERT_EQ(expVal, std::get<ONE>(rcVal));
+    ASSERT_EQ(expVal, rcVal);
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs1_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 {
-    ERROR_CODE expVal = ERROR_CODE::DONE;
+    RETURN_CODE expVal = RETURN_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
         application.interpretCommand(stub::createDefs1)
     });
 
-    ASSERT_EQ(expVal, std::get<ONE>(rcVal));
+    ASSERT_EQ(expVal, rcVal);
 }
 
 TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 {
-    ERROR_CODE expVal = ERROR_CODE::DONE;
+    RETURN_CODE expVal = RETURN_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
         application.interpretCommand(stub::createDefs6)
     });
 
-    ASSERT_EQ(expVal, std::get<ONE>(rcVal));
+    ASSERT_EQ(expVal, rcVal);
 }
 //
 //TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_DONE)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::DONE;
+//    RETURN_CODE expVal = RETURN_CODE::DONE;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -95,7 +95,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, emptyCommand_Expect_ERROR)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -108,7 +108,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, noCommand_Expect_ERROR)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -122,7 +122,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, getFinalResultCode_createDef_Expect_ERROR)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -136,7 +136,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, create1_5_Name_OnEmptyCFlyweight_Expect_DONE)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::DONE;
+//    RETURN_CODE expVal = RETURN_CODE::DONE;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -149,7 +149,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, create1_m5_Name_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -162,7 +162,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, createm1_5_Name_OnEmptyCFlyweight_Expect_DONE)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -175,7 +175,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, create6_5_Name_Name_OnEmptyCFlyweight_Expect_DONE)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::DONE;
+//    RETURN_CODE expVal = RETURN_CODE::DONE;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -188,7 +188,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, createDefm1_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //    
 //    rcVal = getFinalResultCode
 //    ({
@@ -201,7 +201,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, createDef0_OnEmptyCFlyweight_Expect_DONE)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::DONE;
+//    RETURN_CODE expVal = RETURN_CODE::DONE;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -214,7 +214,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, createDef6_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -227,7 +227,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, createCopy01_Expect_ERROR)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -240,7 +240,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, print_OnEmptyCFlyweight_Expect_ERROR)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -253,7 +253,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, deleteAll_Expect_ERROR)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::ERROR;
+//    RETURN_CODE expVal = RETURN_CODE::ERROR;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -266,7 +266,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, printAll_Expect_DONE)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::DONE;
+//    RETURN_CODE expVal = RETURN_CODE::DONE;
 //
 //    rcVal = getFinalResultCode
 //    ({
@@ -279,7 +279,7 @@ TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 //
 //TEST_F(CFlyweightProperArgsMT, help_Expect_DONE)
 //{
-//    ERROR_CODE expVal = ERROR_CODE::DONE;
+//    RETURN_CODE expVal = RETURN_CODE::DONE;
 //
 //    rcVal = getFinalResultCode
 //    ({

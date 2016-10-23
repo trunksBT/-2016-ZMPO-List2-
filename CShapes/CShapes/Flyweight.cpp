@@ -13,31 +13,39 @@
 #include "Handlers/PrintHandler.h"
 #include "Handlers/PrintAllHandler.h"
 #include "Handlers/HelpHandler.h"
+#include "UtilsForMT.h"
 
 using namespace defaultVals;
 using namespace messageLiterals;
 using namespace funs;
 
 CPoint** CFlyweight::cache_;
+CShape** CFlyweight::shapeCache_;
 int CFlyweight::sizeOfPointCache_;
 std::map<int, bool> CFlyweight::isInitializedPointCache_;
 
-ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
+RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 {
-    ERROR_CODE returnedCode = ERROR_CODE::ERROR;
+    RETURN_CODE returnedCode = RETURN_CODE::ERROR;
     {
         if (inCommand.size() == ZERO)
         {
-            return ERROR_CODE::ERROR;
+            return RETURN_CODE::ERROR;
         }
 
         std::string command(inCommand[idxOf::COMMAND]);
-        std::vector<CPointWithSize> pairedCache = toVectorOfPairs(cache_, sizeOfPointCache_);
+        std::vector<CPointWithSize> pairedPointCache = toVectorOfPairsOfPoints(cache_, sizeOfPointCache_);
+        std::vector<CShapeWithSize> pairedShapeCache = toVectorOfPairsOfShapes(shapeCache_, sizeOfPointCache_);
 
         if (command == CREATE_DEFS)
         {
             CCreateDefsHandler evaluate(inCommand);
-            returnedCode = evaluate.checkCorrectnessAndPerform(pairedCache);
+
+            returnedCode = assertWrapper::getFinalResultCode
+            ({
+                evaluate.perform(pairedPointCache),
+                evaluate.perform(pairedShapeCache)
+            });
         }
     }
     /*if(command == CREATE)
@@ -93,11 +101,11 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
     }
     else if(command == CLOSE)
     {
-        returnedCode = ERROR_CODE::ERROR;
+        returnedCode = RETURN_CODE::ERROR;
     }*/
     //else
     //{
-    //    returnedCode = returnResultCode(ERROR_CODE::ERROR);
+    //    returnedCode = returnResultCode(RETURN_CODE::ERROR);
     //}
 
     return returnedCode;

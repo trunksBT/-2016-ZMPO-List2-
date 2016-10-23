@@ -5,14 +5,11 @@
 #include "Shape.h"
 #include <limits>
 
-enum class ERROR_CODE : int
+enum class RETURN_CODE : int
 {
     DONE = 0,
     ERROR = 1
 };
-
-using CPointWithSize = std::pair<CPoint**, int>;
-using CShapeWithSize = std::pair<CShape**, int>;
 
 namespace defaultVals
 {
@@ -56,10 +53,13 @@ namespace cacheIdx
 constexpr const int CTABLE_IDX = 0;
 }
 
+using CPointWithSize = std::pair<CPoint**, int>;
+using CShapeWithSize = std::pair<CShape**, int>;
+
 namespace funs
 {
 int toInt(char inChar);
-std::string toString(ERROR_CODE inCode);
+std::string toString(RETURN_CODE inCode);
 bool isNumber(std::string inChain);
 bool isProperIdx(int inIdx, int inSize);
 bool isVectorEmpty(std::vector<CPointWithSize>& inCache);
@@ -67,8 +67,9 @@ bool isProperIdx(int idxOrAmount, std::vector<CPointWithSize>& inCache);
 bool isProperIdx(int inIdxOrAmount, std::vector<CPointWithSize>& inCache);
 bool isProperAmmountOfArgs(std::vector<std::string>& inCommand, int inProperAmountOfArgs);
 bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs);
-ERROR_CODE returnResultCode(ERROR_CODE inResultCode);
-std::vector<CPointWithSize> toVectorOfPairs(CPoint** inCache, int inSize);
+RETURN_CODE returnResultCode(RETURN_CODE inResultCode);
+std::vector<CPointWithSize> toVectorOfPairsOfPoints(CPoint** inCache, int inSize);
+std::vector<CShapeWithSize> toVectorOfPairsOfShapes(CShape** inCache, int inSize);
 }
 
 namespace idxOf
