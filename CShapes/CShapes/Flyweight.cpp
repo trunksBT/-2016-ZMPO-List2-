@@ -37,9 +37,9 @@ RETURN_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         std::vector<CPointWithSize> pairedPointCache = toVectorOfPairsOfPoints(cache_, sizeOfPointCache_);
         std::vector<CShapeWithSize> pairedShapeCache = toVectorOfPairsOfShapes(shapeCache_, sizeOfPointCache_);
 
-        if (command == CREATE_DEFS)
+        if (command == GO)
         {
-            CCreateDefsHandler evaluate(inCommand);
+            CGoHandler evaluate(inCommand);
 
             returnedCode = assertWrapper::getFinalResultCode
             ({

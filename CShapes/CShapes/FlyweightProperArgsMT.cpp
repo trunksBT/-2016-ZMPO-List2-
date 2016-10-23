@@ -12,6 +12,7 @@
 
 using namespace defaultVals;
 using namespace assertWrapper;
+using namespace funs;
 
 namespace
 {
@@ -30,50 +31,54 @@ protected:
     RETURN_CODE rcVal;
 };
 
-TEST_F(CFlyweightProperArgsMT, createDefsm1_OnEmptyCFlyweight_Expect_WRONG_VALUE)
+TEST_F(CFlyweightProperArgsMT, gom1_OnEmptyCFlyweight_Expect_WRONG_VALUE)
 {
     RETURN_CODE expVal = RETURN_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
-        application.interpretCommand(stub::createDefsm1)
+        application.interpretCommand(stub::gom1)
     });
+    std::cout << toString(rcVal);
 
     ASSERT_EQ(expVal, rcVal);
 }
 
-TEST_F(CFlyweightProperArgsMT, createDefs0_OnEmptyCFlyweight_Expect_WRONG_VALUE)
+TEST_F(CFlyweightProperArgsMT, go0_OnEmptyCFlyweight_Expect_WRONG_VALUE)
 {
     RETURN_CODE expVal = RETURN_CODE::ERROR;
 
     rcVal = getFinalResultCode
     ({
-        application.interpretCommand(stub::createDefs0)
+        application.interpretCommand(stub::go0)
     });
+    std::cout << toString(rcVal);
 
     ASSERT_EQ(expVal, rcVal);
 }
 
-TEST_F(CFlyweightProperArgsMT, createDefs1_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightProperArgsMT, go1_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 {
     RETURN_CODE expVal = RETURN_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
-        application.interpretCommand(stub::createDefs1)
+        application.interpretCommand(stub::go1)
     });
+    std::cout << toString(rcVal);
 
     ASSERT_EQ(expVal, rcVal);
 }
 
-TEST_F(CFlyweightProperArgsMT, createDefs6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
+TEST_F(CFlyweightProperArgsMT, go6_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
 {
     RETURN_CODE expVal = RETURN_CODE::DONE;
 
     rcVal = getFinalResultCode
     ({
-        application.interpretCommand(stub::createDefs6)
+        application.interpretCommand(stub::go6)
     });
+    std::cout << toString(rcVal);
 
     ASSERT_EQ(expVal, rcVal);
 }

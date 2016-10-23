@@ -15,13 +15,13 @@ extern std::vector<std::string> create1_m5_Name;
 extern std::vector<std::string> createDefm1;
 extern std::vector<std::string> createDef0;
 extern std::vector<std::string> createDef6;
-extern std::vector<std::string> createDefsm1;
-extern std::vector<std::string> createDefs0;
-extern std::vector<std::string> createDefs1;
-extern std::vector<std::string> createDefs6;
-extern std::vector<std::string> createDefs10;
-extern std::vector<std::string> createDefs11;
-extern std::vector<std::string> createDefs10000;
+extern std::vector<std::string> gom1;
+extern std::vector<std::string> go0;
+extern std::vector<std::string> go1;
+extern std::vector<std::string> go6;
+extern std::vector<std::string> go10;
+extern std::vector<std::string> go11;
+extern std::vector<std::string> go10000;
 extern std::vector<std::string> createCopy00;
 extern std::vector<std::string> createCopym1_0;
 extern std::vector<std::string> createCopym1_m1;
@@ -72,7 +72,7 @@ namespace wrongAmountStub
 {
 extern std::vector<std::string> createToSmall;
 extern std::vector<std::string> createDefToSmall;
-extern std::vector<std::string> createDefsToSmall;
+extern std::vector<std::string> goToSmall;
 extern std::vector<std::string> createCopy0ToSmall;
 extern std::vector<std::string> printToSmall;
 extern std::vector<std::string> getNameToSmall;
@@ -86,7 +86,7 @@ extern std::vector<std::string> setSizeToSmall;
 
 extern std::vector<std::string> createToBig;
 extern std::vector<std::string> createDefToBig;
-extern std::vector<std::string> createDefsToBig;
+extern std::vector<std::string> goToBig;
 extern std::vector<std::string> createCopy0ToBig;
 extern std::vector<std::string> printToBig;
 extern std::vector<std::string> getNameToBig;
@@ -105,7 +105,7 @@ namespace wrongTypeStub
 {
 extern std::vector<std::string> createZZZ;
 extern std::vector<std::string> createDefZ;
-extern std::vector<std::string> createDefsZ;
+extern std::vector<std::string> goZ;
 extern std::vector<std::string> createCopyZZ;
 extern std::vector<std::string> printZ;
 extern std::vector<std::string> getNameZ;

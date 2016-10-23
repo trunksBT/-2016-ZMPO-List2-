@@ -67,7 +67,6 @@ bool isProperIdx(int idxOrAmount, std::vector<CPointWithSize>& inCache);
 bool isProperIdx(int inIdxOrAmount, std::vector<CPointWithSize>& inCache);
 bool isProperAmmountOfArgs(std::vector<std::string>& inCommand, int inProperAmountOfArgs);
 bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs);
-RETURN_CODE returnResultCode(RETURN_CODE inResultCode);
 std::vector<CPointWithSize> toVectorOfPairsOfPoints(CPoint** inCache, int inSize);
 std::vector<CShapeWithSize> toVectorOfPairsOfShapes(CShape** inCache, int inSize);
 }
@@ -88,7 +87,7 @@ namespace messageLiterals
 {
 constexpr const char* CREATE = "create";
 constexpr const char* CREATE_DEF = "createDef";
-constexpr const char* CREATE_DEFS = "createDefs";
+constexpr const char* GO = "go";
 constexpr const char* CREATE_COPY = "createCopy";
 constexpr const char* GET_VALUE = "getValue";
 constexpr const char* DELETE = "delete";

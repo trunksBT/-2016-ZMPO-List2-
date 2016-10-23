@@ -10,34 +10,22 @@ using namespace defaultVals;
 using namespace cacheIdx;
 using namespace funs;
 
-CCreateDefsHandler::CCreateDefsHandler(std::vector<std::string>& inCommand)
+CGoHandler::CGoHandler(std::vector<std::string>& inCommand)
     : IHandler(inCommand), IPointHandler(inCommand), IShapeHandler(inCommand)
 {
 }
 
-const int CCreateDefsHandler::getProperAmountOfArgs()
+const int CGoHandler::getProperAmountOfArgs()
 {
-    return 2;
+    return 3;
 }
 
-std::string CCreateDefsHandler::getProperTypesOfArgs()
+std::string CGoHandler::getProperTypesOfArgs()
 {
-    return "si";
+    return "sii";
 }
 
-RETURN_CODE CCreateDefsHandler::perform(std::vector<CShapeWithSize>& inCache)
-{
-    if (checkCorrectnessAndPerform() == RETURN_CODE::DONE)
-    {
-        return performOn(inCache);
-    }
-    else
-    {
-        return RETURN_CODE::ERROR;
-    }
-}
-
-RETURN_CODE CCreateDefsHandler::perform(std::vector<CPointWithSize>& inCache)
+RETURN_CODE CGoHandler::perform(std::vector<CShapeWithSize>& inCache)
 {
     if (checkCorrectnessAndPerform() == RETURN_CODE::DONE)
     {
@@ -49,14 +37,26 @@ RETURN_CODE CCreateDefsHandler::perform(std::vector<CPointWithSize>& inCache)
     }
 }
 
-RETURN_CODE CCreateDefsHandler::performOn(std::vector<CPointWithSize>& inCache)
+RETURN_CODE CGoHandler::perform(std::vector<CPointWithSize>& inCache)
+{
+    if (checkCorrectnessAndPerform() == RETURN_CODE::DONE)
+    {
+        return performOn(inCache);
+    }
+    else
+    {
+        return RETURN_CODE::ERROR;
+    }
+}
+
+RETURN_CODE CGoHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
 
     if (idxOrAmount <= ZERO)
     {
-        return returnResultCode(RETURN_CODE::ERROR);
+        return RETURN_CODE::ERROR;
     }
     else
     {
@@ -92,7 +92,7 @@ RETURN_CODE CCreateDefsHandler::performOn(std::vector<CPointWithSize>& inCache)
     return RETURN_CODE::DONE;
 }
 
-RETURN_CODE CCreateDefsHandler::performOn(std::vector<CShapeWithSize>& inCache)
+RETURN_CODE CGoHandler::performOn(std::vector<CShapeWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::AMOUNT]);
     int idxOrAmount = std::stoi(receivedId);
@@ -135,7 +135,7 @@ RETURN_CODE CCreateDefsHandler::performOn(std::vector<CShapeWithSize>& inCache)
     return RETURN_CODE::DONE;
 }
 
-CCreateDefsHandler::~CCreateDefsHandler()
+CGoHandler::~CGoHandler()
 {
 
 }

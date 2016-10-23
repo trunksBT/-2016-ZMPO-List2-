@@ -93,13 +93,6 @@ namespace funs
         return isNumber;
     }
 
-    RETURN_CODE returnResultCode(RETURN_CODE inResultCode)
-    {
-        RETURN_CODE resultCode = inResultCode;
-        Logger::info() << toString(resultCode);
-        return resultCode;
-    }
-
     bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs)
     {
         bool isProperType = true;

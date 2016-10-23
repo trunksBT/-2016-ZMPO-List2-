@@ -6,11 +6,11 @@
 #include "IPointHandler.h"
 #include "IShapeHandler.h"
 
-class CCreateDefsHandler : public virtual IPointHandler, public  virtual IShapeHandler
+class CGoHandler : public virtual IPointHandler, public  virtual IShapeHandler
 {
 public:
-    CCreateDefsHandler(std::vector<std::string>& inCommand);
-    virtual ~CCreateDefsHandler();
+    CGoHandler(std::vector<std::string>& inCommand);
+    virtual ~CGoHandler();
     RETURN_CODE perform(std::vector<CPointWithSize>& inCache) override;
     RETURN_CODE perform(std::vector<CShapeWithSize>& inCache) override;
 protected:

@@ -17,15 +17,15 @@ RETURN_CODE IHandler::checkCorrectnessAndPerform()
 {
     if (!isProperAmmountOfArgs(wholeCommand_, getProperAmountOfArgs()))
     {
-        return returnResultCode(RETURN_CODE::ERROR);
+        return RETURN_CODE::ERROR;
     }
     else if (!isProperTypeOfArgs(wholeCommand_, getProperTypesOfArgs()))
     {
-        return returnResultCode(RETURN_CODE::ERROR);
+        return RETURN_CODE::ERROR;
     }
     else
     {
-        return returnResultCode(RETURN_CODE::DONE);
+        return RETURN_CODE::DONE;
     }
 }
 

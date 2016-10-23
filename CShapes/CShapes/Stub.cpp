@@ -13,13 +13,13 @@ std::vector<std::string> create1_m5_Name = { "create", "1", "-5", "Name" };
 std::vector<std::string> createDefm1 = { "createDef", "-1" };
 std::vector<std::string> createDef0 = { "createDef", "0" };
 std::vector<std::string> createDef6 = { "createDef", "6" };
-std::vector<std::string> createDefsm1 = { "createDefs", "-1" };
-std::vector<std::string> createDefs0 = { "createDefs", "0" };
-std::vector<std::string> createDefs1 = { "createDefs", "1" };
-std::vector<std::string> createDefs6 = { "createDefs", "6" };
-std::vector<std::string> createDefs10 = { "createDefs", "10" };
-std::vector<std::string> createDefs11 = { "createDefs", "11" };
-std::vector<std::string> createDefs10000 = { "createDefs", "10000" };
+std::vector<std::string> gom1 = { "go", "-1" };
+std::vector<std::string> go0 = { "go", "0" };
+std::vector<std::string> go1 = { "go", "1" };
+std::vector<std::string> go6 = { "go", "6" };
+std::vector<std::string> go10 = { "go", "10" };
+std::vector<std::string> go11 = { "go", "11" };
+std::vector<std::string> go10000 = { "go", "10000" };
 std::vector<std::string> createCopy00 = { "createCopy", "0", "0" };
 std::vector<std::string> createCopym1_0 = { "createCopy", "-1", "0" };
 std::vector<std::string> createCopym1_m1 = { "createCopy", "-1", "-1" };
@@ -70,7 +70,7 @@ namespace wrongAmountStub
 {
 std::vector<std::string> createToSmall = { "create", "1" };
 std::vector<std::string> createDefToSmall = { "createDef" };
-std::vector<std::string> createDefsToSmall = { "createDefs" };
+std::vector<std::string> goToSmall = { "go" };
 std::vector<std::string> createCopy0ToSmall = { "createCopy", "0" };
 std::vector<std::string> printToSmall = { "print" };
 std::vector<std::string> getNameToSmall = { "getName" };
@@ -84,7 +84,7 @@ std::vector<std::string> setSizeToSmall = { "setSize", "0" };
 
 std::vector<std::string> createToBig = { "create", "1", "5", "Name" , "23" };
 std::vector<std::string> createDefToBig = { "createDef", "0", "6" };
-std::vector<std::string> createDefsToBig = { "createDefs", "0", "6" };
+std::vector<std::string> goToBig = { "go", "0", "6" };
 std::vector<std::string> createCopy0ToBig = { "createCopy", "0", "1", "6" };
 std::vector<std::string> printToBig = { "print", "0", "6" };
 std::vector<std::string> getNameToBig = { "getName", "0", "6" };
@@ -103,7 +103,7 @@ namespace wrongTypeStub
 {
 std::vector<std::string> createZZZ = { "create", "Z", "Z", "Z" };
 std::vector<std::string> createDefZ = { "createDef", "Z" };
-std::vector<std::string> createDefsZ = { "createDefs", "Z" };
+std::vector<std::string> goZ = { "go", "Z" };
 std::vector<std::string> createCopyZZ = { "createCopy", "Z", "Z" };
 std::vector<std::string> printZ = { "print", "Z" };
 std::vector<std::string> getNameZ = { "getName", "Z" };
