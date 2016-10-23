@@ -3,7 +3,7 @@
 
 #include "PrintAllHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -24,30 +24,30 @@ std::string CPrintAllHandler::getProperTypesOfArgs()
     return "s";
 }
 
-ERROR_CODE CPrintAllHandler::performOn(std::vector<CTable*>& inCache)
+ERROR_CODE CPrintAllHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
-    if(inCache.size() == 0)
-    {
-        return returnResultCode(ERROR_CODE::ERROR);
-    }
-    else
-    {
-        for(int i = 0; i < inCache.size(); i++)
-        {
-            std::cout << i << SEPARATOR;
+    //if(inCache.size() == 0)
+    //{
+    //    return returnResultCode(ERROR_CODE::ERROR);
+    //}
+    //else
+    //{
+    //    for(int i = 0; i < inCache.size(); i++)
+    //    {
+    //        std::cout << i << SEPARATOR;
 
-            if(inCache[i] == nullptr)
-            {
-                std::cout << toString(ERROR_CODE::ERROR);
-            }
-            else
-            {
-                std::cout << inCache[i]->toString();
-            }
+    //        if(inCache[i].first == nullptr)
+    //        {
+    //            std::cout << toString(ERROR_CODE::ERROR);
+    //        }
+    //        else
+    //        {
+    //            std::cout << inCache[i].first->toString();
+    //        }
 
-            std::cout << POST_PRINT;
-        }
-    }
+    //        std::cout << POST_PRINT;
+    //    }
+    //}
 
     return ERROR_CODE::DONE;
 }

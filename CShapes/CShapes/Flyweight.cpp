@@ -4,6 +4,7 @@
 #include "Utils.hpp"
 #include "Handlers/CreateHandler.h"
 #include "Handlers/CreateDefHandler.h"
+#include "Handlers/CreateDefsHandler.h"
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
 #include "Handlers/SetValueHandler.h"
@@ -17,19 +18,29 @@ using namespace defaultVals;
 using namespace messageLiterals;
 using namespace funs;
 
-std::vector<CTable*> CFlyweight::cache_;
+CPoint** CFlyweight::cache_;
+int CFlyweight::sizeOfPointCache_;
+std::map<int, bool> CFlyweight::isInitializedPointCache_;
 
 ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
 {
-    if(inCommand.size() == ZERO)
-    {
-        return ERROR_CODE::ERROR;
-    }
-
     ERROR_CODE returnedCode = ERROR_CODE::ERROR;
-    std::string command(inCommand[idxOf::COMMAND]);
+    {
+        if (inCommand.size() == ZERO)
+        {
+            return ERROR_CODE::ERROR;
+        }
 
-    if(command == CREATE)
+        std::string command(inCommand[idxOf::COMMAND]);
+        std::vector<CPointWithSize> pairedCache = toVectorOfPairs(cache_, sizeOfPointCache_);
+
+        if (command == CREATE_DEFS)
+        {
+            CCreateDefsHandler evaluate(inCommand);
+            returnedCode = evaluate.checkCorrectnessAndPerform(pairedCache);
+        }
+    }
+    /*if(command == CREATE)
     {
         CCreateHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
@@ -39,6 +50,7 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CCreateDefHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
+
     else if(command == CREATE_COPY)
     {
         CCreateCopyHandler evaluate(inCommand);
@@ -79,59 +91,56 @@ ERROR_CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CHelpHandler evaluate(inCommand);
         returnedCode = evaluate.checkCorrectnessAndPerform(cache_);
     }
-    else if(command == ERROR)
+    else if(command == CLOSE)
     {
         returnedCode = ERROR_CODE::ERROR;
-    }
-    else
-    {
-        returnedCode = returnResultCode(ERROR_CODE::ERROR);
-    }
+    }*/
+    //else
+    //{
+    //    returnedCode = returnResultCode(ERROR_CODE::ERROR);
+    //}
 
     return returnedCode;
 }
 
 #pragma region ********** CTORS_DTORS **********
 
-void CFlyweight::createCFlyweight(int inSize)
-{
-    cache_ = std::vector<CTable*>(inSize);
-}
-
 void CFlyweight::releaseResources()
 {
-    releaseResources(cache_);
-}
-
-void CFlyweight::releaseResources(std::vector<CTable*>& inCache)
-{
-    for(auto i = ZERO; i < inCache.size(); i++)
+    for (int i = 0; i < DEFAULT_FLYWEIGHT_CACHE_SIZE; i++)
     {
-        delete inCache[i];
+        if (cache_[i] == nullptr)
+        {
+            delete cache_[i];
+            cache_[i] = nullptr;
+        }
     }
-    inCache.clear();
+    cache_ = nullptr;
 }
 
 CFlyweight::CFlyweight()
 {
-    CFlyweight::createCFlyweight(INITIAL_FLYWEIGHT_CACHE_SIZE);
+    sizeOfPointCache_ = DEFAULT_FLYWEIGHT_CACHE_SIZE;
+    cache_ = new CPoint*[sizeOfPointCache_];
+    for (int i = 0; i < sizeOfPointCache_; i++)
+    {
+        isInitializedPointCache_[i] = false;
+    }
 }
 
-CFlyweight::CFlyweight(std::vector<std::string>& inCommand,
-    std::vector<CTable*>& inCache)
+CFlyweight::CFlyweight(int inCacheSize)
 {
-    CFlyweight::createCFlyweight(inCache);
-    CFlyweight::interpretCommand(std::move(inCommand));
+    sizeOfPointCache_ = inCacheSize;
+    cache_ = new CPoint*[sizeOfPointCache_];
+    for (int i = 0; i < sizeOfPointCache_; i++)
+    {
+        isInitializedPointCache_[i] = false;
+    }
 }
 
 CFlyweight::~CFlyweight()
 {
     CFlyweight::releaseResources();
-}
-
-void CFlyweight::createCFlyweight(std::vector<CTable*>& inCache)
-{
-    cache_ = std::move(inCache);
 }
 
 # pragma endregion

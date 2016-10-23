@@ -24,7 +24,7 @@ using namespace funs;
 int main(int argc, char **argv)
 {
    //{
-   //     CFlyweight application;
+   //     CFlyweight application(DEFAULT_FLYWEIGHT_CACHE_SIZE);
    //     ERROR_CODE commandResult = ERROR_CODE::ERROR;
 
    //     std::cout << "Pass command" << std::endl;

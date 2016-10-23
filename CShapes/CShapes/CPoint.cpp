@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "CTable.hpp"
+#include "CPoint.hpp"
 #include "Utils.hpp"
 #include <iostream>
 #include <limits>
@@ -9,7 +9,7 @@
 using namespace defaultVals;
 using namespace funs;
 
-CTable::CTable()
+CPoint::CPoint()
 {
     name_ = DEFAULT_TABLE_NAME;
     size_ = DEFAULT_IN_TABLE_SIZE;
@@ -18,7 +18,7 @@ CTable::CTable()
     Logger::info() << CTOR_DEFAULT_PRE_PRINT << name_ << POST_PRINT;
 }
 
-CTable::CTable(int inSize)
+CPoint::CPoint(int inSize)
 {
     name_ = DEFAULT_TABLE_NAME;
     size_ = inSize;
@@ -27,7 +27,7 @@ CTable::CTable(int inSize)
     Logger::info() << CTOR_ARG1_PRE_PRINT<< name_ << POST_PRINT;
 }
 
-CTable::CTable(int inSize, int initValue)
+CPoint::CPoint(int inSize, int initValue)
 {
     name_ = DEFAULT_TABLE_NAME;
     size_ = inSize;
@@ -36,7 +36,7 @@ CTable::CTable(int inSize, int initValue)
     Logger::info() << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
 }
 
-CTable::CTable(std::string inName)
+CPoint::CPoint(std::string inName)
 {
     name_ = inName;
     size_ = DEFAULT_IN_TABLE_SIZE;
@@ -45,7 +45,7 @@ CTable::CTable(std::string inName)
     Logger::info() << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
 }
 
-CTable::CTable(int inSize, std::string inName)
+CPoint::CPoint(int inSize, std::string inName)
 {
     name_ = inName;
     size_ = inSize;
@@ -54,25 +54,25 @@ CTable::CTable(int inSize, std::string inName)
     Logger::info() << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
 }
 
-CTable::CTable(CTable& inVal)
+CPoint::CPoint(CPoint& inVal)
 {
     copyCtor(inVal);
 }
 
-CTable* CTable::clone()
+CPoint* CPoint::clone()
 {
-    CTable* newObject = new CTable(*this);
+    CPoint* newObject = new CPoint(*this);
     newObject->setName(this->getName());
     return newObject;
 }
 
-void CTable::initTable()
+void CPoint::initTable()
 {
     initTable(memory_, DEFAULT_IN_TABLE_SIZE, DEFAULT_TABLE_VAL);
 }
 
 
-void CTable::initTable(int* table, int size, int defaultVal)
+void CPoint::initTable(int* table, int size, int defaultVal)
 {
     for(int i = 0; i < size; i++)
     {
@@ -80,7 +80,7 @@ void CTable::initTable(int* table, int size, int defaultVal)
     }
 }
 
-void CTable::copyCtor(CTable& inVal)
+void CPoint::copyCtor(CPoint& inVal)
 {
     name_ = inVal.name_;
     size_ = inVal.size_;
@@ -90,14 +90,14 @@ void CTable::copyCtor(CTable& inVal)
     Logger::info() << CTOR_COPY_PRE_PRINT << name_ << POST_PRINT;
 }
 
-CTable& CTable::operator=(CTable& inObj)
+CPoint& CPoint::operator=(CPoint& inObj)
 {
     delete[] memory_;
     copyCtor(inObj);
     return *this;
 }
 
-void CTable::setSize(int inNewSize)
+void CPoint::setSize(int inNewSize)
 {
     if(size_ != inNewSize)
     {
@@ -116,37 +116,37 @@ void CTable::setSize(int inNewSize)
     }
 }
 
-CTable* CTable::buildNewObj()
+CPoint* CPoint::buildNewObj()
 {
-    return new CTable();
+    return new CPoint();
 }
 
-CTable* CTable::buildNewObj(CTable& inVal)
+CPoint* CPoint::buildNewObj(CPoint& inVal)
 {
-    return new CTable(inVal);
+    return new CPoint(inVal);
 }
 
-CTable* CTable::buildNewObj(int inSize)
+CPoint* CPoint::buildNewObj(int inSize)
 {
-    return new CTable(inSize);
+    return new CPoint(inSize);
 }
 
-CTable* CTable::buildNewObj(int inSize, int inInitValue)
+CPoint* CPoint::buildNewObj(int inSize, int inInitValue)
 {
-    return new CTable(inSize, inInitValue);
+    return new CPoint(inSize, inInitValue);
 }
 
-CTable* CTable::buildNewObj(int inSize, std::string inName)
+CPoint* CPoint::buildNewObj(int inSize, std::string inName)
 {
-    return new CTable(inSize, inName);
+    return new CPoint(inSize, inName);
 }
 
-void CTable::allocateMemory(int size)
+void CPoint::allocateMemory(int size)
 {
     memory_ = new int[size];
 }
 
-void CTable::deepCopy(CTable& inVal)
+void CPoint::deepCopy(CPoint& inVal)
 {
     for(int i = 0; i < inVal.size_; i++)
     {
@@ -154,23 +154,23 @@ void CTable::deepCopy(CTable& inVal)
     }
 }
 
-CTable::~CTable()
+CPoint::~CPoint()
 {
     deallocateMemory();
     Logger::info() << DTOR_PRE_PRINT << name_ << POST_PRINT;
 }
 
-void CTable::setName(std::string inName)
+void CPoint::setName(std::string inName)
 {
     name_ = std::move(inName);
 }
 
-void CTable::deallocateMemory()
+void CPoint::deallocateMemory()
 {
     delete[] memory_;
 }
 
-void CTable::setVal(int idx, int newVal)
+void CPoint::setVal(int idx, int newVal)
 {
     if(isProperIdx(idx, size_))
     {
@@ -178,7 +178,7 @@ void CTable::setVal(int idx, int newVal)
     }
 }
 
-int CTable::getVal(int idx) const
+int CPoint::getVal(int idx) const
 {
     int retVal = std::numeric_limits<int>::min();
     if(isProperIdx(idx, size_))
@@ -188,17 +188,17 @@ int CTable::getVal(int idx) const
     return retVal;
 }
 
-int CTable::getSize() const
+int CPoint::getSize() const
 {
     return size_;
 }
 
-std::string CTable::getName() const
+std::string CPoint::getName() const
 {
     return std::string(name_);
 }
 
-std::string CTable::toString() const
+std::string CPoint::toString() const
 {
     std::stringstream retVal;
     retVal << BRACKET_OPEN << name_;

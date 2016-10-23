@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "CTable.hpp"
+#include "CPoint.hpp"
 #include <limits>
 
 enum class ERROR_CODE : int
@@ -9,6 +9,8 @@ enum class ERROR_CODE : int
     DONE = 0,
     ERROR = 1
 };
+
+using CPointWithSize = std::pair<CPoint**, int>;
 
 namespace defaultVals
 {
@@ -37,12 +39,19 @@ constexpr const int ONE = 1;
 constexpr const int TWO = 2;
 constexpr const int FIVE = 5;
 constexpr const int TEN = 10;
-constexpr const int DEFAULT_TABLE_VAL = -1;
-constexpr const int DEFAULT_IN_TABLE_SIZE = FIVE;
 constexpr const long MAX_INT_VAL = (std::numeric_limits<int>::max)();
 constexpr const char* ERRORED_COMMAND_IDX = "Errored command idx";
 constexpr const char INT_TYPE = 'i';
 constexpr const char STRING_TYPE = 's';
+constexpr const int DEFAULT_TABLE_VAL = -1;
+
+constexpr const int DEFAULT_IN_TABLE_SIZE = FIVE;
+constexpr const int DEFAULT_FLYWEIGHT_CACHE_SIZE = FIVE;
+}
+
+namespace cacheIdx
+{
+constexpr const int CTABLE_IDX = 0;
 }
 
 namespace funs
@@ -51,12 +60,13 @@ int toInt(char inChar);
 std::string toString(ERROR_CODE inCode);
 bool isNumber(std::string inChain);
 bool isProperIdx(int inIdx, int inSize);
-bool isVectorEmpty(std::vector<CTable*>& inCache);
-bool isProperIdx(int idxOrAmount, std::vector<CTable*>& inCache);
-bool isProperIdx(int inIdxOrAmount, std::vector<CTable*>& inCache);
+bool isVectorEmpty(std::vector<CPointWithSize>& inCache);
+bool isProperIdx(int idxOrAmount, std::vector<CPointWithSize>& inCache);
+bool isProperIdx(int inIdxOrAmount, std::vector<CPointWithSize>& inCache);
 bool isProperAmmountOfArgs(std::vector<std::string>& inCommand, int inProperAmountOfArgs);
 bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs);
 ERROR_CODE returnResultCode(ERROR_CODE inResultCode);
+std::vector<CPointWithSize> toVectorOfPairs(CPoint** inCache, int inSize);
 }
 
 namespace idxOf
@@ -75,6 +85,7 @@ namespace messageLiterals
 {
 constexpr const char* CREATE = "create";
 constexpr const char* CREATE_DEF = "createDef";
+constexpr const char* CREATE_DEFS = "createDefs";
 constexpr const char* CREATE_COPY = "createCopy";
 constexpr const char* GET_VALUE = "getValue";
 constexpr const char* DELETE = "delete";
@@ -82,7 +93,7 @@ constexpr const char* REMOVE_ALL = "deleteAll";
 constexpr const char* SET_VALUE = "setValue";
 constexpr const char* PRINT = "print";
 constexpr const char* PRINT_ALL = "printAll";
-constexpr const char* ERROR = "close";
+constexpr const char* CLOSE = "close";
 constexpr const char* HELP = "help";
 }
 

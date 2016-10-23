@@ -3,7 +3,7 @@
 
 #include "CreateHandler.h"
 #include "../Utils.hpp"
-#include "../CTable.hpp"
+#include "../CPoint.hpp"
 #include "../Flyweight.h"
 
 using namespace defaultVals;
@@ -24,7 +24,7 @@ std::string CCreateHandler::getProperTypesOfArgs()
     return "siis";
 }
 
-ERROR_CODE CCreateHandler::performOn(std::vector<CTable*>& inCache)
+ERROR_CODE CCreateHandler::performOn(std::vector<CPointWithSize>& inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::ID_OF_CTABLE]);
     int idxOrAmount = std::stoi(receivedId);
@@ -32,29 +32,29 @@ ERROR_CODE CCreateHandler::performOn(std::vector<CTable*>& inCache)
     int newSize = std::stoi(receivedNewSize);
     std::string initialName(wholeCommand_[idxOf::INITIAL_NAME]);
 
-    if(idxOrAmount < 0)
-    {
-        return returnResultCode(ERROR_CODE::ERROR);
-    }
-    else
-    {
-        if(newSize > 0)
-        {
-            if(idxOrAmount > inCache.size())
-            {
-                inCache.resize(idxOrAmount + ONE);
-            }
-            if(inCache[idxOrAmount] != nullptr)
-            {
-                delete inCache[idxOrAmount];
-            }
-            inCache[idxOrAmount] = CTable::buildNewObj(newSize, initialName);
-        }
-        else
-        {
-            return returnResultCode(ERROR_CODE::ERROR);
-        }
-    }
+    //if(idxOrAmount < 0)
+    //{
+    //    return returnResultCode(ERROR_CODE::ERROR);
+    //}
+    //else
+    //{
+    //    if(newSize > 0)
+    //    {
+    //        if(idxOrAmount > inCache.size())
+    //        {
+    //            inCache.resize(idxOrAmount + ONE);
+    //        }
+    //        if(inCache[idxOrAmount].first != nullptr)
+    //        {
+    //            delete inCache[idxOrAmount].first;
+    //        }
+    //        inCache[idxOrAmount].first = CPoint::buildNewObj(newSize, initialName);
+    //    }
+    //    else
+    //    {
+    //        return returnResultCode(ERROR_CODE::ERROR);
+    //    }
+    //}
 
     return ERROR_CODE::DONE;
 }
