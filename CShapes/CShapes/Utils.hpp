@@ -21,6 +21,8 @@ constexpr const char* POINT = "POINT";
 constexpr const char* RECTANGLE = "RECTANGLE";
 constexpr const char* POINTS = "POINTS";
 constexpr const char* SHAPES = "SHAPES";
+constexpr const char* X = "X";
+constexpr const char* Y = "Y";
 }
 
 namespace defaultVals
@@ -30,7 +32,7 @@ constexpr const char* PRE_PRINT = "   ";
 constexpr const char* POST_PRINT = "\n";
 constexpr const char* SEPARATOR = ": ";
 constexpr const char* BRACKET_OPEN = "( ";
-constexpr const char* BRACKET_ERROR = " )";
+constexpr const char* BRACKET_CLOSE = " )";
 constexpr const char* LEN = "len";
 constexpr const char* VALUES = "values";
 constexpr const char* SPACE = " ";
@@ -56,7 +58,7 @@ constexpr const char INT_TYPE = 'i';
 constexpr const char STRING_TYPE = 's';
 constexpr const int DEFAULT_TABLE_VAL = -1;
 
-constexpr const int DEFAULT_IN_TABLE_SIZE = FIVE;
+constexpr const int DEFAULT_AXIS_VAL = FIVE;
 constexpr const int DEFAULT_FLYWEIGHT_CACHE_SIZE = FIVE;
 }
 
@@ -97,6 +99,8 @@ constexpr const int NEW_NAME = 2;
 constexpr const int NEW_SIZE = 2;
 constexpr const int GOAL_ID = 2;
 constexpr const int NEW_VAL = 3;
+constexpr const int X_AXIS_VAL = 2;
+constexpr const int Y_AXIS_VAL = 3;
 constexpr const int INITIAL_NAME = 3;
 }
 

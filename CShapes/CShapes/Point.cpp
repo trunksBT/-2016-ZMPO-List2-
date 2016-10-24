@@ -10,184 +10,96 @@ using namespace defaultVals;
 using namespace funs;
 using namespace typeLiterals;
 
-CPoint::CPoint(double xAxis, double yAxis)
+CPoint::CPoint(double xAxis, double yAxis) : CShape()
 {
-
+    xAxis_ = new double(xAxis);
+    yAxis_ = new double(yAxis);
+    Logger::info()
+        << CTOR_ARG1_PRE_PRINT 
+        << X << SEPARATOR << std::to_string(*xAxis_)
+        << COMMA_SPACE
+        << Y << SEPARATOR << std::to_string(*yAxis_)
+        << POST_PRINT;
 }
 
-CPoint::CPoint(int inSize) : CShape()
+CPoint::CPoint(const CPoint& inVal)
 {
-    name_ = DEFAULT_TABLE_NAME;
-    size_ = inSize;
-    allocateMemory(size_);
-    initTable(memory_, size_, DEFAULT_TABLE_VAL);
-    Logger::info() << CTOR_ARG1_PRE_PRINT<< name_ << POST_PRINT;
-}
-
-CPoint::CPoint(int inSize, int initValue) : CShape()
-{
-    name_ = DEFAULT_TABLE_NAME;
-    size_ = inSize;
-    allocateMemory(size_);
-    initTable(memory_, size_, initValue);
-    Logger::info() << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
-}
-
-CPoint::CPoint(std::string inName) : CShape()
-{
-    name_ = inName;
-    size_ = DEFAULT_IN_TABLE_SIZE;
-    allocateMemory(size_);
-    initTable(memory_, size_, DEFAULT_TABLE_VAL);
-    Logger::info() << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
-}
-
-CPoint::CPoint(int inSize, std::string inName) : CShape()
-{
-    name_ = inName;
-    size_ = inSize;
-    allocateMemory(size_);
-    initTable(memory_, size_, DEFAULT_TABLE_VAL);
-    Logger::info() << CTOR_ARG1_PRE_PRINT << name_ << POST_PRINT;
-}
-
-CPoint::CPoint(CPoint& inVal)
-{
-    copyCtor(inVal);
-}
-
-CPoint* CPoint::clone()
-{
-    CPoint* newObject = new CPoint(*this);
-    newObject->setName(this->getName());
-    return newObject;
-}
-
-void CPoint::initTable()
-{
-    initTable(memory_, DEFAULT_IN_TABLE_SIZE, DEFAULT_TABLE_VAL);
-}
-
-
-void CPoint::initTable(int* table, int size, int defaultVal)
-{
-    for(int i = 0; i < size; i++)
-    {
-        table[i] = int(defaultVal);
-    }
-}
-
-void CPoint::copyCtor(CPoint& inVal)
-{
-    name_ = inVal.name_;
-    size_ = inVal.size_;
-    name_.append(POST_COPIED_NAME);
-    allocateMemory(size_);
     deepCopy(inVal);
-    Logger::info() << CTOR_COPY_PRE_PRINT << name_ << POST_PRINT;
+    Logger::info()
+        << CTOR_COPY_PRE_PRINT
+        << X << SEPARATOR << std::to_string(*xAxis_)
+        << COMMA_SPACE
+        << Y << SEPARATOR << std::to_string(*yAxis_)
+        << POST_PRINT;
 }
 
-CPoint& CPoint::operator=(CPoint& inObj)
+void CPoint::copyCtor(const CPoint& inVal)
 {
-    delete[] memory_;
-    copyCtor(inObj);
+    //deallocateMemory();
+    //deepCopy(inVal);
+    //Logger::info()
+    //    << CTOR_COPY_PRE_PRINT
+    //    << X << SEPARATOR << std::to_string(*xAxis_)
+    //    << COMMA_SPACE
+    //    << Y << SEPARATOR << std::to_string(*yAxis_)
+    //    << POST_PRINT;
+}
+
+CPoint& CPoint::operator=(const CPoint& inObj)
+{
+    deallocateMemory();
+    deepCopy(inObj);
     return *this;
 }
 
-void CPoint::setSize(int inNewSize)
+void CPoint::deepCopy(const CPoint& inVal)
 {
-    if(size_ != inNewSize)
-    {
-        int* newTable = new int[inNewSize];
-        if(size_ < inNewSize)
-        {
-            initTable(newTable, inNewSize, DEFAULT_TABLE_VAL);
-        }
-        for(int i = 0; i < size_ && i < inNewSize; i++)
-        {
-            newTable[i] = int(memory_[i]);
-        }
-        delete[] memory_;
-        memory_ = newTable;
-        size_ = inNewSize;
-    }
-}
-
-CPoint* CPoint::buildNewObj(CPoint& inVal)
-{
-    return new CPoint(inVal);
-}
-
-CPoint* CPoint::buildNewObj(int inSize)
-{
-    return new CPoint(inSize);
-}
-
-CPoint* CPoint::buildNewObj(int inSize, int inInitValue)
-{
-    return new CPoint(inSize, inInitValue);
-}
-
-CPoint* CPoint::buildNewObj(int inSize, std::string inName)
-{
-    return new CPoint(inSize, inName);
-}
-
-void CPoint::allocateMemory(int size)
-{
-    memory_ = new int[size];
-}
-
-void CPoint::deepCopy(CPoint& inVal)
-{
-    for(int i = 0; i < inVal.size_; i++)
-    {
-        memory_[i] = int(inVal.memory_[i]);
-    }
+    xAxis_ = new double(*inVal.xAxis_);
+    yAxis_ = new double(*inVal.yAxis_);
 }
 
 CPoint::~CPoint()
 {
+    Logger::info()
+        << DTOR_PRE_PRINT
+        << X << SEPARATOR << std::to_string(*xAxis_)
+        << COMMA_SPACE
+        << Y << SEPARATOR << std::to_string(*yAxis_)
+        << POST_PRINT;
     deallocateMemory();
-    Logger::info() << DTOR_PRE_PRINT << name_ << POST_PRINT;
 }
 
-void CPoint::setName(std::string inName)
+CPoint* CPoint::buildNewObj(double xAxis, double yAxis)
 {
-    name_ = std::move(inName);
+    return new CPoint(xAxis, yAxis);
 }
 
 void CPoint::deallocateMemory()
 {
-    delete[] memory_;
+    delete xAxis_;
+    delete yAxis_;
 }
 
-void CPoint::setVal(int idx, int newVal)
+void CPoint::setX(double newX)
 {
-    if(isProperIdx(idx, size_))
-    {
-        memory_[idx] = newVal;
-    }
+    delete xAxis_;
+    xAxis_ = new double(newX);
 }
 
-int CPoint::getVal(int idx) const
+void CPoint::setY(double newY)
 {
-    int retVal = std::numeric_limits<int>::min();
-    if(isProperIdx(idx, size_))
-    {
-        retVal = memory_[idx];
-    }
-    return retVal;
+    delete yAxis_;
+    yAxis_ = new double(newY);
 }
 
-int CPoint::getSize() const
+double CPoint::getX() const
 {
-    return size_;
+    return double(*xAxis_);
 }
 
-std::string CPoint::getName() const
+double CPoint::getY() const
 {
-    return std::string(name_);
+    return double(*yAxis_);
 }
 
 std::string CPoint::getType()
@@ -198,19 +110,13 @@ std::string CPoint::getType()
 std::string CPoint::toString()
 {
     std::stringstream retVal;
-    retVal << getType() << SEPARATOR;
-    retVal << BRACKET_OPEN << name_;
-    retVal << SPACE << LEN << SEPARATOR << size_;
-    retVal << SPACE << VALUES << SEPARATOR;
+    retVal
+        << PRE_PRINT << POINT << BRACKET_OPEN
+        << X << SEPARATOR << std::to_string(*xAxis_)
+        << COMMA_SPACE
+        << Y << SEPARATOR << std::to_string(*yAxis_)
+        << BRACKET_CLOSE << POST_PRINT;
 
-    for(int i = 0; i < size_; i++)
-    {
-        retVal << memory_[i] << COMMA_SPACE;
-    }
-
-    std::string stringedStream(retVal.str());
-    stringedStream = stringedStream.substr(ZERO, stringedStream.size() - TWO);
-
-    return std::move(stringedStream + std::string(BRACKET_ERROR));
+    return retVal.str();
 }
 
