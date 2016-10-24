@@ -33,6 +33,16 @@ std::vector<std::string> createPointCopy0_m1 = { "createPointCopy", "0", "-1" };
 std::vector<std::string> createPointCopym1_m1 = { "createPointCopy", "-1", "-1" };
 std::vector<std::string> createPointCopy60 = { "createPointCopy", "6", "0" };
 
+std::vector<std::string> getPointX0 = { "getPointX", "0" };
+std::vector<std::string> getPointXm1 = { "getPointX", "-1" };
+std::vector<std::string> getPointX1 = { "getPointX", "1" };
+std::vector<std::string> getPointX6 = { "getPointX", "6" };
+
+std::vector<std::string> getPointY0 = { "getPointY", "0" };
+std::vector<std::string> getPointYm1 = { "getPointY", "-1" };
+std::vector<std::string> getPointY1 = { "getPointY", "1" };
+std::vector<std::string> getPointY6 = { "getPointY", "6" };
+
 std::vector<std::string> print0 = { "print", "0" };
 std::vector<std::string> printm1 = { "print", "-1" };
 std::vector<std::string> print6 = { "print", "6" };
@@ -43,15 +53,6 @@ std::vector<std::string> deletem1 = { "delete", "-1" };
 std::vector<std::string> delete0 = { "delete", "0" };
 std::vector<std::string> delete10 = { "delete", "10" };
 std::vector<std::string> deleteAll = { "deleteAll" };
-
-std::vector<std::string> getValue0_1 = { "getValue", "0", "1" };
-std::vector<std::string> getValue1_0 = { "getValue", "1", "0" };
-std::vector<std::string> getValuem1_1 = { "getValue", "-1", "1" };
-std::vector<std::string> getValue0_m1 = { "getValue", "0", "-1" };
-std::vector<std::string> getValue1_2 = { "getValue", "1", "2" };
-std::vector<std::string> getValue6_3 = { "getValue", "6", "3" };
-std::vector<std::string> getValue10_4 = { "getValue", "10", "4" };
-std::vector<std::string> getValue10_10 = { "getValue", "10", "10" };
 
 std::vector<std::string> help = { "help" };
 }

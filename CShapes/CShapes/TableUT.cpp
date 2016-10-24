@@ -112,23 +112,4 @@ TEST_F(CPointTests, buildCopyCtor_x_1_y_1_onNotEmptyPtr_Expect_True)
     delete goalPoint;
 }
 
-TEST_F(CPointTests, operatorEq_With_Dereference_x_1_y_1_Expect_True)
-{
-    double inX = 1;
-    double inY = 1;
-
-    double inX2 = 2;
-    double inY2 = 2;
-
-    CPoint* toBeCopied = new CPoint(inX, inY);
-    CPoint* toBeDestructer = new CPoint(inX2, inY2);
-    *toBeDestructer = *toBeCopied;
-
-    ASSERT_EQ(inX, toBeDestructer->getX());
-    ASSERT_EQ(inY, toBeDestructer->getY());
-
-    delete toBeCopied;
-    delete toBeDestructer;
-}
-
 }
