@@ -68,6 +68,7 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         }
         else if (command == CLOSE)
         {
+            releaseResources();
             returnedCode = CODE::CLOSE;
         }
     }
@@ -133,7 +134,7 @@ void CFlyweight::releaseResources()
 {
     for (int i = 0; i < pointCacheSize_; i++)
     {
-        if (pointCacheIsInitialized_[i] && pointCache_[i] == nullptr)
+        if (pointCacheIsInitialized_[i] && pointCache_[i] != nullptr)
         {
             delete pointCache_[i];
             pointCache_[i] = nullptr;
@@ -146,7 +147,7 @@ void CFlyweight::releaseResources()
 
     for (int i = 0; i < shapeCacheSize_; i++)
     {
-        if ( shapeCacheIsInitialized_[i] && shapeCache_[i] == nullptr )
+        if ( shapeCacheIsInitialized_[i] && shapeCache_[i] != nullptr )
         {
             delete shapeCache_[i];
             shapeCache_[i] = nullptr;

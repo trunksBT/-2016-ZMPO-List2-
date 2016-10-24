@@ -9,7 +9,7 @@ class CPoint : public CShape
 public:
     explicit CPoint(double xAxis, double yAxis);
     CPoint(const CPoint& inVal);
-    ~CPoint();
+    virtual ~CPoint();
     CPoint& operator=(const CPoint& inObj);
 public:
     double getX() const;

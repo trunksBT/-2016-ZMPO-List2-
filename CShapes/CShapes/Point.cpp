@@ -115,7 +115,7 @@ std::string CPoint::toString()
         << X << SEPARATOR << std::to_string(*xAxis_)
         << COMMA_SPACE
         << Y << SEPARATOR << std::to_string(*yAxis_)
-        << BRACKET_CLOSE << POST_PRINT;
+        << BRACKET_CLOSE;
 
     return retVal.str();
 }
