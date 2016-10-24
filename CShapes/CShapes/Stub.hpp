@@ -18,10 +18,10 @@ extern std::vector<std::string> go66;
 extern std::vector<std::string> go60;
 extern std::vector<std::string> go06;
 
-extern std::vector<std::string> create1_5_Name;
-extern std::vector<std::string> create6_5_Name;
-extern std::vector<std::string> createm1_5_Name;
-extern std::vector<std::string> create1_m5_Name;
+extern std::vector<std::string> createPoint1_1y5_5y5;
+extern std::vector<std::string> createPoint6_1y5_5y5;
+extern std::vector<std::string> createPoint0_m1y5_5y5;
+extern std::vector<std::string> createPoint0_1y5_m5y5;
 
 extern std::vector<std::string> createDefm1;
 extern std::vector<std::string> createDef0;

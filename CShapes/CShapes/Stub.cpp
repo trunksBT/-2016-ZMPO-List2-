@@ -16,10 +16,10 @@ std::vector<std::string> go66 = { "go", "6", "6" };
 std::vector<std::string> go60 = { "go", "6", "0" };
 std::vector<std::string> go06 = { "go", "0", "6" };
 
-std::vector<std::string> create1_5_Name = { "create", "1", "5", "Name" };
-std::vector<std::string> create6_5_Name = { "create", "6", "5", "Name" };
-std::vector<std::string> createm1_5_Name = { "create", "-1", "5", "Name" };
-std::vector<std::string> create1_m5_Name = { "create", "1", "-5", "Name" };
+std::vector<std::string> createPoint1_1y5_5y5 = { "createPoint", "1", "1.5", "5.5" };
+std::vector<std::string> createPoint6_1y5_5y5 = { "createPoint", "6", "1.5", "5.5" };
+std::vector<std::string> createPoint0_m1y5_5y5 = { "createPoint", "0", "-1.5", "5.5" };
+std::vector<std::string> createPoint0_1y5_m5y5 = { "createPoint", "0", "1.5", "-5.5" };
 
 std::vector<std::string> createDefm1 = { "createDef", "-1" };
 std::vector<std::string> createDef0 = { "createDef", "0" };

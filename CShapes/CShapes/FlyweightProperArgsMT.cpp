@@ -150,5 +150,6 @@ TEST_F(CFlyweightProperArgsMT, go06_OnEmptyCFlyweight_Expect_SEEMS_LEGIT)
     ASSERT_EQ(expVal, rcVal);
 }
 
+
 }
 
