@@ -158,6 +158,7 @@ TEST_F(CFlyweightProperArgsMT, createPoint1_1y5_5y5_Expect_SEEMS_LEGIT)
 
     rcVal = getFinalResultCode
     ({
+        application.interpretCommand(stub::go66),
         application.interpretCommand(stub::createPoint1_1y5_5y5)
     });
     std::cout << toString(rcVal);
@@ -171,6 +172,7 @@ TEST_F(CFlyweightProperArgsMT, createPoint6_1y5_5y5_Expect_SEEMS_LEGIT)
 
     rcVal = getFinalResultCode
     ({
+        application.interpretCommand(stub::go66),
         application.interpretCommand(stub::createPoint6_1y5_5y5)
     });
     std::cout << toString(rcVal);
@@ -184,6 +186,7 @@ TEST_F(CFlyweightProperArgsMT, createPoint0_m1y5_5y5_Expect_SEEMS_LEGIT)
 
     rcVal = getFinalResultCode
     ({
+        application.interpretCommand(stub::go66),
         application.interpretCommand(stub::createPoint0_m1y5_5y5)
     });
     std::cout << toString(rcVal);
@@ -197,11 +200,12 @@ TEST_F(CFlyweightProperArgsMT, createPoint0_1y5_m5y5_Expect_SEEMS_LEGIT)
 
     rcVal = getFinalResultCode
     ({
+        application.interpretCommand(stub::go66),
         application.interpretCommand(stub::createPoint0_1y5_m5y5)
     });
     std::cout << toString(rcVal);
 
     ASSERT_EQ(expVal, rcVal);
 }
-}
 
+}

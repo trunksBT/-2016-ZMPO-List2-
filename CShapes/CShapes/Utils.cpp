@@ -11,6 +11,16 @@ using namespace tupleIdx;
 
 namespace funs
 {
+    bool isMinus(char inChar)
+    {
+        return inChar == '-';
+    }
+    
+    bool isDot(char inChar)
+    {
+        return inChar == '.';
+    }
+
     bool isProperIdx(int idxOrAmount, CShapeWithSize inCache)
     {
         return idxOrAmount > MINUS_ONE && idxOrAmount < std::get<SIZE>(inCache);
@@ -64,7 +74,7 @@ namespace funs
 
     }
 
-    bool isNumber(std::string inChain)
+    bool isInt(std::string inChain)
     {
         bool isNumber = true;
 
@@ -96,14 +106,82 @@ namespace funs
         return isNumber;
     }
 
+    bool isDoubleLimit(std::string inChain)
+    {
+        bool isLimit = true;
+
+        if (inChain.size() > 5)
+        {
+            return true;
+        }
+        else if (inChain.size() < 5)
+        {
+            return false;
+        }
+
+        long inLong = std::stol(inChain);
+
+        if (inLong <= MAX_INT_VAL)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    bool isDouble(std::string inChain)
+    {
+        bool isNumber = true;
+
+        if (isIntLimit(inChain))
+        {
+            return false;
+        }
+        else if (inChain.size() == ONE && inChain[ZERO] == '-')
+        {
+            return false;
+        }
+
+        for (int i = 0; i < inChain.size() && isNumber; i++)
+        {
+            if (i == 0 && inChain[i] == '-')
+            {
+                isNumber &= true;
+            }
+            else if (isdigit(inChain[i]))
+            {
+                isNumber &= true;
+            }
+            else
+            {
+                isNumber &= false;
+            }
+        }
+
+        return isNumber;
+    }
+
     bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs)
     {
         bool isProperType = true;
         for(int i = 0; i < inCommand.size() && isProperType && i< inProperTypeOfArgs.size(); i++)
         {
-            if(inProperTypeOfArgs[i] == INT_TYPE && !isNumber(inCommand[i]))
+            if (inProperTypeOfArgs[i] == DOUBLE_TYPE)
             {
-                isProperType &= false;
+                if (!isDouble(inCommand[i]))
+                {
+                    isProperType &= true;
+                }
+            }
+            else if(inProperTypeOfArgs[i] == INT_TYPE)
+            {
+                if (!isInt(inCommand[i]))
+                {
+                    isProperType &= false;
+                }
             }
         }
         return isProperType;
