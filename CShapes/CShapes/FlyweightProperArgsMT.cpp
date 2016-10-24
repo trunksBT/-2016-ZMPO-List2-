@@ -262,8 +262,6 @@ TEST_F(CFlyweightProperArgsMT, setPoint0_1y5_m5y5)
     ASSERT_EQ(expVal, rcVal);
 }
 
-///////////////////////////////////////////////////
-
 TEST_F(CFlyweightProperArgsMT, createPointCopy00)
 {
     CODE expVal = CODE::DONE;
@@ -347,5 +345,7 @@ TEST_F(CFlyweightProperArgsMT, createPointCopy60)
 
     ASSERT_EQ(expVal, rcVal);
 }
+
+/////////////////////////////////////////
 
 }

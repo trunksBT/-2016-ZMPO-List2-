@@ -33,13 +33,6 @@ CPoint::CPoint(const CPoint& inVal)
         << POST_PRINT;
 }
 
-CPoint& CPoint::operator=(const CPoint& inObj)
-{
-    deallocateMemory();
-    deepCopy(inObj);
-    return *this;
-}
-
 void CPoint::deepCopy(const CPoint& inVal)
 {
     xAxis_ = new double(*inVal.xAxis_);

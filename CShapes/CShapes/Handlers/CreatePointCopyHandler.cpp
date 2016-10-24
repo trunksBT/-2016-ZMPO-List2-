@@ -58,7 +58,7 @@ CODE CCreatePointCopyHandler::purePerform(CPointWithSize inCache)
     }
 
     delete std::get<ARRAY>(inCache)[copyToId];
-    std::get<ARRAY>(inCache)[copyToId] = 
+    std::get<ARRAY>(inCache)[copyToId] =
         CPoint::buildNewObj(std::get<ARRAY>(inCache)[copyFromId]);
 
     return CODE::DONE;

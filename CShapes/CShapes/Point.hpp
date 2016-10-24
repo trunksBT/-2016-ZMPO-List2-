@@ -10,7 +10,6 @@ public:
     explicit CPoint(double xAxis, double yAxis);
     CPoint(const CPoint& inVal);
     virtual ~CPoint();
-    CPoint& operator=(const CPoint& inObj);
 public:
     double getX() const;
     double getY() const;
