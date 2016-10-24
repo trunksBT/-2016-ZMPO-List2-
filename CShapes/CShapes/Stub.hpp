@@ -23,6 +23,11 @@ extern std::vector<std::string> createPoint6_1y5_5y5;
 extern std::vector<std::string> createPoint0_m1y5_5y5;
 extern std::vector<std::string> createPoint0_1y5_m5y5;
 
+extern std::vector<std::string> setPoint1_1y5_5y5;
+extern std::vector<std::string> setPoint6_1y5_5y5;
+extern std::vector<std::string> setPoint0_m1y5_5y5;
+extern std::vector<std::string> setPoint0_1y5_m5y5;
+
 extern std::vector<std::string> createDefm1;
 extern std::vector<std::string> createDef0;
 extern std::vector<std::string> createDef6;
@@ -40,11 +45,7 @@ extern std::vector<std::string> deletem1;
 extern std::vector<std::string> delete0;
 extern std::vector<std::string> delete10;
 extern std::vector<std::string> deleteAll;
-extern std::vector<std::string> setValue0_0_23;
-extern std::vector<std::string> setValue10_0_23;
-extern std::vector<std::string> setValue10_10_23;
-extern std::vector<std::string> setValuem1_m1_23;
-extern std::vector<std::string> setValue1_m1_23;
+
 extern std::vector<std::string> getValue0_1;
 extern std::vector<std::string> getValue1_0;
 extern std::vector<std::string> getValuem1_1;

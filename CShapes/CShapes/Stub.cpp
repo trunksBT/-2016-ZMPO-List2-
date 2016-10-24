@@ -21,6 +21,11 @@ std::vector<std::string> createPoint6_1y5_5y5 = { "createPoint", "6", "1.5", "5.
 std::vector<std::string> createPoint0_m1y5_5y5 = { "createPoint", "0", "-1.5", "5.5" };
 std::vector<std::string> createPoint0_1y5_m5y5 = { "createPoint", "0", "1.5", "-5.5" };
 
+std::vector<std::string> setPoint1_1y5_5y5 = { "setPoint", "1", "1.5", "5.5" };
+std::vector<std::string> setPoint6_1y5_5y5 = { "setPoint", "6", "1.5", "5.5" };
+std::vector<std::string> setPoint0_m1y5_5y5 = { "setPoint", "0", "-1.5", "5.5" };
+std::vector<std::string> setPoint0_1y5_m5y5 = { "setPoint", "0", "1.5", "-5.5" };
+
 std::vector<std::string> createDefm1 = { "createDef", "-1" };
 std::vector<std::string> createDef0 = { "createDef", "0" };
 std::vector<std::string> createDef6 = { "createDef", "6" };
@@ -50,12 +55,6 @@ std::vector<std::string> getValue1_2 = { "getValue", "1", "2" };
 std::vector<std::string> getValue6_3 = { "getValue", "6", "3" };
 std::vector<std::string> getValue10_4 = { "getValue", "10", "4" };
 std::vector<std::string> getValue10_10 = { "getValue", "10", "10" };
-
-std::vector<std::string> setValue0_0_23 = { "setValue", "0", "0", "23" };
-std::vector<std::string> setValue10_0_23 = { "setValue", "10", "0", "23" };
-std::vector<std::string> setValue10_10_23 = { "setValue", "10", "10", "23" };
-std::vector<std::string> setValuem1_m1_23 = { "setValue", "-1", "-1", "23" };
-std::vector<std::string> setValue1_m1_23 = { "setValue", "1", "-1", "23" };
 
 std::vector<std::string> help = { "help" };
 }

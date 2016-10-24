@@ -2,12 +2,14 @@
 #include <iostream>
 #include "Flyweight.h"
 #include "Utils.hpp"
-#include "Handlers/CreateHandler.h"
-#include "Handlers/CreatePointHandler.h"
+
 #include "Handlers/GoHandler.h"
+#include "Handlers/CreatePointHandler.h"
+#include "Handlers/SetPointHandler.h"
+
+#include "Handlers/CreateHandler.h"
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
-#include "Handlers/SetValueHandler.h"
 #include "Handlers/GetValueHandler.h"
 #include "Handlers/CreateCopyHandler.h"
 #include "Handlers/PrintHandler.h"
@@ -59,6 +61,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         else if(command == CREATE_POINT)
         {
             IPointHandler* evaluate = new CCreatePointHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
+        }
+        else if (command == SET_POINT)
+        {
+            IPointHandler* evaluate = new CSetPointHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
         }
         else if (command == PRINT_ALL)
