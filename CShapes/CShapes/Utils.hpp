@@ -55,11 +55,22 @@ constexpr const int TEN = 10;
 constexpr const long MAX_INT_VAL = (std::numeric_limits<int>::max)();
 constexpr const char* ERRORED_COMMAND_IDX = "Errored command idx";
 constexpr const char INT_TYPE = 'i';
+constexpr const char DOUBLE_TYPE = 'd';
 constexpr const char STRING_TYPE = 's';
 constexpr const int DEFAULT_TABLE_VAL = -1;
 
 constexpr const int DEFAULT_AXIS_VAL = FIVE;
 constexpr const int DEFAULT_FLYWEIGHT_CACHE_SIZE = FIVE;
+
+constexpr const int DOT_SIZE = 1;
+constexpr const int MINUS_SIZE = 1;
+constexpr const int MAX_SIZE_AFTER_DOT = 6;
+constexpr const int MAX_SIZE_BEFORE_DOT = 309;
+constexpr const int MAX_SIZE_OF_DOUBLE = MAX_SIZE_BEFORE_DOT + DOT_SIZE + MAX_SIZE_AFTER_DOT;
+constexpr const int MAX_SIZE_OF_DOUBLE_PLUS_SIGN = MINUS_SIZE + MAX_SIZE_BEFORE_DOT + DOT_SIZE + MAX_SIZE_AFTER_DOT;
+
+constexpr const double MAX_DOUBLE_VAL = (std::numeric_limits<double>::max)();
+constexpr const double MIN_DOUBLE_VAL = (std::numeric_limits<double>::lowest)();
 }
 
 namespace cacheIdx
@@ -82,7 +93,14 @@ namespace funs
 {
 int toInt(char inChar);
 std::string toString(CODE inCode);
-bool isNumber(std::string inChain);
+
+bool isMinus(char inChar);
+bool isDot(char inChar);
+bool isOverDoubleMinLimit(std::string inChain);
+bool isOverDoubleMaxLimit(std::string inChain);
+bool isDouble(std::string inChain);
+
+bool isInt(std::string inChain);
 bool isProperIdx(int inIdx, int inSize);
 bool isProperIdx(int idxOrAmount, CShapeWithSize inCache);
 bool isProperAmmountOfArgs(std::vector<std::string>& inCommand, int inProperAmountOfArgs);

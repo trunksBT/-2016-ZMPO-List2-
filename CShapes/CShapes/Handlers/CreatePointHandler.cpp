@@ -23,7 +23,7 @@ const int CCreatePointHandler::getProperAmountOfArgs()
 
 std::string CCreatePointHandler::getProperTypesOfArgs()
 {
-    return "siii";
+    return "sidd";
 }
 
 CODE CCreatePointHandler::checkArgsAndPerform(CPointWithSize inPointCache)
