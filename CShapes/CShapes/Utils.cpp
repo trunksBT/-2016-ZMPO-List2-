@@ -21,6 +21,144 @@ namespace funs
         return inChar == '.';
     }
 
+    bool isOverDoubleMinLimit(std::string inChain)
+    {
+        bool isLimit = true;
+
+        if (inChain.size() > MAX_SIZE_OF_DOUBLE_PLUS_SIGN)
+        {
+            return true;
+        }
+        else if (inChain.size() < MAX_SIZE_OF_DOUBLE_PLUS_SIGN)
+        {
+            return false;
+        }
+
+        double parsedOnDouble = std::stod(inChain);
+
+        if (parsedOnDouble > MIN_DOUBLE_VAL)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool isOverDoubleMaxLimit(std::string inChain)
+    {
+        if (isMinus(inChain[ZERO]))
+        {
+            bool isLimit = true;
+
+            if (inChain.size() > (MAX_SIZE_OF_DOUBLE + MINUS_SIZE))
+            {
+                return true;
+            }
+            else if (inChain.size() < (MAX_SIZE_OF_DOUBLE + MINUS_SIZE))
+            {
+                return false;
+            }
+
+            double parsedOnDouble = std::stod(inChain);
+
+            if (parsedOnDouble < MAX_DOUBLE_VAL)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            bool isLimit = true;
+
+            if (inChain.size() > MAX_SIZE_OF_DOUBLE)
+            {
+                return true;
+            }
+            else if (inChain.size() < MAX_SIZE_OF_DOUBLE)
+            {
+                return false;
+            }
+
+            double parsedOnDouble = std::stod(inChain);
+
+            if (parsedOnDouble > MAX_DOUBLE_VAL)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    bool isDouble(std::string inChain)
+    {
+        int i = 0;
+        bool isNumber = true;
+
+        if (i == 0 && inChain[i] != '-' && inChain[i] != '.')
+        {
+            if (isOverDoubleMaxLimit(inChain))
+            {
+                return false;
+            }
+        }
+        else
+            if (i == 0 && inChain[i] == '-')
+            {
+                if (isOverDoubleMinLimit(inChain))
+                {
+                    return false;
+                }
+            }
+            else if (inChain.size() == ONE && inChain[ZERO] == '-')
+            {
+                return false;
+            }
+
+        int counterOfDots = 0;
+        for (; i < inChain.size() && isNumber; i++)
+        {
+            if (i == 0 && inChain[i] == '-')
+            {
+                isNumber &= true;
+            }
+            else if (i == 0 && inChain[i] == '.')
+            {
+                isNumber &= false;
+            }
+            else if (isDot(inChain[i]))
+            {
+                if (counterOfDots > ZERO)
+                {
+                    isNumber &= false;
+                }
+                else
+                {
+                    isNumber &= true;
+                }
+                counterOfDots++;
+            }
+            else if (isdigit(inChain[i]))
+            {
+                isNumber &= true;
+            }
+            else
+            {
+                isNumber &= false;
+            }
+        }
+
+        return isNumber;
+    }
+
     bool isProperIdx(int idxOrAmount, CShapeWithSize inCache)
     {
         return idxOrAmount > MINUS_ONE && idxOrAmount < std::get<SIZE>(inCache);
@@ -106,64 +244,6 @@ namespace funs
         return isNumber;
     }
 
-    bool isDoubleLimit(std::string inChain)
-    {
-        bool isLimit = true;
-
-        if (inChain.size() > 5)
-        {
-            return true;
-        }
-        else if (inChain.size() < 5)
-        {
-            return false;
-        }
-
-        long inLong = std::stol(inChain);
-
-        if (inLong <= MAX_INT_VAL)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
-    }
-
-    bool isDouble(std::string inChain)
-    {
-        bool isNumber = true;
-
-        if (isIntLimit(inChain))
-        {
-            return false;
-        }
-        else if (inChain.size() == ONE && inChain[ZERO] == '-')
-        {
-            return false;
-        }
-
-        for (int i = 0; i < inChain.size() && isNumber; i++)
-        {
-            if (i == 0 && inChain[i] == '-')
-            {
-                isNumber &= true;
-            }
-            else if (isdigit(inChain[i]))
-            {
-                isNumber &= true;
-            }
-            else
-            {
-                isNumber &= false;
-            }
-        }
-
-        return isNumber;
-    }
-
     bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs)
     {
         bool isProperType = true;
@@ -173,7 +253,7 @@ namespace funs
             {
                 if (!isDouble(inCommand[i]))
                 {
-                    isProperType &= true;
+                    isProperType &= false;
                 }
             }
             else if(inProperTypeOfArgs[i] == INT_TYPE)

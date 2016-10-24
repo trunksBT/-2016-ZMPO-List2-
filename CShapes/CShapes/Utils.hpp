@@ -67,6 +67,7 @@ constexpr const int MINUS_SIZE = 1;
 constexpr const int MAX_SIZE_AFTER_DOT = 6;
 constexpr const int MAX_SIZE_BEFORE_DOT = 309;
 constexpr const int MAX_SIZE_OF_DOUBLE = MAX_SIZE_BEFORE_DOT + DOT_SIZE + MAX_SIZE_AFTER_DOT;
+constexpr const int MAX_SIZE_OF_DOUBLE_PLUS_SIGN = MINUS_SIZE + MAX_SIZE_BEFORE_DOT + DOT_SIZE + MAX_SIZE_AFTER_DOT;
 
 constexpr const double MAX_DOUBLE_VAL = (std::numeric_limits<double>::max)();
 constexpr const double MIN_DOUBLE_VAL = (std::numeric_limits<double>::lowest)();
@@ -92,8 +93,13 @@ namespace funs
 {
 int toInt(char inChar);
 std::string toString(CODE inCode);
+
 bool isMinus(char inChar);
 bool isDot(char inChar);
+bool isOverDoubleMinLimit(std::string inChain);
+bool isOverDoubleMaxLimit(std::string inChain);
+bool isDouble(std::string inChain);
+
 bool isInt(std::string inChain);
 bool isProperIdx(int inIdx, int inSize);
 bool isProperIdx(int idxOrAmount, CShapeWithSize inCache);
