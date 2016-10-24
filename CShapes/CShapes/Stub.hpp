@@ -28,14 +28,14 @@ extern std::vector<std::string> setPoint6_1y5_5y5;
 extern std::vector<std::string> setPoint0_m1y5_5y5;
 extern std::vector<std::string> setPoint0_1y5_m5y5;
 
-extern std::vector<std::string> createDefm1;
-extern std::vector<std::string> createDef0;
-extern std::vector<std::string> createDef6;
-extern std::vector<std::string> createCopy00;
-extern std::vector<std::string> createCopym1_0;
-extern std::vector<std::string> createCopym1_m1;
-extern std::vector<std::string> createCopy10;
-extern std::vector<std::string> createCopy60;
+extern std::vector<std::string> createPointCopy00;
+extern std::vector<std::string> createPointCopy10;
+extern std::vector<std::string> createPointCopym1_0;
+extern std::vector<std::string> createPointCopy0_m1;
+extern std::vector<std::string> createPointCopym1_m1;
+extern std::vector<std::string> createPointCopy10;
+extern std::vector<std::string> createPointCopy60;
+
 extern std::vector<std::string> print0;
 extern std::vector<std::string> printm1;
 extern std::vector<std::string> print6;

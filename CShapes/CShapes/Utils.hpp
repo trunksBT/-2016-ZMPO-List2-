@@ -116,6 +116,8 @@ constexpr const int ID_OF_SHAPES = 2;
 constexpr const int NEW_NAME = 2;
 constexpr const int NEW_SIZE = 2;
 constexpr const int GOAL_ID = 2;
+constexpr const int COPY_TO = 1;
+constexpr const int COPY_FROM = 2;
 constexpr const int NEW_VAL = 3;
 constexpr const int X_AXIS_VAL = 2;
 constexpr const int Y_AXIS_VAL = 3;
@@ -127,7 +129,7 @@ namespace messageLiterals
 constexpr const char* CREATE = "create";
 constexpr const char* CREATE_POINT = "createPoint";
 constexpr const char* GO = "go";
-constexpr const char* CREATE_COPY = "createCopy";
+constexpr const char* CREATE_POINT_COPY = "createPointCopy";
 constexpr const char* GET_VALUE = "getValue";
 constexpr const char* DELETE = "delete";
 constexpr const char* REMOVE_ALL = "deleteAll";

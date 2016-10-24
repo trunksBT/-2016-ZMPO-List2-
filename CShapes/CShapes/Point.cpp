@@ -33,18 +33,6 @@ CPoint::CPoint(const CPoint& inVal)
         << POST_PRINT;
 }
 
-void CPoint::copyCtor(const CPoint& inVal)
-{
-    //deallocateMemory();
-    //deepCopy(inVal);
-    //Logger::info()
-    //    << CTOR_COPY_PRE_PRINT
-    //    << X << SEPARATOR << std::to_string(*xAxis_)
-    //    << COMMA_SPACE
-    //    << Y << SEPARATOR << std::to_string(*yAxis_)
-    //    << POST_PRINT;
-}
-
 CPoint& CPoint::operator=(const CPoint& inObj)
 {
     deallocateMemory();
@@ -72,6 +60,11 @@ CPoint::~CPoint()
 CPoint* CPoint::buildNewObj(double xAxis, double yAxis)
 {
     return new CPoint(xAxis, yAxis);
+}
+
+CPoint* CPoint::buildNewObj(CPoint* inObj)
+{
+    return new CPoint(*inObj);
 }
 
 void CPoint::deallocateMemory()

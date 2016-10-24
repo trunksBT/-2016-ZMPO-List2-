@@ -37,7 +37,6 @@ CODE CSetPointHandler::checkArgsAndPerform(CPointWithSize inPointCache)
     }
 }
 
-
 CODE CSetPointHandler::purePerform(CPointWithSize inCache)
 {
     std::string receivedId(wholeCommand_[idxOf::ID_FOR_CREATE]);

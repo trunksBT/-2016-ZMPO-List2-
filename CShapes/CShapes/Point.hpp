@@ -21,9 +21,9 @@ public:
     void setY(double newY);
 public:
     static CPoint* buildNewObj(double xAxis, double yAxis);
+    static CPoint* buildNewObj(CPoint* inObj);
 
 private:
-    void copyCtor(const CPoint& inVal);
     void deepCopy(const CPoint& inVal);
     void deallocateMemory();
 private:
