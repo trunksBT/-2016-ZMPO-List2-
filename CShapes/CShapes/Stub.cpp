@@ -26,15 +26,12 @@ std::vector<std::string> setPoint6_1y5_5y5 = { "setPoint", "6", "1.5", "5.5" };
 std::vector<std::string> setPoint0_m1y5_5y5 = { "setPoint", "0", "-1.5", "5.5" };
 std::vector<std::string> setPoint0_1y5_m5y5 = { "setPoint", "0", "1.5", "-5.5" };
 
-std::vector<std::string> createDefm1 = { "createDef", "-1" };
-std::vector<std::string> createDef0 = { "createDef", "0" };
-std::vector<std::string> createDef6 = { "createDef", "6" };
-
-std::vector<std::string> createCopy00 = { "createCopy", "0", "0" };
-std::vector<std::string> createCopym1_0 = { "createCopy", "-1", "0" };
-std::vector<std::string> createCopym1_m1 = { "createCopy", "-1", "-1" };
-std::vector<std::string> createCopy10 = { "createCopy", "1", "0" };
-std::vector<std::string> createCopy60 = { "createCopy", "6", "0" };
+std::vector<std::string> createPointCopy00 = { "createPointCopy", "0", "0" };
+std::vector<std::string> createPointCopy10 = { "createPointCopy", "1", "0" };
+std::vector<std::string> createPointCopym1_0 = { "createPointCopy", "-1", "0" };
+std::vector<std::string> createPointCopy0_m1 = { "createPointCopy", "0", "-1" };
+std::vector<std::string> createPointCopym1_m1 = { "createPointCopy", "-1", "-1" };
+std::vector<std::string> createPointCopy60 = { "createPointCopy", "6", "0" };
 
 std::vector<std::string> print0 = { "print", "0" };
 std::vector<std::string> printm1 = { "print", "-1" };

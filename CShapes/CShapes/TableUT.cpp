@@ -60,13 +60,50 @@ TEST_F(CPointTests, build_x_1_y_1_set_x_0_y_0_Expect_True)
     delete inPoint;
 }
 
-TEST_F(CPointTests, copyCtor_x_1_y_1_Expect_True)
+TEST_F(CPointTests, copyCtor_x_1_y_1_onEmptyPtr_Expect_True)
 {
     double inX = 1;
     double inY = 1;
 
     CPoint* sourcePoint = CPoint::buildNewObj(inX, inY);
     CPoint* goalPoint = new CPoint(*sourcePoint);
+
+    ASSERT_EQ(inX, goalPoint->getX());
+    ASSERT_EQ(inY, goalPoint->getY());
+
+    delete sourcePoint;
+    delete goalPoint;
+}
+
+TEST_F(CPointTests, buildCopyCtor_x_1_y_1_onEmptyPtr_Expect_True)
+{
+    double inX = 1;
+    double inY = 1;
+    double inX2 = 2;
+    double inY2 = 2;
+
+    CPoint* sourcePoint = CPoint::buildNewObj(inX, inY);
+    CPoint* goalPoint = CPoint::buildNewObj(sourcePoint);
+
+    ASSERT_EQ(inX, goalPoint->getX());
+    ASSERT_EQ(inY, goalPoint->getY());
+
+    delete sourcePoint;
+    delete goalPoint;
+}
+
+TEST_F(CPointTests, buildCopyCtor_x_1_y_1_onNotEmptyPtr_Expect_True)
+{
+    double inX = 1;
+    double inY = 1;
+    double inX2 = 2;
+    double inY2 = 2;
+
+    CPoint* sourcePoint = CPoint::buildNewObj(inX, inY);
+    CPoint* goalPoint = CPoint::buildNewObj(inX2, inY2);
+    delete goalPoint;
+    goalPoint = CPoint::buildNewObj(sourcePoint);;
+
 
     ASSERT_EQ(inX, goalPoint->getX());
     ASSERT_EQ(inY, goalPoint->getY());
