@@ -126,17 +126,17 @@ constexpr const int INITIAL_NAME = 3;
 
 namespace messageLiterals
 {
-constexpr const char* CREATE = "create";
-constexpr const char* CREATE_POINT = "createPoint";
 constexpr const char* GO = "go";
+constexpr const char* CREATE_POINT = "createPoint";
 constexpr const char* CREATE_POINT_COPY = "createPointCopy";
-constexpr const char* GET_VALUE = "getValue";
-constexpr const char* DELETE = "delete";
-constexpr const char* REMOVE_ALL = "deleteAll";
 constexpr const char* SET_POINT = "setPoint";
-constexpr const char* PRINT = "print";
+constexpr const char* GET_POINT_X = "getPointX";
 constexpr const char* PRINT_ALL = "printAll";
 constexpr const char* CLOSE = "close";
+
+constexpr const char* DELETE = "delete";
+constexpr const char* REMOVE_ALL = "deleteAll";
+constexpr const char* PRINT = "print";
 constexpr const char* HELP = "help";
 }
 

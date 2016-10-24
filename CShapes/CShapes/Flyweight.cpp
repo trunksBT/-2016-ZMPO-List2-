@@ -7,11 +7,11 @@
 #include "Handlers/CreatePointHandler.h"
 #include "Handlers/SetPointHandler.h"
 #include "Handlers/CreatePointCopyHandler.h"
+#include "Handlers/GetPointXHandler.h"
 
 #include "Handlers/CreateHandler.h"
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
-#include "Handlers/GetValueHandler.h"
 #include "Handlers/PrintHandler.h"
 #include "Handlers/PrintAllHandler.h"
 #include "Handlers/HelpHandler.h"
@@ -73,6 +73,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             IPointHandler* evaluate = new CSetPointHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
         }
+        else if (command == GET_POINT_X)
+        {
+            IPointHandler* evaluate = new CGetPointXHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
+        }
         else if (command == PRINT_ALL)
         {
             IPointAndRectangleHandler* evaluate = new CPrintAllHandler(inCommand);
@@ -110,11 +115,7 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         CSetValueHandler evaluate(inCommand);
         returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
     }
-    else if(command == GET_VALUE)
-    {
-        CGetValueHandler evaluate(inCommand);
-        returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-    }
+
     else if(command == PRINT)
     {
         CPrintHandler evaluate(inCommand);

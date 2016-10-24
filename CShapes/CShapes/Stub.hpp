@@ -36,6 +36,11 @@ extern std::vector<std::string> createPointCopym1_m1;
 extern std::vector<std::string> createPointCopy10;
 extern std::vector<std::string> createPointCopy60;
 
+extern std::vector<std::string> getPointX0;
+extern std::vector<std::string> getPointXm1;
+extern std::vector<std::string> getPointX1;
+extern std::vector<std::string> getPointX6;
+
 extern std::vector<std::string> print0;
 extern std::vector<std::string> printm1;
 extern std::vector<std::string> print6;
@@ -46,14 +51,6 @@ extern std::vector<std::string> delete0;
 extern std::vector<std::string> delete10;
 extern std::vector<std::string> deleteAll;
 
-extern std::vector<std::string> getValue0_1;
-extern std::vector<std::string> getValue1_0;
-extern std::vector<std::string> getValuem1_1;
-extern std::vector<std::string> getValue0_m1;
-extern std::vector<std::string> getValue1_2;
-extern std::vector<std::string> getValue10_4;
-extern std::vector<std::string> getValue6_3;
-extern std::vector<std::string> getValue10_10;
 extern std::vector<std::string> help;
 }
 
