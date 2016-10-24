@@ -54,12 +54,8 @@ CODE CSetPointHandler::purePerform(CPointWithSize inCache)
         return CODE::ERROR;
     }
 
-    CPoint* objOnSelectedIdx = std::get<ARRAY>(inCache)[idxOrAmount];
-    if (objOnSelectedIdx != nullptr)
-    {
-        delete objOnSelectedIdx;
-    }
-    std::get<ARRAY>(inCache)[idxOrAmount] = CPoint::buildNewObj(xAxis, yAxis);
+    std::get<ARRAY>(inCache)[idxOrAmount]->setX(xAxis);
+    std::get<ARRAY>(inCache)[idxOrAmount]->setY(yAxis);
 
     return CODE::DONE;
 }
