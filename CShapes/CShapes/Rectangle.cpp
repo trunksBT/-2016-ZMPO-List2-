@@ -63,6 +63,8 @@ double CRectangle::field()
     long longSndX = pointSnd_->getX();
     long longSndY = pointSnd_->getY();
 
+    Logger::info() << POSSIBLE_LOSS_OF_DATA << POST_PRINT;
+
     return abs(longFstX - longSndX) * abs(longFstY - longSndY);
 }
 

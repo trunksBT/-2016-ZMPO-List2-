@@ -54,6 +54,7 @@ constexpr const int FIVE = 5;
 constexpr const int TEN = 10;
 constexpr const long MAX_INT_VAL = (std::numeric_limits<int>::max)();
 constexpr const char* ERRORED_COMMAND_IDX = "Errored command idx";
+constexpr const char* POSSIBLE_LOSS_OF_DATA = "possible loss of data";
 constexpr const char INT_TYPE = 'i';
 constexpr const char DOUBLE_TYPE = 'd';
 constexpr const char STRING_TYPE = 's';
@@ -122,6 +123,8 @@ constexpr const int COPY_FROM = 2;
 constexpr const int NEW_VAL = 3;
 constexpr const int X_AXIS_VAL = 2;
 constexpr const int Y_AXIS_VAL = 3;
+constexpr const int POINTS_FST = 2;
+constexpr const int POINT_SND = 3;
 constexpr const int INITIAL_NAME = 3;
 }
 
@@ -133,6 +136,7 @@ constexpr const char* CREATE_POINT_COPY = "createPointCopy";
 constexpr const char* SET_POINT = "setPoint";
 constexpr const char* GET_POINT_X = "getPointX";
 constexpr const char* GET_POINT_Y = "getPointY";
+constexpr const char* CREATE_RECT_POINTS = "createRectPoints";
 constexpr const char* PRINT_ALL = "printAll";
 constexpr const char* CLOSE = "close";
 
