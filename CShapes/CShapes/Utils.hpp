@@ -59,7 +59,8 @@ constexpr const char DOUBLE_TYPE = 'd';
 constexpr const char STRING_TYPE = 's';
 constexpr const int DEFAULT_TABLE_VAL = -1;
 
-constexpr const int DEFAULT_AXIS_VAL = FIVE;
+constexpr const double DEFAULT_FST_AXIS_VAL = 0.0;
+constexpr const double DEFAULT_SND_AXIS_VAL = 2.0;
 constexpr const int DEFAULT_FLYWEIGHT_CACHE_SIZE = FIVE;
 
 constexpr const int DOT_SIZE = 1;

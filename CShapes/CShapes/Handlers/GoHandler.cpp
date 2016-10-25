@@ -109,7 +109,12 @@ CODE CGoHandler::purePerform(CPointWithSize inCache)
         for (int i = 0; i < idxOrAmount; i++, cursor++)
         {
             CFlyweight::updateIsInitializedPointCache(cursor, true);
-            newTable[cursor] = CPoint::buildNewObj(DEFAULT_AXIS_VAL, DEFAULT_AXIS_VAL);
+            newTable[cursor] = CRectangle::buildNewObj(
+                DEFAULT_FST_AXIS_VAL,
+                DEFAULT_FST_AXIS_VAL,
+                DEFAULT_SND_AXIS_VAL,
+                DEFAULT_SND_AXIS_VAL
+            );
         }
         CFlyweight::setPointCacheSize(newSize);
         CFlyweight::updatePointCache(newTable);
@@ -146,7 +151,12 @@ CODE CGoHandler::purePerform(CShapeWithSize inCache)
         for (int i = 0; i < idxOrAmount; i++, cursor++)
         {
             CFlyweight::updateIsInitializedShapeCache(cursor, true);
-            newTable[cursor] = CRectangle::buildNewObj(4);  // TO DEL
+            newTable[cursor] = CRectangle::buildNewObj(
+                DEFAULT_FST_AXIS_VAL,
+                DEFAULT_FST_AXIS_VAL,
+                DEFAULT_SND_AXIS_VAL,
+                DEFAULT_SND_AXIS_VAL
+            );
         }
         CFlyweight::setShapeCacheSize(newSize);
         CFlyweight::updateShapeCache(newTable);

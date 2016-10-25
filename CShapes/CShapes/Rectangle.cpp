@@ -11,12 +11,6 @@ using namespace defaultVals;
 using namespace funs;
 using namespace typeLiterals;
 
-CRectangle::CRectangle(int value) : CShape()
-{
-    val = value;
-}
-
-
 CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd) : CShape()
 {
     Logger::info()
@@ -61,6 +55,17 @@ CRectangle::~CRectangle()
     deallocateMemory();
 }
 
+double CRectangle::field()
+{
+    long longFstX = pointFst_->getX();
+    long longFstY = pointFst_->getY();
+
+    long longSndX = pointSnd_->getX();
+    long longSndY = pointSnd_->getY();
+
+    return abs(longFstX - longSndX) * abs(longFstY - longSndY);
+}
+
 CRectangle* CRectangle::buildNewObj(CPoint* inPointFst, CPoint* inPointSnd)
 {
     return new CRectangle(inPointFst, inPointSnd);
@@ -74,11 +79,6 @@ CRectangle* CRectangle::buildNewObj(double fstX, double fstY, double sndX, doubl
 CRectangle* CRectangle::buildNewObj(CRectangle* inObj)
 {
     return new CRectangle(*inObj);
-}
-
-CRectangle* CRectangle::buildNewObj(int inVal)
-{
-    return new CRectangle(inVal);
 }
 
 void CRectangle::deallocateMemory()
