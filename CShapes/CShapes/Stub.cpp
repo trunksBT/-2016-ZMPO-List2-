@@ -38,6 +38,11 @@ std::vector<std::string> getPointXm1 = { "getPointX", "-1" };
 std::vector<std::string> getPointX1 = { "getPointX", "1" };
 std::vector<std::string> getPointX6 = { "getPointX", "6" };
 
+std::vector<std::string> getPointY0 = { "getPointY", "0" };
+std::vector<std::string> getPointYm1 = { "getPointY", "-1" };
+std::vector<std::string> getPointY1 = { "getPointY", "1" };
+std::vector<std::string> getPointY6 = { "getPointY", "6" };
+
 std::vector<std::string> print0 = { "print", "0" };
 std::vector<std::string> printm1 = { "print", "-1" };
 std::vector<std::string> print6 = { "print", "6" };
