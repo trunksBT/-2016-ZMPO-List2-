@@ -10,33 +10,43 @@
 using namespace defaultVals;
 using namespace funs;
 using namespace typeLiterals;
+using namespace flags;
 
 CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd) : CShape()
 {
-    Logger::info()
-        << CTOR_ARG1_PRE_PRINT
-        << RECTANGLE
-        << POST_PRINT;
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_ARG1_PRE_PRINT
+            << RECTANGLE
+            << POST_PRINT;
+    }
     pointFst_ = new CPoint(*inPointFst);
     pointSnd_ = new CPoint(*inPointSnd);
 }
 
 CRectangle::CRectangle(double fstX, double fstY, double sndX, double sndY)
 {
-    Logger::info()
-        << CTOR_ARG1_PRE_PRINT
-        << RECTANGLE
-        << POST_PRINT;
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_ARG1_PRE_PRINT
+            << RECTANGLE
+            << POST_PRINT;
+    }
     pointFst_ = new CPoint(fstX, fstY);
     pointSnd_ = new CPoint(sndX, sndY);
 }
 
 CRectangle::CRectangle(const CRectangle& inVal)
 {
-    Logger::info()
-        << CTOR_COPY_PRE_PRINT
-        << RECTANGLE
-        << POST_PRINT;
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_COPY_PRE_PRINT
+            << RECTANGLE
+            << POST_PRINT;
+    }
     deepCopy(inVal);
 }
 
@@ -48,10 +58,13 @@ void CRectangle::deepCopy(const CRectangle& inVal)
 
 CRectangle::~CRectangle()
 {
-    Logger::info()
-        << DTOR_PRE_PRINT
-        << RECTANGLE
-        << POST_PRINT;
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << DTOR_PRE_PRINT
+            << RECTANGLE
+            << POST_PRINT;
+    }
     deallocateMemory();
 }
 
@@ -62,6 +75,8 @@ double CRectangle::field()
 
     long longSndX = pointSnd_->getX();
     long longSndY = pointSnd_->getY();
+
+    Logger::info() << POSSIBLE_LOSS_OF_DATA << POST_PRINT;
 
     return abs(longFstX - longSndX) * abs(longFstY - longSndY);
 }

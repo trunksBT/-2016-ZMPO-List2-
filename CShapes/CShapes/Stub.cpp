@@ -43,6 +43,12 @@ std::vector<std::string> getPointYm1 = { "getPointY", "-1" };
 std::vector<std::string> getPointY1 = { "getPointY", "1" };
 std::vector<std::string> getPointY6 = { "getPointY", "6" };
 
+std::vector<std::string> createRectPoints1_1_1 = { "createRectPoints", "1", "1", "1" };
+std::vector<std::string> createRectPoints1_0_1 = { "createRectPoints", "1", "0", "1" };
+std::vector<std::string> createRectPoints6_0_1 = { "createRectPoints", "6", "0", "1" };
+std::vector<std::string> createRectPoints0_m1_5 = { "createRectPoints", "0", "-1", "5" };
+std::vector<std::string> createRectPoints0_5_m1 = { "createRectPoints", "0", "5", "-1" };
+
 std::vector<std::string> print0 = { "print", "0" };
 std::vector<std::string> printm1 = { "print", "-1" };
 std::vector<std::string> print6 = { "print", "6" };

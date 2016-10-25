@@ -9,28 +9,45 @@
 using namespace defaultVals;
 using namespace funs;
 using namespace typeLiterals;
+using namespace flags;
 
 CPoint::CPoint(double xAxis, double yAxis) : CShape()
 {
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_ARG1_PRE_PRINT
+            << POINT
+            << POST_PRINT;
+    }
+
     xAxis_ = new double(xAxis);
     yAxis_ = new double(yAxis);
-    Logger::info()
-        << CTOR_ARG1_PRE_PRINT 
-        << X << SEPARATOR << std::to_string(*xAxis_)
-        << COMMA_SPACE
-        << Y << SEPARATOR << std::to_string(*yAxis_)
-        << POST_PRINT;
+
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_ARG1_PRE_PRINT
+            << X << SEPARATOR << std::to_string(*xAxis_)
+            << COMMA_SPACE
+            << Y << SEPARATOR << std::to_string(*yAxis_)
+            << POST_PRINT;
+    }
 }
 
 CPoint::CPoint(const CPoint& inVal)
 {
     deepCopy(inVal);
-    Logger::info()
-        << CTOR_COPY_PRE_PRINT
-        << X << SEPARATOR << std::to_string(*xAxis_)
-        << COMMA_SPACE
-        << Y << SEPARATOR << std::to_string(*yAxis_)
-        << POST_PRINT;
+
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_COPY_PRE_PRINT
+            << X << SEPARATOR << std::to_string(*xAxis_)
+            << COMMA_SPACE
+            << Y << SEPARATOR << std::to_string(*yAxis_)
+            << POST_PRINT;
+    }
 }
 
 void CPoint::deepCopy(const CPoint& inVal)
@@ -41,13 +58,16 @@ void CPoint::deepCopy(const CPoint& inVal)
 
 CPoint::~CPoint()
 {
-    Logger::info()
-        << DTOR_PRE_PRINT
-        << POINT
-        << X << SEPARATOR << std::to_string(*xAxis_)
-        << COMMA_SPACE
-        << Y << SEPARATOR << std::to_string(*yAxis_)
-        << POST_PRINT;
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << DTOR_PRE_PRINT
+            << POINT
+            << X << SEPARATOR << std::to_string(*xAxis_)
+            << COMMA_SPACE
+            << Y << SEPARATOR << std::to_string(*yAxis_)
+            << POST_PRINT;
+    }
     deallocateMemory();
 }
 

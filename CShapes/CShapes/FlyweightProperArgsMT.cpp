@@ -462,4 +462,76 @@ TEST_F(CFlyweightProperArgsMT, getPointY6)
     ASSERT_EQ(expVal, rcVal);
 }
 
+////////////////////////////////////////////////
+
+TEST_F(CFlyweightProperArgsMT, createRectPoints1_1_1)
+{
+    CODE expVal = CODE::DONE;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints1_1_1)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+TEST_F(CFlyweightProperArgsMT, createRectPoints1_0_1)
+{
+    CODE expVal = CODE::DONE;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints1_0_1)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+TEST_F(CFlyweightProperArgsMT, createRectPoints6_0_1)
+{
+    CODE expVal = CODE::ERROR;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints6_0_1)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+TEST_F(CFlyweightProperArgsMT, createRectPoints0_m1_5)
+{
+    CODE expVal = CODE::ERROR;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints0_m1_5)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+TEST_F(CFlyweightProperArgsMT, createRectPoints0_5_m1)
+{
+    CODE expVal = CODE::ERROR;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectPoints0_5_m1)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
 }

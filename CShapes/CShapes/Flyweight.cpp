@@ -9,8 +9,8 @@
 #include "Handlers/CreatePointCopyHandler.h"
 #include "Handlers/GetPointXHandler.h"
 #include "Handlers/GetPointYHandler.h"
+#include "Handlers/CreateRectPointsHandler.h"
 
-#include "Handlers/CreateHandler.h"
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
 #include "Handlers/PrintHandler.h"
@@ -84,6 +84,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             IPointHandler* evaluate = new CGetPointYHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
         }
+        else if (command == CREATE_RECT_POINTS)
+        {
+            IPointAndRectangleHandler* evaluate = new CCreateRectPointsHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
+        }
         else if (command == PRINT_ALL)
         {
             IPointAndRectangleHandler* evaluate = new CPrintAllHandler(inCommand);
@@ -95,33 +100,12 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             returnedCode = CODE::CLOSE;
         }
     }
-    /*if(command == CREATE)
-    {
-        CCreateHandler evaluate(inCommand);
-        returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-    }
-    else if(command == CREATE_DEF)
-    {
-        CCreateDefHandler evaluate(inCommand);
-        returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-    }
-
-    else if(command == CREATE_COPY)
-    {
-        CCreateCopyHandler evaluate(inCommand);
-        returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-    }
+    /*
     else if(command == REMOVE_ALL)
     {
         CRemoveAllHandler evaluate(inCommand);
         returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
     }
-    else if(command == SET_VALUE)
-    {
-        CSetValueHandler evaluate(inCommand);
-        returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-    }
-
     else if(command == PRINT)
     {
         CPrintHandler evaluate(inCommand);
@@ -227,12 +211,10 @@ CFlyweight::~CFlyweight()
 
 void CFlyweight::setPointCacheSize(int inSize)
 {
-    std::cout << "Zmienilem sie PointSize" << std::endl;
     pointCacheSize_ = inSize;
 }
 void CFlyweight::setShapeCacheSize(int inSize)
 {
-    std::cout << "Zmienilem sie ShapeSize" << std::endl;
     shapeCacheSize_ = inSize;
 }
 
