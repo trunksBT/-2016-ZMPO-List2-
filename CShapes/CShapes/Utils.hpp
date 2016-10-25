@@ -133,10 +133,10 @@ namespace messageLiterals
 constexpr const char* GO = "go";
 constexpr const char* CREATE_POINT = "createPoint";
 constexpr const char* CREATE_POINT_COPY = "createPointCopy";
+constexpr const char* CREATE_RECT_POINTS = "createRectPoints";
 constexpr const char* SET_POINT = "setPoint";
 constexpr const char* GET_POINT_X = "getPointX";
 constexpr const char* GET_POINT_Y = "getPointY";
-constexpr const char* CREATE_RECT_POINTS = "createRectPoints";
 constexpr const char* PRINT_ALL = "printAll";
 constexpr const char* CLOSE = "close";
 

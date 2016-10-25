@@ -46,6 +46,12 @@ extern std::vector<std::string> getPointYm1;
 extern std::vector<std::string> getPointY1;
 extern std::vector<std::string> getPointY6;
 
+extern std::vector<std::string> createRectPoints1_1_1;
+extern std::vector<std::string> createRectPoints1_0_1;
+extern std::vector<std::string> createRectPoints6_0_1;
+extern std::vector<std::string> createRectPoints0_m1_5;
+extern std::vector<std::string> createRectPoints0_5_m1;
+
 extern std::vector<std::string> print0;
 extern std::vector<std::string> printm1;
 extern std::vector<std::string> print6;
