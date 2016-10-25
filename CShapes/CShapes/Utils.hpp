@@ -21,6 +21,7 @@ constexpr const char* POINT = "CPOINT";
 constexpr const char* RECTANGLE = "CRECTANGLE";
 constexpr const char* POINTS = "POINTS";
 constexpr const char* SHAPES = "SHAPES";
+constexpr const char* FIELD = "FIELD";
 constexpr const char* X = "X";
 constexpr const char* Y = "Y";
 }
@@ -145,6 +146,7 @@ constexpr const char* CREATE_RECT_COPY = "createRectCopy";
 constexpr const char* SET_POINT = "setPoint";
 constexpr const char* GET_POINT_X = "getPointX";
 constexpr const char* GET_POINT_Y = "getPointY";
+constexpr const char* FIELD_RECT = "fieldRect";
 constexpr const char* PRINT_ALL = "printAll";
 constexpr const char* CLOSE = "close";
 
