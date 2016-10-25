@@ -126,6 +126,12 @@ constexpr const int Y_AXIS_VAL = 3;
 constexpr const int POINTS_FST = 2;
 constexpr const int POINT_SND = 3;
 constexpr const int INITIAL_NAME = 3;
+
+constexpr const int RECT_GOAL_ID = 1;
+constexpr const int POINT_FST_X = 2;
+constexpr const int POINT_FST_Y = 3;
+constexpr const int POINT_SND_X = 4;
+constexpr const int POINT_SND_Y = 5;
 }
 
 namespace messageLiterals
@@ -134,6 +140,7 @@ constexpr const char* GO = "go";
 constexpr const char* CREATE_POINT = "createPoint";
 constexpr const char* CREATE_POINT_COPY = "createPointCopy";
 constexpr const char* CREATE_RECT_POINTS = "createRectPoints";
+constexpr const char* CREATE_RECT_DOUBLE = "createRectDouble";
 constexpr const char* SET_POINT = "setPoint";
 constexpr const char* GET_POINT_X = "getPointX";
 constexpr const char* GET_POINT_Y = "getPointY";

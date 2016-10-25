@@ -64,6 +64,7 @@ CODE CCreateRectPointsHandler::purePerform(
         }
 
         delete std::get<ARRAY>(inRectangleCache)[copyToId];
+
         std::get<ARRAY>(inRectangleCache)[copyToId] = CRectangle::buildNewObj(
             std::get<ARRAY>(inPointCache)[pointFstIdx],
             std::get<ARRAY>(inPointCache)[pointSndIdx]
