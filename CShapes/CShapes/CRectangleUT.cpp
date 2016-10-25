@@ -59,6 +59,32 @@ TEST_F(CRectangleTests, build_withDoubles_fst_1_1_snd_4_4)
     delete rectangle;
 }
 
+TEST_F(CRectangleTests, build_withPointer_fst_1_1_snd_4_4)
+{
+    double fstX = 1;
+    double fstY = 1;
+    double sndX = 4;
+    double sndY = 4;
+
+    CRectangle* rectangleToCopyFrom = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+    CRectangle* rectangleToCopyTo = CRectangle::buildNewObj(rectangleToCopyFrom);
+    std::cout << rectangleToCopyFrom->toString() << POST_PRINT;
+    std::cout << rectangleToCopyTo->toString() << POST_PRINT;
+
+    ASSERT_EQ(fstX, rectangleToCopyFrom->fstGetX());
+    ASSERT_EQ(fstY, rectangleToCopyFrom->fstGetY());
+    ASSERT_EQ(sndX, rectangleToCopyFrom->sndGetX());
+    ASSERT_EQ(sndY, rectangleToCopyFrom->sndGetY());
+
+    ASSERT_EQ(fstX, rectangleToCopyTo->fstGetX());
+    ASSERT_EQ(fstY, rectangleToCopyTo->fstGetY());
+    ASSERT_EQ(sndX, rectangleToCopyTo->sndGetX());
+    ASSERT_EQ(sndY, rectangleToCopyTo->sndGetY());
+
+    delete rectangleToCopyFrom;
+    delete rectangleToCopyTo;
+}
+
 TEST_F(CRectangleTests, field_fst_0_0_snd_4_4_Expect_16)
 {
     double fstX = 0;
