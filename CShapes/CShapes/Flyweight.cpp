@@ -87,7 +87,7 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         else if (command == CREATE_RECT_POINTS)
         {
             IPointAndRectangleHandler* evaluate = new CCreateRectPointsHandler(inCommand);
-            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache);
+            returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
         }
         else if (command == PRINT_ALL)
         {

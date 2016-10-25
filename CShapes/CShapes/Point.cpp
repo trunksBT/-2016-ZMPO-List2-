@@ -12,6 +12,10 @@ using namespace typeLiterals;
 
 CPoint::CPoint(double xAxis, double yAxis) : CShape()
 {
+    Logger::info()
+        << CTOR_ARG1_PRE_PRINT
+        << POINT
+        << POST_PRINT;
     xAxis_ = new double(xAxis);
     yAxis_ = new double(yAxis);
     Logger::info()
