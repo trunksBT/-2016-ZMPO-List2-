@@ -10,6 +10,7 @@
 #include "Handlers/GetPointXHandler.h"
 #include "Handlers/GetPointYHandler.h"
 #include "Handlers/CreateRectPointsHandler.h"
+#include "Handlers/CreateRectDoubleHandler.h"
 
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
@@ -88,6 +89,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         {
             IPointAndRectangleHandler* evaluate = new CCreateRectPointsHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
+        }
+        else if (command == CREATE_RECT_DOUBLE)
+        {
+            IShapeHandler* evaluate = new CCreateRectDoubleHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == PRINT_ALL)
         {
