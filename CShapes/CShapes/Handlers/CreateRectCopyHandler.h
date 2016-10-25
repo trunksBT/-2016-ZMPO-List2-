@@ -2,14 +2,14 @@
 
 #include <vector>
 #include <string>
+#include "../Utils.hpp"
+#include "IShapeHandler.h"
 
-#include "IPointAndRectangleHandler.h"
-
-class CCreateRectDoubleHandler : public virtual IShapeHandler
+class CCreateRectCopyHandler final : public IShapeHandler
 {
 public:
-    CCreateRectDoubleHandler(std::vector<std::string>& inCommand);
-    virtual ~CCreateRectDoubleHandler();
+    CCreateRectCopyHandler(std::vector<std::string>& inCommand);
+    virtual ~CCreateRectCopyHandler();
     CODE checkArgsAndPerform(CShapeWithSize inCache) override;
 protected:
     CODE purePerform(CShapeWithSize inCache) override;

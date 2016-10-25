@@ -58,6 +58,13 @@ extern std::vector<std::string> createRectDouble1_m1_m1_1y5_5y5;
 extern std::vector<std::string> createRectDouble6_1y5_5y5_1y5_5y5;
 extern std::vector<std::string> createRectDouble0_m1_5_1y5_5y5;
 
+extern std::vector<std::string> createRectCopy00;
+extern std::vector<std::string> createRectCopy10;
+extern std::vector<std::string> createRectCopym1_0;
+extern std::vector<std::string> createRectCopy0_m1;
+extern std::vector<std::string> createRectCopym1_m1;
+extern std::vector<std::string> createRectCopy60;
+
 extern std::vector<std::string> print0;
 extern std::vector<std::string> printm1;
 extern std::vector<std::string> print6;

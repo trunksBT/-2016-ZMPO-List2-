@@ -262,6 +262,8 @@ TEST_F(CFlyweightProperArgsMT, setPoint0_1y5_m5y5)
     ASSERT_EQ(expVal, rcVal);
 }
 
+////////////////////////////////////////////////
+
 TEST_F(CFlyweightProperArgsMT, createPointCopy00)
 {
     CODE expVal = CODE::DONE;
@@ -601,6 +603,93 @@ TEST_F(CFlyweightProperArgsMT, createRectDouble0_m1_5_1y5_5y5)
     ({
         application.interpretCommand(stub::go66),
         application.interpretCommand(stub::createRectDouble0_m1_5_1y5_5y5)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+//////////////////////////////////////////////////////////////////
+
+
+TEST_F(CFlyweightProperArgsMT, createRectCopy00)
+{
+    CODE expVal = CODE::DONE;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopy00)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+TEST_F(CFlyweightProperArgsMT, createRectCopy10)
+{
+    CODE expVal = CODE::DONE;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopy10)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+TEST_F(CFlyweightProperArgsMT, createRectCopym1_0)
+{
+    CODE expVal = CODE::ERROR;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopym1_0)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+TEST_F(CFlyweightProperArgsMT, createRectCopy0_m1)
+{
+    CODE expVal = CODE::ERROR;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopy0_m1)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+TEST_F(CFlyweightProperArgsMT, createRectCopym1_m1)
+{
+    CODE expVal = CODE::ERROR;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopym1_m1)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
+TEST_F(CFlyweightProperArgsMT, createRectCopy60)
+{
+    CODE expVal = CODE::ERROR;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(stub::createRectCopy60)
     });
     std::cout << toString(rcVal);
 

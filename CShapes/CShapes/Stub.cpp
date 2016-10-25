@@ -55,6 +55,13 @@ std::vector<std::string> createRectDouble1_m1_m1_1y5_5y5 = { "createRectDouble",
 std::vector<std::string> createRectDouble6_1y5_5y5_1y5_5y5 = { "createRectDouble", "6", "1.5", "5.5", "1.5", "5.5" };
 std::vector<std::string> createRectDouble0_m1_5_1y5_5y5 = { "createRectDouble", "0", "-1", "5.5", "1.5", "5.5" };
 
+std::vector<std::string> createRectCopy00 = { "createRectCopy", "0", "0" };
+std::vector<std::string> createRectCopy10 = { "createRectCopy", "1", "0" };
+std::vector<std::string> createRectCopym1_0 = { "createRectCopy", "-1", "0" };
+std::vector<std::string> createRectCopy0_m1 = { "createRectCopy", "0", "-1" };
+std::vector<std::string> createRectCopym1_m1 = { "createRectCopy", "-1", "-1" };
+std::vector<std::string> createRectCopy60 = { "createRectCopy", "6", "0" };
+
 std::vector<std::string> print0 = { "print", "0" };
 std::vector<std::string> printm1 = { "print", "-1" };
 std::vector<std::string> print6 = { "print", "6" };
