@@ -49,6 +49,12 @@ std::vector<std::string> createRectPoints6_0_1 = { "createRectPoints", "6", "0",
 std::vector<std::string> createRectPoints0_m1_5 = { "createRectPoints", "0", "-1", "5" };
 std::vector<std::string> createRectPoints0_5_m1 = { "createRectPoints", "0", "5", "-1" };
 
+std::vector<std::string> createRectDouble1_1y5_5y5_1y5_5y5 = { "createRectDouble", "1", "1.5", "5.5", "1.5", "5.5" };
+std::vector<std::string> createRectDouble1_1y5_5y5_m1_m1 = { "createRectDouble", "1", "1.5", "5.5", "-1", "-1" };
+std::vector<std::string> createRectDouble1_m1_m1_1y5_5y5 = { "createRectDouble", "1", "-1", "-1", "1.5", "5.5" };
+std::vector<std::string> createRectDouble6_1y5_5y5_1y5_5y5 = { "createRectDouble", "6", "1.5", "5.5", "1.5", "5.5" };
+std::vector<std::string> createRectDouble0_m1_5_1y5_5y5 = { "createRectDouble", "0", "-1", "5.5", "1.5", "5.5" };
+
 std::vector<std::string> print0 = { "print", "0" };
 std::vector<std::string> printm1 = { "print", "-1" };
 std::vector<std::string> print6 = { "print", "6" };
