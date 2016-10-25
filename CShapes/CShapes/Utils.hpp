@@ -17,8 +17,8 @@ enum class CODE : int
 
 namespace typeLiterals
 {
-constexpr const char* POINT = "POINT";
-constexpr const char* RECTANGLE = "RECTANGLE";
+constexpr const char* POINT = "CPOINT";
+constexpr const char* RECTANGLE = "CRECTANGLE";
 constexpr const char* POINTS = "POINTS";
 constexpr const char* SHAPES = "SHAPES";
 constexpr const char* X = "X";
