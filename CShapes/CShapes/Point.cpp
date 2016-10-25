@@ -43,6 +43,7 @@ CPoint::~CPoint()
 {
     Logger::info()
         << DTOR_PRE_PRINT
+        << POINT
         << X << SEPARATOR << std::to_string(*xAxis_)
         << COMMA_SPACE
         << Y << SEPARATOR << std::to_string(*yAxis_)

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Rectangle.h"
+#include "Point.hpp"
 #include "Utils.hpp"
 #include <iostream>
 #include <limits>
@@ -10,23 +11,39 @@ using namespace defaultVals;
 using namespace funs;
 using namespace typeLiterals;
 
+CRectangle::CRectangle(int value) : CShape()
+{
+    val = value;
+}
+
+
 CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd) : CShape()
 {
-    pointFst_ = new CPoint(*inPointFst);
-    pointSnd_ = new CPoint(*inPointSnd);
     Logger::info()
         << CTOR_ARG1_PRE_PRINT
         << RECTANGLE
         << POST_PRINT;
+    pointFst_ = new CPoint(*inPointFst);
+    pointSnd_ = new CPoint(*inPointSnd);
+}
+
+CRectangle::CRectangle(double fstX, double fstY, double sndX, double sndY)
+{
+    Logger::info()
+        << CTOR_ARG1_PRE_PRINT
+        << RECTANGLE
+        << POST_PRINT;
+    pointFst_ = new CPoint(fstX, fstY);
+    pointSnd_ = new CPoint(sndX, sndY);
 }
 
 CRectangle::CRectangle(const CRectangle& inVal)
 {
-    deepCopy(inVal);
     Logger::info()
-        << CTOR_ARG1_PRE_PRINT
+        << CTOR_COPY_PRE_PRINT
         << RECTANGLE
         << POST_PRINT;
+    deepCopy(inVal);
 }
 
 void CRectangle::deepCopy(const CRectangle& inVal)
@@ -44,9 +61,24 @@ CRectangle::~CRectangle()
     deallocateMemory();
 }
 
+CRectangle* CRectangle::buildNewObj(CPoint* inPointFst, CPoint* inPointSnd)
+{
+    return new CRectangle(inPointFst, inPointSnd);
+}
+
+CRectangle* CRectangle::buildNewObj(double fstX, double fstY, double sndX, double sndY)
+{
+    return new CRectangle(fstX, fstY, sndX, sndY);
+}
+
 CRectangle* CRectangle::buildNewObj(CRectangle* inObj)
 {
     return new CRectangle(*inObj);
+}
+
+CRectangle* CRectangle::buildNewObj(int inVal)
+{
+    return new CRectangle(inVal);
 }
 
 void CRectangle::deallocateMemory()
@@ -71,5 +103,25 @@ std::string CRectangle::toString()
         << BRACKET_CLOSE;
 
     return retVal.str();
+}
+
+double CRectangle::fstGetX()
+{
+    return pointFst_->getX();
+}
+
+double CRectangle::fstGetY()
+{
+    return pointFst_->getY();
+}
+
+double CRectangle::sndGetX()
+{
+    return pointSnd_->getX();
+}
+
+double CRectangle::sndGetY()
+{
+    return pointSnd_->getY();
 }
 

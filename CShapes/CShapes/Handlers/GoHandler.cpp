@@ -146,7 +146,7 @@ CODE CGoHandler::purePerform(CShapeWithSize inCache)
         for (int i = 0; i < idxOrAmount; i++, cursor++)
         {
             CFlyweight::updateIsInitializedShapeCache(cursor, true);
-            newTable[cursor] = CRectangle::buildNewObj(DEFAULT_AXIS_VAL);
+            newTable[cursor] = CRectangle::buildNewObj(4);  // TO DEL
         }
         CFlyweight::setShapeCacheSize(newSize);
         CFlyweight::updateShapeCache(newTable);
