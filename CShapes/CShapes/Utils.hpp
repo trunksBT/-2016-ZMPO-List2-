@@ -19,6 +19,7 @@ namespace typeLiterals
 {
 constexpr const char* POINT = "CPOINT";
 constexpr const char* RECTANGLE = "CRECTANGLE";
+constexpr const char* SHAPE = "SHAPE";
 constexpr const char* POINTS = "POINTS";
 constexpr const char* SHAPES = "SHAPES";
 constexpr const char* FIELD = "FIELD";
@@ -152,11 +153,11 @@ constexpr const char* GET_POINT_X = "getPointX";
 constexpr const char* GET_POINT_Y = "getPointY";
 constexpr const char* FIELD_RECT = "fieldRect";
 constexpr const char* PRINT_ALL = "printAll";
+constexpr const char* SHOW_RECT = "showRect";
 constexpr const char* CLOSE = "close";
 
 constexpr const char* DELETE = "delete";
 constexpr const char* REMOVE_ALL = "deleteAll";
-constexpr const char* PRINT = "print";
 constexpr const char* HELP = "help";
 }
 

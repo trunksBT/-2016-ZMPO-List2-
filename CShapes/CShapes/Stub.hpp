@@ -70,15 +70,12 @@ extern std::vector<std::string> fieldRectXm1;
 extern std::vector<std::string> fieldRectX1;
 extern std::vector<std::string> fieldRectX6;
 
-extern std::vector<std::string> print0;
-extern std::vector<std::string> printm1;
-extern std::vector<std::string> print6;
-extern std::vector<std::string> print10;
+extern std::vector<std::string> showRect0;
+extern std::vector<std::string> showRectm1;
+extern std::vector<std::string> showRect6;
+extern std::vector<std::string> showRect10;
+
 extern std::vector<std::string> printAll;
-extern std::vector<std::string> deletem1;
-extern std::vector<std::string> delete0;
-extern std::vector<std::string> delete10;
-extern std::vector<std::string> deleteAll;
 
 extern std::vector<std::string> help;
 }

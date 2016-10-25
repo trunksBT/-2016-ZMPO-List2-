@@ -13,10 +13,10 @@
 #include "Handlers/CreateRectDoubleHandler.h"
 #include "Handlers/CreateRectCopyHandler.h"
 #include "Handlers/FieldRectHandler.h"
+#include "Handlers/ShowRectHandler.h"
 
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
-#include "Handlers/PrintHandler.h"
 #include "Handlers/PrintAllHandler.h"
 #include "Handlers/HelpHandler.h"
 #include "UtilsForMT.h"
@@ -112,39 +112,22 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             IPointAndRectangleHandler* evaluate = new CPrintAllHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedPointCache, pairedShapeCache);
         }
+        else if (command == SHOW_RECT)
+        {
+            IShapeHandler* evaluate = new CShowRectHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
         else if (command == CLOSE)
         {
             releaseResources();
             returnedCode = CODE::CLOSE;
         }
+        //else if (command == HELP)
+        //{
+        //    CHelpHandler evaluate(inCommand);
+        //    returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
+        //}
     }
-    /*
-    else if(command == REMOVE_ALL)
-    {
-        CRemoveAllHandler evaluate(inCommand);
-        returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-    }
-    else if(command == PRINT)
-    {
-        CPrintHandler evaluate(inCommand);
-        returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-    }
-    else if (command == DELETE)
-    {
-        CRemoveHandler evaluate(inCommand);
-        returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-    }
-
-    else if(command == HELP)
-    {
-        CHelpHandler evaluate(inCommand);
-        returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-    }*/
-
-    //else
-    //{
-    //    returnedCode = returnResultCode(CODE::ERROR);
-    //}
 
     return returnedCode;
 }

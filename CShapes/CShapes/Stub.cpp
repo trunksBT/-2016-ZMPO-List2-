@@ -67,10 +67,10 @@ std::vector<std::string> createRectCopy0_m1 = { "createRectCopy", "0", "-1" };
 std::vector<std::string> createRectCopym1_m1 = { "createRectCopy", "-1", "-1" };
 std::vector<std::string> createRectCopy60 = { "createRectCopy", "6", "0" };
 
-std::vector<std::string> print0 = { "print", "0" };
-std::vector<std::string> printm1 = { "print", "-1" };
-std::vector<std::string> print6 = { "print", "6" };
-std::vector<std::string> print10 = { "print", "10" };
+std::vector<std::string> showRect0 = { "showRect", "0" };
+std::vector<std::string> showRectm1 = { "showRect", "-1" };
+std::vector<std::string> showRect6 = { "showRect", "6" };
+std::vector<std::string> showRect10 = { "showRect", "10" };
 std::vector<std::string> printAll = { "printAll" };
 
 std::vector<std::string> deletem1 = { "delete", "-1" };
