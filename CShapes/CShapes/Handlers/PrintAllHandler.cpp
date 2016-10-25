@@ -84,7 +84,6 @@ CODE CPrintAllHandler::checkArgsAndPerform(CPointWithSize inCache)
 CODE CPrintAllHandler::purePerform(CPointWithSize inCache)
 {
     int cacheSize = std::get<SIZE>(inCache);
-    std::cout << cacheSize << std::endl;
 
     Logger::info() << POINTS << POST_PRINT;
     std::map<int, bool> isInitializedMap = std::get<INITIALIZED_MAP>(inCache);
@@ -93,13 +92,12 @@ CODE CPrintAllHandler::purePerform(CPointWithSize inCache)
     {
         if (isInitializedMap[i])
         {
-            Logger::info() << std::get<ARRAY>(inCache)[i]->toString();
+            Logger::info() << std::get<ARRAY>(inCache)[i]->toString() << POST_PRINT;
         }
         else
         {
-            Logger::info() << toString(CODE::NOT_INITIALIZED);
+            Logger::info() << toString(CODE::NOT_INITIALIZED) << POST_PRINT;
         }
-        Logger::info() << POST_PRINT;
     }
     return CODE::DONE;
 }
@@ -107,7 +105,6 @@ CODE CPrintAllHandler::purePerform(CPointWithSize inCache)
 CODE CPrintAllHandler::purePerform(CShapeWithSize inCache)
 {
     int cacheSize = std::get<SIZE>(inCache);
-    std::cout << cacheSize << std::endl;
 
     Logger::info() << SHAPES << POST_PRINT;
     std::map<int, bool> isInitializedMap = std::get<INITIALIZED_MAP>(inCache);

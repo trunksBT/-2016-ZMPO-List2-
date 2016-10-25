@@ -211,12 +211,10 @@ CFlyweight::~CFlyweight()
 
 void CFlyweight::setPointCacheSize(int inSize)
 {
-    std::cout << "Zmienilem sie PointSize" << std::endl;
     pointCacheSize_ = inSize;
 }
 void CFlyweight::setShapeCacheSize(int inSize)
 {
-    std::cout << "Zmienilem sie ShapeSize" << std::endl;
     shapeCacheSize_ = inSize;
 }
 
