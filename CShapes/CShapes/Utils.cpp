@@ -3,6 +3,7 @@
 #include "Point.hpp"
 #include <map>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include "Logger.h"
 
@@ -270,6 +271,37 @@ namespace funs
     int toInt(char inChar)
     {
         return inChar - 48;
+    }
+
+    int sizeOfDouble(double inVal)
+    {
+        std::stringstream valueStream;
+        valueStream << std::fixed << inVal;
+        std::string segmentFstStr = valueStream.str();
+        return segmentFstStr.size();
+    }
+
+    bool isDoubleOverflow(double inVal1, double inVal2)
+    {
+        if (sizeOfDouble(inVal1) + sizeOfDouble(inVal2) > (MAX_SIZE_OF_DOUBLE - ONE))
+        {
+            // bo mnozac liczby rozmiar wyniku moze miec wartosc maksymalna rowna sume ich rozmiarow,
+            // ONE Bo a nie sprawdzajac calego double bezpieczniej wczesniej zglosic blad ( minus )
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool isSegmentToBig(double fstX, double sndX)
+    {
+        int sizeOfLongerValue = sizeOfDouble(fstX);
+        return sizeOfLongerValue > (MAX_SIZE_OF_DOUBLE - TWO);
+        // bo dodajac liczby rozmiar wyniku moze miec wartosc maksymalna rowna rozmiarowi dluzszej + 1
+        // TWO a nie sprawdzajac calego double bezpieczniej wczesniej zglosic blad ( minus )
+
     }
 
 }

@@ -43,6 +43,11 @@ std::vector<std::string> getPointYm1 = { "getPointY", "-1" };
 std::vector<std::string> getPointY1 = { "getPointY", "1" };
 std::vector<std::string> getPointY6 = { "getPointY", "6" };
 
+std::vector<std::string> fieldRectX0 = { "fieldRect", "0" };
+std::vector<std::string> fieldRectXm1 = { "fieldRect", "-1" };
+std::vector<std::string> fieldRectX1 = { "fieldRect", "1" };
+std::vector<std::string> fieldRectX6 = { "fieldRect", "6" };
+
 std::vector<std::string> createRectPoints1_1_1 = { "createRectPoints", "1", "1", "1" };
 std::vector<std::string> createRectPoints1_0_1 = { "createRectPoints", "1", "0", "1" };
 std::vector<std::string> createRectPoints6_0_1 = { "createRectPoints", "6", "0", "1" };

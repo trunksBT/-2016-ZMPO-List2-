@@ -65,6 +65,11 @@ extern std::vector<std::string> createRectCopy0_m1;
 extern std::vector<std::string> createRectCopym1_m1;
 extern std::vector<std::string> createRectCopy60;
 
+extern std::vector<std::string> fieldRectX0;
+extern std::vector<std::string> fieldRectXm1;
+extern std::vector<std::string> fieldRectX1;
+extern std::vector<std::string> fieldRectX6;
+
 extern std::vector<std::string> print0;
 extern std::vector<std::string> printm1;
 extern std::vector<std::string> print6;

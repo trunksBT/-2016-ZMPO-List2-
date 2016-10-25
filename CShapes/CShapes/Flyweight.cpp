@@ -12,6 +12,7 @@
 #include "Handlers/CreateRectPointsHandler.h"
 #include "Handlers/CreateRectDoubleHandler.h"
 #include "Handlers/CreateRectCopyHandler.h"
+#include "Handlers/FieldRectHandler.h"
 
 #include "Handlers/RemoveAllHandler.h"
 #include "Handlers/RemoveHandler.h"
@@ -99,6 +100,11 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
         else if (command == CREATE_RECT_COPY)
         {
             IShapeHandler* evaluate = new CCreateRectCopyHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
+        else if (command == FIELD_RECT)
+        {
+            IShapeHandler* evaluate = new CFieldRectHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
         else if (command == PRINT_ALL)

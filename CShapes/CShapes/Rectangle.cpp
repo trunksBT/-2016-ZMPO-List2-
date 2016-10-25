@@ -6,6 +6,7 @@
 #include <limits>
 #include <sstream>
 #include "Logger.h"
+#include <cmath>
 
 using namespace defaultVals;
 using namespace funs;
@@ -68,17 +69,37 @@ CRectangle::~CRectangle()
     deallocateMemory();
 }
 
-double CRectangle::field()
+std::pair<CODE,double> CRectangle::field()
 {
-    long longFstX = pointFst_->getX();
-    long longFstY = pointFst_->getY();
+    double fstX = pointFst_->getX();
+    double fstY = pointFst_->getY();
 
-    long longSndX = pointSnd_->getX();
-    long longSndY = pointSnd_->getY();
+    double sndX = pointSnd_->getX();
+    double sndY = pointSnd_->getY();
 
-    Logger::info() << POSSIBLE_LOSS_OF_DATA << POST_PRINT;
+    double segmentFstLength = 0.0;
+    double segmentSndLength = 0.0;
+    double finalField = 0.0;
+    if (isSegmentToBig(fstX, sndX) && isSegmentToBig(fstY, sndY))
+    {
+        return{ CODE::ERROR, 0.0 };
+    }
+    else
+    {
+        segmentFstLength = abs(fstX - sndX);
+        segmentSndLength = abs(fstY - sndY);
+    }
 
-    return abs(longFstX - longSndX) * abs(longFstY - longSndY);
+    if (isDoubleOverflow(segmentFstLength, segmentSndLength))
+    {
+        return{ CODE::ERROR, 0.0 };
+    }
+    else
+    {
+        finalField = segmentFstLength * segmentSndLength;
+    }
+
+    return{ CODE::DONE, finalField };
 }
 
 CRectangle* CRectangle::buildNewObj(CPoint* inPointFst, CPoint* inPointSnd)
