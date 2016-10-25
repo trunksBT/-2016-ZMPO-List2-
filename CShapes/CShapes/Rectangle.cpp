@@ -72,6 +72,10 @@ CRectangle* CRectangle::buildNewObj(CRectangle* inObj)
     return new CRectangle(*inObj);
 }
 
+CRectangle* CRectangle::buildNewObj()
+{
+    return new CRectangle();
+}
 
 std::string CRectangle::getType()
 {

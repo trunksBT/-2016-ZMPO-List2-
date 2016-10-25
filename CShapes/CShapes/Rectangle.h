@@ -18,9 +18,22 @@ class CPoint;
 class CRectangle : public CShape
 {
 public:
+    CRectangle()
+        : objectFst_(0, 0)
+        , objectSnd_(1, 1)
+    {
+        if (PRINT_CTORS)
+        {
+            Logger::info()
+                << CTOR_DEF_PRE_PRINT
+                << RECTANGLE
+                << POST_PRINT;
+        }
+    };
+
     CRectangle(CPoint* inPointFst, CPoint* inPointSnd)
-        : objectFst_(inPointFst->getX(), inPointFst->getY())
-        , objectSnd_(inPointSnd->getX(), inPointSnd->getY())
+        : objectFst_(*inPointFst)
+        , objectSnd_(*inPointSnd)
     {
         if (PRINT_CTORS)
         {
@@ -31,7 +44,7 @@ public:
         }
     };
     CRectangle(double fstX, double fstY, double sndX, double sndY)
-        : objectFst_(CPoint(fstX, fstY)), objectSnd_(CPoint(sndX, sndY))
+        : objectFst_(fstX, fstY), objectSnd_(sndX, sndY)
     {
         if (PRINT_CTORS)
         {
@@ -41,6 +54,7 @@ public:
                 << POST_PRINT;
         }
     };
+
     CRectangle(const CRectangle& inVal)
         : objectFst_(inVal.objectFst_)
         , objectSnd_(inVal.objectSnd_)
@@ -68,6 +82,7 @@ public:
     static CRectangle* buildNewObj(CPoint* inPointFst, CPoint* inPointSnd);
     static CRectangle* buildNewObj(double fstX, double fstY, double sndX, double sndY);
     static CRectangle* buildNewObj(CRectangle* inObj);
+    static CRectangle* buildNewObj();
 private:
     CPoint objectFst_;
     CPoint objectSnd_;
