@@ -49,10 +49,18 @@ CODE CFieldRectHandler::purePerform(CShapeWithSize inCache)
         return CODE::ERROR;
     }
 
-    Logger::info() << POINT << SPACE << FIELD << SEPARATOR <<
-        std::to_string(
-            reinterpret_cast<CRectangle*>(std::get<ARRAY>(inCache)[idxOrAmount])->field()
-        ) << POST_PRINT;
+    std::pair<CODE, double> fieldWithCode =
+        reinterpret_cast<CRectangle*>(std::get<ARRAY>(inCache)[idxOrAmount])->field();
+
+    if (std::get<0>(fieldWithCode) == CODE::ERROR)
+    {
+        return CODE::ERROR;
+    }
+    else
+    {
+        Logger::info() << POINT << SPACE << FIELD << SEPARATOR <<
+            std::to_string(std::get<1>(fieldWithCode)) << POST_PRINT;
+    }
 
     return CODE::DONE;
 }

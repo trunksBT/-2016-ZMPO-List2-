@@ -108,6 +108,10 @@ bool isProperIdx(int inIdx, int inSize);
 bool isProperIdx(int idxOrAmount, CShapeWithSize inCache);
 bool isProperAmmountOfArgs(std::vector<std::string>& inCommand, int inProperAmountOfArgs);
 bool isProperTypeOfArgs(std::vector<std::string>& inCommand, std::string inProperTypeOfArgs);
+int sizeOfDouble(double inVal);
+bool isDoubleOverflow(double inVal1, double inVal2);
+bool isSegmentToBig(double fstX, double sndX);
+
 }
 
 namespace idxOf

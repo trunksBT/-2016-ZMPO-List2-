@@ -754,5 +754,55 @@ TEST_F(CFlyweightProperArgsMT, fieldRectX6)
     ASSERT_EQ(expVal, rcVal);
 }
 
+TEST_F(CFlyweightProperArgsMT, bigPoints_fieldRect)
+{
+    std::vector<std::string> setBigPoint1 =
+    { 
+        "setPoint", "0", 
+        "0.0",
+        "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999.0"
+    };
+
+    std::vector<std::string> setBigPoint2 =
+    {
+        "setPoint", "1",
+        "999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999.0",
+        "0.0"
+    };
+
+    std::vector<std::string> createRectPoints0_0_0 = 
+    { 
+        "createRectPoints", "0", "0", "1" 
+    };
+
+    std::vector<std::string> printAll =
+    {
+        "printAll"
+    };
+
+    std::vector<std::string> fieldRectTest =
+    {
+        "fieldRect", "0"
+    };
+
+
+    CODE expVal = CODE::DONE;
+
+    rcVal = getFinalResultCode
+    ({
+        application.interpretCommand(stub::go66),
+        application.interpretCommand(setBigPoint1),
+        application.interpretCommand(printAll),
+        application.interpretCommand(setBigPoint2),
+        application.interpretCommand(printAll),
+        application.interpretCommand(createRectPoints0_0_0),
+        application.interpretCommand(printAll),
+        application.interpretCommand(fieldRectTest)
+    });
+    std::cout << toString(rcVal);
+
+    ASSERT_EQ(expVal, rcVal);
+}
+
 
 }

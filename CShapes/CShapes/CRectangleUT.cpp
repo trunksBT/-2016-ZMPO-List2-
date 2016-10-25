@@ -84,85 +84,85 @@ TEST_F(CRectangleTests, build_withPointer_fst_1_1_snd_4_4)
     delete rectangleToCopyFrom;
     delete rectangleToCopyTo;
 }
-
-TEST_F(CRectangleTests, field_fst_0_0_snd_4_4_Expect_16)
-{
-    double fstX = 0;
-    double fstY = 0;
-    double sndX = 4;
-    double sndY = 4;
-    double expField = 16.0;
-
-    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
-    std::cout << rectangle->toString() << POST_PRINT;
-
-    ASSERT_EQ(fstX, rectangle->fstGetX());
-    ASSERT_EQ(fstY, rectangle->fstGetY());
-    ASSERT_EQ(sndX, rectangle->sndGetX());
-    ASSERT_EQ(sndY, rectangle->sndGetY());
-    ASSERT_EQ(expField, rectangle->field());
-
-    delete rectangle;
-}
-
-TEST_F(CRectangleTests, field_fst_0_0_snd_m4_m4_Expect_16)
-{
-    double fstX = 0;
-    double fstY = 0;
-    double sndX = -4;
-    double sndY = -4;
-    double expField = 16.0;
-
-    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
-    std::cout << rectangle->toString() << POST_PRINT;
-
-    ASSERT_EQ(fstX, rectangle->fstGetX());
-    ASSERT_EQ(fstY, rectangle->fstGetY());
-    ASSERT_EQ(sndX, rectangle->sndGetX());
-    ASSERT_EQ(sndY, rectangle->sndGetY());
-    ASSERT_EQ(expField, rectangle->field());
-
-    delete rectangle;
-}
-
-TEST_F(CRectangleTests, field_fst_0_0_snd_8_7_Expect_56)
-{
-    double fstX = 0;
-    double fstY = 0;
-    double sndX = 8;
-    double sndY = 7;
-    double expField = 56.0;
-
-    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
-    std::cout << rectangle->toString() << POST_PRINT;
-
-    ASSERT_EQ(fstX, rectangle->fstGetX());
-    ASSERT_EQ(fstY, rectangle->fstGetY());
-    ASSERT_EQ(sndX, rectangle->sndGetX());
-    ASSERT_EQ(sndY, rectangle->sndGetY());
-    ASSERT_EQ(expField, rectangle->field());
-
-    delete rectangle;
-}
-
-TEST_F(CRectangleTests, field_fst_7_0_snd_0_8_Expect_56)
-{
-    double fstX = 7;
-    double fstY = 0;
-    double sndX = 0;
-    double sndY = 8;
-    double expField = 56.0;
-
-    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
-    std::cout << rectangle->toString() << POST_PRINT;
-
-    ASSERT_EQ(fstX, rectangle->fstGetX());
-    ASSERT_EQ(fstY, rectangle->fstGetY());
-    ASSERT_EQ(sndX, rectangle->sndGetX());
-    ASSERT_EQ(sndY, rectangle->sndGetY());
-    ASSERT_EQ(expField, rectangle->field());
-
-    delete rectangle;
-}
+//
+//TEST_F(CRectangleTests, field_fst_0_0_snd_4_4_Expect_16)
+//{
+//    double fstX = 0;
+//    double fstY = 0;
+//    double sndX = 4;
+//    double sndY = 4;
+//    double expField = 16.0;
+//
+//    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+//    std::cout << rectangle->toString() << POST_PRINT;
+//
+//    ASSERT_EQ(fstX, rectangle->fstGetX());
+//    ASSERT_EQ(fstY, rectangle->fstGetY());
+//    ASSERT_EQ(sndX, rectangle->sndGetX());
+//    ASSERT_EQ(sndY, rectangle->sndGetY());
+//    ASSERT_EQ(expField, rectangle->field());
+//
+//    delete rectangle;
+//}
+//
+//TEST_F(CRectangleTests, field_fst_0_0_snd_m4_m4_Expect_16)
+//{
+//    double fstX = 0;
+//    double fstY = 0;
+//    double sndX = -4;
+//    double sndY = -4;
+//    double expField = 16.0;
+//
+//    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+//    std::cout << rectangle->toString() << POST_PRINT;
+//
+//    ASSERT_EQ(fstX, rectangle->fstGetX());
+//    ASSERT_EQ(fstY, rectangle->fstGetY());
+//    ASSERT_EQ(sndX, rectangle->sndGetX());
+//    ASSERT_EQ(sndY, rectangle->sndGetY());
+//    ASSERT_EQ(expField, rectangle->field());
+//
+//    delete rectangle;
+//}
+//
+//TEST_F(CRectangleTests, field_fst_0_0_snd_8_7_Expect_56)
+//{
+//    double fstX = 0;
+//    double fstY = 0;
+//    double sndX = 8;
+//    double sndY = 7;
+//    double expField = 56.0;
+//
+//    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+//    std::cout << rectangle->toString() << POST_PRINT;
+//
+//    ASSERT_EQ(fstX, rectangle->fstGetX());
+//    ASSERT_EQ(fstY, rectangle->fstGetY());
+//    ASSERT_EQ(sndX, rectangle->sndGetX());
+//    ASSERT_EQ(sndY, rectangle->sndGetY());
+//    ASSERT_EQ(expField, rectangle->field());
+//
+//    delete rectangle;
+//}
+//
+//TEST_F(CRectangleTests, field_fst_7_0_snd_0_8_Expect_56)
+//{
+//    double fstX = 7;
+//    double fstY = 0;
+//    double sndX = 0;
+//    double sndY = 8;
+//    double expField = 56.0;
+//
+//    CRectangle* rectangle = CRectangle::buildNewObj(fstX, fstY, sndX, sndY);
+//    std::cout << rectangle->toString() << POST_PRINT;
+//
+//    ASSERT_EQ(fstX, rectangle->fstGetX());
+//    ASSERT_EQ(fstY, rectangle->fstGetY());
+//    ASSERT_EQ(sndX, rectangle->sndGetX());
+//    ASSERT_EQ(sndY, rectangle->sndGetY());
+//    ASSERT_EQ(expField, rectangle->field());
+//
+//    delete rectangle;
+//}
 
 }

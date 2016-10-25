@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Shape.h"
+#include "Utils.hpp"
 
 class CPoint;
 class CRectangle : public CShape
@@ -20,7 +21,7 @@ public:
 public:
     std::string toString() override;
     std::string getType() override;
-    double field();
+    std::pair<CODE, double> field();
 public:
     static CRectangle* buildNewObj(CPoint* inPointFst, CPoint* inPointSnd);
     static CRectangle* buildNewObj(double fstX, double fstY, double sndX, double sndY);
