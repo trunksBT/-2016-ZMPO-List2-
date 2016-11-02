@@ -157,9 +157,6 @@ constexpr const char* FIELD_RECT = "fieldRect";
 constexpr const char* PRINT_ALL = "printAll";
 constexpr const char* SHOW_RECT = "showRect";
 constexpr const char* CLOSE = "close";
-
-constexpr const char* DELETE = "delete";
-constexpr const char* REMOVE_ALL = "deleteAll";
 constexpr const char* HELP = "help";
 }
 
@@ -173,16 +170,20 @@ constexpr const char* VALUE = "<value>";
 
 namespace fullCommands
 {
-//extern std::string createArgs;
-//extern std::string createDefArgs;
-//extern std::string createCopyArgs;
-//extern std::string getValueArgs;
-//extern std::string setValueArgs;
-//extern std::string printArgs;
-//extern std::string printAllArgs;
-//extern std::string deleteArgs;
-//extern std::string deleteAllArgs;
-//extern std::string closeArgs;
-//extern std::string helpArgs;
-//extern std::vector<std::string> allCommands;
+extern std::string goArgs;
+extern std::string createPointArgs;
+extern std::string createPointCopyArgs;
+extern std::string createRectPointsArgs;
+extern std::string createRectDoubleArgs;
+extern std::string createRectDefaultArgs;
+extern std::string createRectCopyArgs;
+extern std::string setPointArgs;
+extern std::string getPointXArgs;
+extern std::string getPointYArgs;
+extern std::string fieldRectArgs;
+extern std::string printAllArgs;
+extern std::string showRectArgs;
+extern std::string closeArgs;
+
+extern std::vector<std::string> all;
 }

@@ -123,16 +123,17 @@ CODE CFlyweight::interpretCommand(std::vector<std::string>& inCommand)
             IShapeHandler* evaluate = new CShowRectHandler(inCommand);
             returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
         }
+        else if (command == HELP)
+        {
+            IShapeHandler* evaluate = new CHelpHandler(inCommand);
+            returnedCode = evaluate->checkArgsAndPerform(pairedShapeCache);
+        }
         else if (command == CLOSE)
         {
             releaseResources();
             returnedCode = CODE::CLOSE;
         }
-        //else if (command == HELP)
-        //{
-        //    CHelpHandler evaluate(inCommand);
-        //    returnedCode = evaluate.checkTypeAndAmountOfArgs(cache_);
-        //}
+
     }
 
     return returnedCode;

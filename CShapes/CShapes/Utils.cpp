@@ -307,73 +307,117 @@ namespace funs
 }
 namespace fullCommands
 {
-    //std::string createArgs =
-    //    std::string(messageLiterals::CREATE) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::IDX) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::SIZE) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::NAME);
+    std::string goArgs =
+        std::string(messageLiterals::GO) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::SIZE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::SIZE);
 
-    //std::string createCopyArgs =
-    //    std::string(messageLiterals::CREATE_COPY) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::IDX) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::IDX);
+    std::string createPointArgs =
+        std::string(messageLiterals::CREATE_POINT) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE);
 
-    //std::string getValueArgs =
-    //    std::string(messageLiterals::GET_VALUE) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::IDX) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::IDX);
+    std::string createPointCopyArgs =
+        std::string(messageLiterals::CREATE_POINT_COPY) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);
 
-    //std::string setValueArgs =
-    //    std::string(messageLiterals::SET_VALUE) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::IDX) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::IDX) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::VALUE);
+    std::string createRectPointsArgs =
+        std::string(messageLiterals::CREATE_RECT_POINTS) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);
 
-    //std::string printArgs =
-    //    std::string(messageLiterals::PRINT) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::IDX);
+    std::string createRectDoubleArgs =
+        std::string(messageLiterals::CREATE_RECT_DOUBLE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE);
 
-    //std::string printAllArgs =
-    //    std::string(messageLiterals::PRINT_ALL);
+    std::string createRectDefaultArgs =
+        std::string(messageLiterals::CREATE_RECT_DEFAULT) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);
 
-    //std::string deleteArgs =
-    //    std::string(messageLiterals::DELETE) +
-    //    std::string(defaultVals::SPACE) +
-    //    std::string(commandArgs::IDX);
+    std::string createRectCopyArgs =
+        std::string(messageLiterals::CREATE_RECT_COPY) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);
 
-    //std::string deleteAllArgs =
-    //    std::string(messageLiterals::REMOVE_ALL);
+    std::string setPointArgs =
+        std::string(messageLiterals::SET_POINT) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::VALUE);
 
-    //std::string closeArgs =
-    //    std::string(messageLiterals::CLOSE);
+    std::string getPointXArgs =
+        std::string(messageLiterals::GET_POINT_X) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);
 
-    //std::string helpArgs =
-    //    std::string(messageLiterals::HELP);
+    std::string getPointYArgs =
+        std::string(messageLiterals::GET_POINT_Y) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);
 
-    //std::vector<std::string> allCommands =
-    //{
-    //    createArgs,
-    //    createDefArgs,
-    //    createCopyArgs,
-    //    getValueArgs,
-    //    setValueArgs,
-    //    printArgs,
-    //    printAllArgs,
-    //    deleteArgs,
-    //    deleteAllArgs,
-    //    closeArgs,
-    //    helpArgs
-    //};
-}
+    std::string fieldRectArgs =
+        std::string(messageLiterals::FIELD_RECT) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);
+
+    std::string printAllArgs =
+        std::string(messageLiterals::PRINT_ALL);
+
+    std::string showRectArgs =
+        std::string(messageLiterals::SHOW_RECT) +
+        std::string(defaultVals::SPACE) +
+        std::string(commandArgs::IDX);
+
+    std::string closeArgs =
+        std::string(messageLiterals::CLOSE);
+
+    std::string helpArgs =
+        std::string(messageLiterals::HELP);
+    
+    std::vector<std::string> all =
+    {
+        goArgs,
+        createPointArgs,
+        createPointCopyArgs,
+        createRectPointsArgs,
+        createRectDoubleArgs,
+        createRectDefaultArgs,
+        createRectCopyArgs,
+        setPointArgs,
+        getPointXArgs,
+        getPointYArgs,
+        fieldRectArgs,
+        showRectArgs,
+        printAllArgs,
+        closeArgs
+    };
+} 
 
