@@ -13,6 +13,54 @@ using namespace funs;
 using namespace typeLiterals;
 using namespace flags;
 
+CRectangle::CRectangle() 
+    : objectFst_(0, 0), objectSnd_(1, 1)
+{
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_DEF_PRE_PRINT
+            << RECTANGLE
+            << POST_PRINT;
+    }
+}
+
+CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd)
+    : objectFst_(*inPointFst), objectSnd_(*inPointSnd)
+{
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_ARG1_PRE_PRINT
+            << RECTANGLE
+            << POST_PRINT;
+    }
+}
+
+CRectangle::CRectangle(double fstX, double fstY, double sndX, double sndY)
+    : objectFst_(fstX, fstY), objectSnd_(sndX, sndY)
+{
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_ARG1_PRE_PRINT
+            << RECTANGLE
+            << POST_PRINT;
+    }
+}
+
+CRectangle::CRectangle(const CRectangle& inVal)
+    : objectFst_(inVal.objectFst_), objectSnd_(inVal.objectSnd_)
+{
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_COPY_PRE_PRINT
+            << RECTANGLE
+            << POST_PRINT;
+    }
+}
+
 CRectangle::~CRectangle()
 {
     if (PRINT_CTORS)
