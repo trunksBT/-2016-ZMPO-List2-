@@ -278,7 +278,7 @@ namespace funs
         std::stringstream valueStream;
         valueStream << std::fixed << inVal;
         std::string segmentFstStr = valueStream.str();
-        return segmentFstStr.size();
+        return static_cast<int>(segmentFstStr.size());
     }
 
     bool isDoubleOverflow(double inVal1, double inVal2)
