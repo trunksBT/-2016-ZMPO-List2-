@@ -37,7 +37,6 @@ CODE CCreateRectCopyHandler::checkArgsAndPerform(CShapeWithSize inPointCache)
     }
 }
 
-
 CODE CCreateRectCopyHandler::purePerform(CShapeWithSize inCache)
 {
     std::string copyToIdStr(wholeCommand_[idxOf::COPY_TO]);

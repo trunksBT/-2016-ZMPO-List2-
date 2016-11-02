@@ -17,56 +17,31 @@ CHelpHandler::CHelpHandler(std::vector<std::string>& inCommand)
 
 const int CHelpHandler::getProperAmountOfArgs()
 {
-    return 3;
+    return 1;
 }
 
 std::string CHelpHandler::getProperTypesOfArgs()
 {
-    return "sii";
+    return "s";
 }
 
 CODE CHelpHandler::checkArgsAndPerform(CShapeWithSize inPointCache)
 {
-    if (IHandler::checkTypeAndAmountOfArgs() == CODE::DONE)
-    {
-        return purePerform(inPointCache);
-    }
-    else
-    {
-        return CODE::ERROR;
-    }
+    purePerform(inPointCache);
+    return CODE::DONE;
 }
 
 
 CODE CHelpHandler::purePerform(CShapeWithSize inCache)
 {
-    std::string copyToIdStr(wholeCommand_[idxOf::COPY_TO]);
-    int copyToId = std::stoi(copyToIdStr);
-
-    std::string copyFromIdStr(wholeCommand_[idxOf::COPY_FROM]);
-    int copyFromId = std::stoi(copyFromIdStr);
-
-    if (!isProperIdx(copyToId, std::get<SIZE>(inCache)) ||
-        !isProperIdx(copyFromId, std::get<SIZE>(inCache)))
+    for (auto& it : fullCommands::all)
     {
-        return CODE::ERROR;
+        Logger::info() << it << POST_PRINT;
     }
-
-    if (copyToId == copyFromId)
-    {
-        return CODE::DONE;
-    }
-
-    delete std::get<ARRAY>(inCache)[copyToId];
-    std::get<ARRAY>(inCache)[copyToId] =
-        CRectangle::buildNewObj(
-            reinterpret_cast<CRectangle*>(std::get<ARRAY>(inCache)[copyFromId]));
-
     return CODE::DONE;
 }
 
 CHelpHandler::~CHelpHandler()
 {
-
 }
 
