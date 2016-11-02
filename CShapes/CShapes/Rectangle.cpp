@@ -13,7 +13,20 @@ using namespace funs;
 using namespace typeLiterals;
 using namespace flags;
 
-CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd) : CShape()
+CRectangle::CRectangle() 
+    : objectFst_(0, 0), objectSnd_(1, 1)
+{
+    if (PRINT_CTORS)
+    {
+        Logger::info()
+            << CTOR_DEF_PRE_PRINT
+            << RECTANGLE
+            << POST_PRINT;
+    }
+}
+
+CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd)
+    : objectFst_(*inPointFst), objectSnd_(*inPointSnd)
 {
     if (PRINT_CTORS)
     {
@@ -22,11 +35,10 @@ CRectangle::CRectangle(CPoint* inPointFst, CPoint* inPointSnd) : CShape()
             << RECTANGLE
             << POST_PRINT;
     }
-    pointFst_ = new CPoint(*inPointFst);
-    pointSnd_ = new CPoint(*inPointSnd);
 }
 
 CRectangle::CRectangle(double fstX, double fstY, double sndX, double sndY)
+    : objectFst_(fstX, fstY), objectSnd_(sndX, sndY)
 {
     if (PRINT_CTORS)
     {
@@ -35,11 +47,10 @@ CRectangle::CRectangle(double fstX, double fstY, double sndX, double sndY)
             << RECTANGLE
             << POST_PRINT;
     }
-    pointFst_ = new CPoint(fstX, fstY);
-    pointSnd_ = new CPoint(sndX, sndY);
 }
 
 CRectangle::CRectangle(const CRectangle& inVal)
+    : objectFst_(inVal.objectFst_), objectSnd_(inVal.objectSnd_)
 {
     if (PRINT_CTORS)
     {
@@ -48,13 +59,6 @@ CRectangle::CRectangle(const CRectangle& inVal)
             << RECTANGLE
             << POST_PRINT;
     }
-    deepCopy(inVal);
-}
-
-void CRectangle::deepCopy(const CRectangle& inVal)
-{
-    pointFst_ = new CPoint(*inVal.pointFst_);
-    pointSnd_ = new CPoint(*inVal.pointSnd_);
 }
 
 CRectangle::~CRectangle()
@@ -66,16 +70,15 @@ CRectangle::~CRectangle()
             << RECTANGLE
             << POST_PRINT;
     }
-    deallocateMemory();
 }
 
 std::pair<CODE,double> CRectangle::field()
 {
-    double fstX = pointFst_->getX();
-    double fstY = pointFst_->getY();
+    double fstX = objectFst_.getX();
+    double fstY = objectFst_.getY();
 
-    double sndX = pointSnd_->getX();
-    double sndY = pointSnd_->getY();
+    double sndX = objectSnd_.getX();
+    double sndY = objectSnd_.getY();
 
     double segmentFstLength = 0.0;
     double segmentSndLength = 0.0;
@@ -117,10 +120,9 @@ CRectangle* CRectangle::buildNewObj(CRectangle* inObj)
     return new CRectangle(*inObj);
 }
 
-void CRectangle::deallocateMemory()
+CRectangle* CRectangle::buildNewObj()
 {
-    delete pointFst_;
-    delete pointSnd_;
+    return new CRectangle();
 }
 
 std::string CRectangle::getType()
@@ -133,9 +135,9 @@ std::string CRectangle::toString()
     std::stringstream retVal;
     retVal
         << PRE_PRINT << RECTANGLE << BRACKET_OPEN
-        << pointFst_->toString()
+        << objectFst_.toString()
         << COMMA_SPACE
-        << pointSnd_->toString()
+        << objectSnd_.toString()
         << BRACKET_CLOSE;
 
     return retVal.str();
@@ -143,21 +145,21 @@ std::string CRectangle::toString()
 
 double CRectangle::fstGetX()
 {
-    return pointFst_->getX();
+    return objectFst_.getX();
 }
 
 double CRectangle::fstGetY()
 {
-    return pointFst_->getY();
+    return objectFst_.getY();
 }
 
 double CRectangle::sndGetX()
 {
-    return pointSnd_->getX();
+    return objectSnd_.getX();
 }
 
 double CRectangle::sndGetY()
 {
-    return pointSnd_->getY();
+    return objectSnd_.getY();
 }
 

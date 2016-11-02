@@ -4,13 +4,23 @@
 #include <vector>
 #include "Shape.h"
 #include "Utils.hpp"
+#include <iostream>
+#include <limits>
+#include <sstream>
+#include "Logger.h"
+
+using namespace defaultVals;
+using namespace funs;
+using namespace typeLiterals;
+using namespace flags;
 
 class CPoint;
 class CRectangle : public CShape
 {
 public:
-    explicit CRectangle(CPoint* inPointFst, CPoint* inPointSnd);
-    explicit CRectangle(double fstX, double fstY, double sndX, double sndY);
+    CRectangle();
+    CRectangle(CPoint* inPointFst, CPoint* inPointSnd);
+    CRectangle(double fstX, double fstY, double sndX, double sndY);
     CRectangle(const CRectangle& inVal);
     virtual ~CRectangle();
 public:
@@ -26,11 +36,8 @@ public:
     static CRectangle* buildNewObj(CPoint* inPointFst, CPoint* inPointSnd);
     static CRectangle* buildNewObj(double fstX, double fstY, double sndX, double sndY);
     static CRectangle* buildNewObj(CRectangle* inObj);
+    static CRectangle* buildNewObj();
 private:
-    void deepCopy(const CRectangle& inVal);
-    void deallocateMemory();
-private:
-    CPoint* pointFst_;
-    CPoint* pointSnd_;
-    int val;
+    CPoint objectFst_;
+    CPoint objectSnd_;
 };

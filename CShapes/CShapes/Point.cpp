@@ -89,14 +89,12 @@ void CPoint::deallocateMemory()
 
 void CPoint::setX(double newX)
 {
-    delete xAxis_;
-    xAxis_ = new double(newX);
+    *xAxis_ = newX;
 }
 
 void CPoint::setY(double newY)
 {
-    delete yAxis_;
-    yAxis_ = new double(newY);
+    *yAxis_ = newY;
 }
 
 double CPoint::getX() const
